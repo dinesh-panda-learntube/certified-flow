@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { projects } from "../data/profileData";
 
-export default function ProjectsSection({ addedItems, onAdd, isAfter }) {
+export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter }) {
   const [expanded, setExpanded] = useState({});
 
   const toggle = (id) =>
@@ -123,10 +123,10 @@ export default function ProjectsSection({ addedItems, onAdd, isAfter }) {
                     <div className="pt-1">
                       {!added ? (
                         <button
-                          onClick={() => onAdd(project.id)}
+                          onClick={() => onStartSim ? onStartSim(project.id) : onAdd(project.id)}
                           className="btn-primary btn-highlight"
                         >
-                          Start Project
+                          Start Simulation
                         </button>
                       ) : (
                         <span className="badge-added">✓ Added To CV</span>

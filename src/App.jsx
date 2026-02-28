@@ -6,41 +6,78 @@ import ProjectsSection from "./components/ProjectsSection";
 import ProfileStrength from "./components/ProfileStrength";
 import StickyFooter from "./components/StickyFooter";
 import SkillCompletionCard from "./components/SkillCompletionCard";
+import SkillQuizModal from "./components/SkillQuizModal";
+
+// Load persisted state from localStorage
+function loadFromStorage(key, fallback) {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : fallback;
+  } catch {
+    return fallback;
+  }
+}
 
 export default function App() {
-  const [addedItems, setAddedItems] = useState({
-    skills: [],
-    certifications: [],
-    projects: [],
-  });
+  const [addedItems, setAddedItems] = useState(() =>
+    loadFromStorage("profile_addedItems", { skills: [], certifications: [], projects: [] })
+  );
   const [cvView, setCvView] = useState("before");
-  const [passedQuizzes, setPassedQuizzes] = useState([]);
+  const [passedQuizzes, setPassedQuizzes] = useState(() =>
+    loadFromStorage("profile_passedQuizzes", [])
+  );
   const [completionResult, setCompletionResult] = useState(null);
 
-  // On mount, check if returning from a quiz with a completed skill
+  // Persist addedItems and passedQuizzes to localStorage
+  useEffect(() => {
+    localStorage.setItem("profile_addedItems", JSON.stringify(addedItems));
+  }, [addedItems]);
+
+  useEffect(() => {
+    localStorage.setItem("profile_passedQuizzes", JSON.stringify(passedQuizzes));
+  }, [passedQuizzes]);
+
+  // On mount, check if returning from a quiz with a completed item
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const completedSkill = params.get("completed");
-    if (completedSkill) {
-      // Mark skill as passed & added
-      setPassedQuizzes((prev) =>
-        prev.includes(completedSkill) ? prev : [...prev, completedSkill]
-      );
-      setAddedItems((prev) => ({
-        ...prev,
-        skills: prev.skills.includes(completedSkill)
-          ? prev.skills
-          : [...prev.skills, completedSkill],
-      }));
+    const completedItem = params.get("completed");
+    if (completedItem) {
+      // Determine which category this belongs to
+      if (completedItem.startsWith("cert-")) {
+        setAddedItems((prev) => ({
+          ...prev,
+          certifications: prev.certifications.includes(completedItem)
+            ? prev.certifications
+            : [...prev.certifications, completedItem],
+        }));
+      } else if (completedItem.startsWith("proj-")) {
+        setAddedItems((prev) => ({
+          ...prev,
+          projects: prev.projects.includes(completedItem)
+            ? prev.projects
+            : [...prev.projects, completedItem],
+        }));
+      } else {
+        // Skill
+        setPassedQuizzes((prev) =>
+          prev.includes(completedItem) ? prev : [...prev, completedItem]
+        );
+        setAddedItems((prev) => ({
+          ...prev,
+          skills: prev.skills.includes(completedItem)
+            ? prev.skills
+            : [...prev.skills, completedItem],
+        }));
+      }
 
       // Load result data from localStorage
       try {
-        const stored = localStorage.getItem(`quiz_result_${completedSkill}`);
+        const stored = localStorage.getItem(`quiz_result_${completedItem}`);
         if (stored) {
           setCompletionResult(JSON.parse(stored));
         } else {
           setCompletionResult({
-            skillId: completedSkill,
+            skillId: completedItem,
             simTitle: "Simulation",
             impactMetrics: null,
             score: 0,
@@ -49,7 +86,7 @@ export default function App() {
         }
       } catch {
         setCompletionResult({
-          skillId: completedSkill,
+          skillId: completedItem,
           simTitle: "Simulation",
           impactMetrics: null,
           score: 0,
@@ -86,9 +123,30 @@ export default function App() {
     }));
   }, []);
 
-  // Navigate to quiz page when user clicks "+" on a skill
+  const [activeSkillQuiz, setActiveSkillQuiz] = useState(null);
+
+  // Open skill quiz modal when user clicks "+" on a skill
   const startSkillQuiz = useCallback((skillId) => {
-    window.location.href = `/quiz/index.html?sim=v4&skill=${skillId}&return=/`;
+    setActiveSkillQuiz(skillId);
+  }, []);
+
+  const handleSkillQuizPass = useCallback((skillId) => {
+    setPassedQuizzes((prev) => prev.includes(skillId) ? prev : [...prev, skillId]);
+    setAddedItems((prev) => ({
+      ...prev,
+      skills: prev.skills.includes(skillId) ? prev.skills : [...prev.skills, skillId],
+    }));
+    setActiveSkillQuiz(null);
+  }, []);
+
+  // Navigate to quiz page for certification
+  const startCertScenario = useCallback((certId) => {
+    window.location.href = `/quiz/index.html?sim=cert&cert=${certId}&return=/`;
+  }, []);
+
+  // Navigate to quiz page for project
+  const startProjectSim = useCallback((projId) => {
+    window.location.href = `/quiz/index.html?sim=proj&proj=${projId}&return=/`;
   }, []);
 
 
@@ -175,12 +233,14 @@ export default function App() {
         <CertificationsSection
           addedItems={effectiveAdded.certifications}
           onAdd={(id) => addItem("certifications", id)}
+          onStartScenario={startCertScenario}
           isAfter={isAfter}
         />
 
         <ProjectsSection
           addedItems={effectiveAdded.projects}
           onAdd={(id) => addItem("projects", id)}
+          onStartSim={startProjectSim}
           isAfter={isAfter}
         />
 
@@ -197,6 +257,14 @@ export default function App() {
       </div>
 
       <StickyFooter />
+
+      {activeSkillQuiz && (
+        <SkillQuizModal
+          skillId={activeSkillQuiz}
+          onPass={handleSkillQuizPass}
+          onClose={() => setActiveSkillQuiz(null)}
+        />
+      )}
     </div>
   );
 }

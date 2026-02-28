@@ -1,0 +1,429 @@
+{
+  "path_title": "Enterprise HR Strategy Certification",
+  "simulations": [
+    {
+      "simulation_metadata": {
+        "simulation_id": "CERT_SIM_01",
+        "simulation_title": "Enterprise HR Strategy Certification",
+        "why_this_matters_for_getting_hired": "HR Managers who can handle attrition crises, employee relations escalations, and compliance audits are always in demand.",
+        "estimated_time": "15 minutes",
+        "deliverables_unlockable": {
+          "certifications": ["Enterprise HR Strategy"],
+          "badges": ["Strategic HR Decision-Maker"],
+          "recruiter_readable_proof": ["Crisis Response Plan", "ER Case Handling", "Compliance Readiness"]
+        },
+        "primary_role_competencies_evaluated": [
+          "Crisis decision-making",
+          "Root cause analysis",
+          "Stakeholder communication",
+          "Employee relations judgment",
+          "Compliance awareness"
+        ],
+        "impact_metrics": {
+          "time_saved": "5 days",
+          "cost_saved": "$1,200"
+        }
+      },
+      "scenario_breakdown": [
+        {
+          "scenario_id": "S1",
+          "scenario_title": "Flipkart: Attrition Spike, 48 Hours",
+          "workplace_context": { "company_type": "E-commerce unicorn", "business_state": "Delivery ops attrition jumps 2x this week" },
+          "crisis_or_decision_trigger": "CEO wants a 48-hour retention plan.",
+          "central_artefact": "Attrition response playbook",
+          "emotional_peak": "Time pressure with incomplete data"
+        },
+        {
+          "scenario_id": "S2",
+          "scenario_title": "Amazon India: ER Escalation Today",
+          "workplace_context": { "company_type": "Big Tech India operations", "business_state": "Harassment complaint escalated to HR within 2 hours" },
+          "crisis_or_decision_trigger": "Director wants names and details now.",
+          "central_artefact": "Investigation case file",
+          "emotional_peak": "Balancing urgency with confidentiality"
+        },
+        {
+          "scenario_id": "S3",
+          "scenario_title": "Infosys: Compliance Audit Tomorrow",
+          "workplace_context": { "company_type": "IT services giant", "business_state": "New location payroll disputes due to policy version mismatch" },
+          "crisis_or_decision_trigger": "Audit is tomorrow, disputes are live.",
+          "central_artefact": "Policy control framework",
+          "emotional_peak": "Showing auditors control under chaos"
+        }
+      ],
+      "step_level_design": [
+        {
+          "step_id": 1,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "5 Whys Root Cause Analysis",
+            "key_points": [
+              "**5 Whys** is a rapid diagnostic tool. Ask 'why' repeatedly to reach the root cause instead of treating symptoms.",
+              "**Common Mistake:** Jumping to solutions (like bonuses) before understanding why people are leaving.",
+              "**Best Practice:** Start with fast evidence—pull exit data and shift patterns before proposing fixes."
+            ]
+          },
+          "instruction_question": "You join Flipkart as HR Manager. Delivery ops attrition jumps 2x this week. CEO wants a 48-hour plan. What do you do first?",
+          "explain_this_question": "5 Whys: ask 'why' repeatedly to reach root cause. Start with fast evidence to avoid fixing symptoms.",
+          "artefact_interaction_description": "You choose your diagnostic approach to the attrition crisis.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Pull exit reasons + shift data",
+            "Announce retention bonus today",
+            "Replace the team lead",
+            "Wait for monthly survey results"
+          ],
+          "outcomes": {
+            "correct": "You get evidence fast and target the true drivers.",
+            "partially_correct": "You spend money early but may miss the real cause.",
+            "incorrect": "You act without evidence or too slowly."
+          },
+          "immediate_feedback": "Evidence first, action second.",
+          "skill_signals_observed": ["Root cause analysis", "Data-driven decisions"],
+          "prompt_template": "Attrition is spiking. First step: [____].",
+          "blank_options": [
+            "Pull exit reasons + shift data",
+            "Announce retention bonus today",
+            "Replace the team lead",
+            "Wait for monthly survey results"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 2,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Cohort Analysis",
+            "key_points": [
+              "**Cohort Analysis** compares outcomes by group (e.g., shift, tenure, location). It pinpoints where intervention will move metrics fastest.",
+              "**Common Mistake:** Treating all attrition as one problem instead of isolating the affected cohort.",
+              "**Best Practice:** Segment by the variables that correlate with exits—shift type, tenure band, manager."
+            ]
+          },
+          "instruction_question": "Data shows exits peak after 30–45 days and mostly night shifts. What's the best next diagnostic step?",
+          "explain_this_question": "Cohort analysis: compare outcomes by group. Pinpoints where intervention will move metrics fastest.",
+          "artefact_interaction_description": "You choose how to dig deeper into the attrition pattern.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Compare night vs day onboarding",
+            "Hire more recruiters immediately",
+            "Reduce hiring bar to fill faster",
+            "Change titles for the role"
+          ],
+          "outcomes": {
+            "correct": "You isolate process gaps tied to the shift cohort.",
+            "partially_correct": "You add volume, but root cause stays untouched.",
+            "incorrect": "You change optics, not outcomes."
+          },
+          "immediate_feedback": "Segment the data to find the real driver.",
+          "skill_signals_observed": ["Cohort analysis", "Diagnostic thinking"],
+          "prompt_template": "Exits peak in night shift at 30-45 days. Next step: [____].",
+          "blank_options": [
+            "Compare night vs day onboarding",
+            "Hire more recruiters immediately",
+            "Reduce hiring bar to fill faster",
+            "Change titles for the role"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 3,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "RACI Framework",
+            "key_points": [
+              "**RACI** clarifies who is Responsible, Accountable, Consulted, and Informed for each task.",
+              "**Common Mistake:** Leaving ownership ambiguous—managers disagree on who owns training vs scheduling.",
+              "**Best Practice:** Create a RACI for the first 45 days to remove ambiguity and speed up execution."
+            ]
+          },
+          "instruction_question": "Managers disagree on who owns training, scheduling, and buddying. Which tool helps you assign ownership quickly?",
+          "explain_this_question": "RACI clarifies who is Responsible, Accountable, Consulted, Informed—reduces confusion.",
+          "artefact_interaction_description": "You choose an ownership clarity tool.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "RACI for first 45 days",
+            "Write a long policy document",
+            "Ask each manager to decide",
+            "Create a new approval committee"
+          ],
+          "outcomes": {
+            "correct": "You remove ambiguity and speed up execution.",
+            "partially_correct": "You create clarity later, but lose the time window.",
+            "incorrect": "You add process but slow down decisions."
+          },
+          "immediate_feedback": "Clarity of ownership = speed of execution.",
+          "skill_signals_observed": ["Process design", "Stakeholder alignment"],
+          "prompt_template": "Multiple owners, no clarity. Assign ownership using: [____].",
+          "blank_options": [
+            "RACI for first 45 days",
+            "Write a long policy document",
+            "Ask each manager to decide",
+            "Create a new approval committee"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 4,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Leading Indicators",
+            "key_points": [
+              "**Leading Indicators** are early signals (e.g., no-show rate, first-week feedback) that move before outcomes like attrition.",
+              "**Common Mistake:** Choosing actions that feel good but don't shift leading indicators.",
+              "**Best Practice:** Pick the ONE move that targets the leading indicator with the highest exit correlation."
+            ]
+          },
+          "instruction_question": "In 48 hours, you must pick ONE move with fastest impact. Which decision is strongest?",
+          "explain_this_question": "Leading indicator: early signal that moves before outcomes. Choose actions that shift leading indicators.",
+          "artefact_interaction_description": "You select the highest-impact 48-hour move.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Fix night-shift onboarding gaps",
+            "Launch culture workshop series",
+            "Run a company-wide townhall",
+            "Rebrand the team name"
+          ],
+          "outcomes": {
+            "correct": "You reduce early friction where exits concentrate.",
+            "partially_correct": "You build engagement, but impact is slow.",
+            "incorrect": "You improve perception, not the leading driver."
+          },
+          "immediate_feedback": "Target the leading indicator, not the lagging one.",
+          "skill_signals_observed": ["Prioritization", "Impact-driven thinking"],
+          "prompt_template": "48-hour window. Highest-impact action: [____].",
+          "blank_options": [
+            "Fix night-shift onboarding gaps",
+            "Launch culture workshop series",
+            "Run a company-wide townhall",
+            "Rebrand the team name"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 5,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Need-to-Know Principle",
+            "key_points": [
+              "**Need-to-Know** means sharing minimum necessary information to enable action.",
+              "**Common Mistake:** Over-sharing details (names, screenshots) under pressure from leadership.",
+              "**Best Practice:** Share allegation summary + next steps. Protect confidentiality, reduce retaliation risk."
+            ]
+          },
+          "instruction_question": "At Amazon India, a harassment complaint escalates to HR within 2 hours. A director wants 'names and details' now. What do you share?",
+          "explain_this_question": "Need-to-know: share minimum necessary info to act. Protects confidentiality and investigation integrity.",
+          "artefact_interaction_description": "You decide what to share with the director.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Share allegation summary + next steps",
+            "Share full chat screenshots",
+            "Share all names immediately",
+            "Share nothing until closure"
+          ],
+          "outcomes": {
+            "correct": "You enable action while protecting confidentiality.",
+            "partially_correct": "You accelerate context but raise privacy risk.",
+            "incorrect": "You either over-share or under-share."
+          },
+          "immediate_feedback": "Share enough to act, not enough to harm.",
+          "skill_signals_observed": ["Confidentiality judgment", "Stakeholder management"],
+          "prompt_template": "Director demands details. You share: [____].",
+          "blank_options": [
+            "Share allegation summary + next steps",
+            "Share full chat screenshots",
+            "Share all names immediately",
+            "Share nothing until closure"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 6,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Containment Strategy",
+            "key_points": [
+              "**Containment** means stopping harm while facts are gathered.",
+              "**Common Mistake:** Acting on incomplete facts (warning accused) or avoiding action entirely.",
+              "**Best Practice:** Separate, limit contact, preserve evidence. Then investigate."
+            ]
+          },
+          "instruction_question": "You need to decide first action within 30 minutes. What's the most defensible immediate step?",
+          "explain_this_question": "Containment: stop harm while facts are gathered. Common first moves: separate, limit contact, preserve evidence.",
+          "artefact_interaction_description": "You choose your first containment action.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Implement interim no-contact plan",
+            "Send a warning to the accused",
+            "Ask both parties to 'sort it'",
+            "Delay until manager returns"
+          ],
+          "outcomes": {
+            "correct": "You reduce risk while investigation proceeds.",
+            "partially_correct": "You signal action, but may contaminate evidence.",
+            "incorrect": "You avoid process or delay dangerously."
+          },
+          "immediate_feedback": "Contain first, investigate second.",
+          "skill_signals_observed": ["Risk mitigation", "Decisiveness"],
+          "prompt_template": "Harassment reported. First 30-min action: [____].",
+          "blank_options": [
+            "Implement interim no-contact plan",
+            "Send a warning to the accused",
+            "Ask both parties to 'sort it'",
+            "Delay until manager returns"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 7,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Case File Method",
+            "key_points": [
+              "**Case File Method** structures an investigation: timeline + allegation map + evidence index.",
+              "**Common Mistake:** Relying on verbal summaries or opinions instead of structured evidence.",
+              "**Best Practice:** Build a case timeline + evidence index for auditability and consistent decisions."
+            ]
+          },
+          "instruction_question": "Evidence is fragmented (chat logs, witnesses, timelines). Which method structures the investigation best under time pressure?",
+          "explain_this_question": "Case file method: timeline + allegation map + evidence index. Keeps facts auditable.",
+          "artefact_interaction_description": "You choose your investigation structuring method.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Build a case timeline + evidence index",
+            "Rely on manager verbal summary",
+            "Ask HR team for opinions",
+            "Start disciplinary action immediately"
+          ],
+          "outcomes": {
+            "correct": "You create an auditable, consistent investigation flow.",
+            "partially_correct": "You move fast, but lose traceability.",
+            "incorrect": "You risk wrongful action or unstructured facts."
+          },
+          "immediate_feedback": "Structure the evidence before making decisions.",
+          "skill_signals_observed": ["Investigation methodology", "Documentation"],
+          "prompt_template": "Fragmented evidence. Structure using: [____].",
+          "blank_options": [
+            "Build a case timeline + evidence index",
+            "Rely on manager verbal summary",
+            "Ask HR team for opinions",
+            "Start disciplinary action immediately"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 8,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Due Process",
+            "key_points": [
+              "**Due Process** means consistent steps, documentation, and neutrality throughout an investigation.",
+              "**Common Mistake:** Closing informally under leadership pressure to avoid 'making it a thing'.",
+              "**Best Practice:** Proceed with formal investigation plan. Protects company and employee rights."
+            ]
+          },
+          "instruction_question": "End of day: director asks if this can be closed quietly. What's your final decision for today?",
+          "explain_this_question": "Due process: consistent steps, documentation, neutrality. Avoids 'informal closure' risks.",
+          "artefact_interaction_description": "You make the final call on the investigation path.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Proceed with formal investigation plan",
+            "Close informally with verbal warning",
+            "Transfer the reporter quietly",
+            "Ask both to take leave"
+          ],
+          "outcomes": {
+            "correct": "You reduce legal risk and protect organisational trust.",
+            "partially_correct": "You move quickly, but create repeat-risk.",
+            "incorrect": "You contain conflict but don't resolve it."
+          },
+          "immediate_feedback": "Formal process protects everyone.",
+          "skill_signals_observed": ["Legal judgment", "Ethical decision-making"],
+          "prompt_template": "Director wants quiet closure. Your decision: [____].",
+          "blank_options": [
+            "Proceed with formal investigation plan",
+            "Close informally with verbal warning",
+            "Transfer the reporter quietly",
+            "Ask both to take leave"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 9,
+          "scenario_id": "S3",
+          "theory_content": {
+            "title": "Single Source of Truth",
+            "key_points": [
+              "**Single Source of Truth** means one official version for every policy.",
+              "**Common Mistake:** Multiple versions floating across locations, leading to disputes.",
+              "**Best Practice:** In crises, publish an interim rule to stop spread of inconsistent actions."
+            ]
+          },
+          "instruction_question": "Infosys opens a new location. Payroll disputes emerge due to policy version mismatch. Audit is tomorrow. First containment step?",
+          "explain_this_question": "Single source of truth: one official version. In crises, publish an interim rule to stop inconsistent actions.",
+          "artefact_interaction_description": "You choose your compliance containment strategy.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Publish interim rule + freeze changes",
+            "Let each location decide locally",
+            "Ignore until next payroll cycle",
+            "Ask employees to check old emails"
+          ],
+          "outcomes": {
+            "correct": "You stop drift and reduce disputes before audit.",
+            "partially_correct": "You gain speed, but inconsistency increases.",
+            "incorrect": "You delay or shift burden unhelpfully."
+          },
+          "immediate_feedback": "One rule, one version, right now.",
+          "skill_signals_observed": ["Compliance readiness", "Crisis management"],
+          "prompt_template": "Policy mismatch, audit tomorrow. First step: [____].",
+          "blank_options": [
+            "Publish interim rule + freeze changes",
+            "Let each location decide locally",
+            "Ignore until next payroll cycle",
+            "Ask employees to check old emails"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 10,
+          "scenario_id": "S3",
+          "theory_content": {
+            "title": "Version Control for Policy",
+            "key_points": [
+              "**Version Control** means tracked edits, owners, and change logs for all policies.",
+              "**Common Mistake:** Multiple PDFs per business unit with no traceability.",
+              "**Best Practice:** Policy repo + change log + owner. Auditors look for: what changed, when, by whom, why."
+            ]
+          },
+          "instruction_question": "You must show auditors control and traceability. Which control is strongest?",
+          "explain_this_question": "Version control: tracked edits, owners, and change logs. Auditors look for traceability.",
+          "artefact_interaction_description": "You choose your audit-readiness control.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Policy repo + change log + owner",
+            "Multiple PDFs per business unit",
+            "Verbal guidance from HRBP",
+            "Ask payroll to patch manually"
+          ],
+          "outcomes": {
+            "correct": "You demonstrate traceability and accountability clearly.",
+            "partially_correct": "You move fast, but drift is inevitable.",
+            "incorrect": "You lack audit proof."
+          },
+          "immediate_feedback": "Traceability = Trust in audits.",
+          "skill_signals_observed": ["Compliance frameworks", "Documentation discipline"],
+          "prompt_template": "Show auditors control with: [____].",
+          "blank_options": [
+            "Policy repo + change log + owner",
+            "Multiple PDFs per business unit",
+            "Verbal guidance from HRBP",
+            "Ask payroll to patch manually"
+          ],
+          "correct_answer_index": 0
+        }
+      ],
+      "end_state": "You've proven strategic HR decision-making across crises—attrition, ER, and compliance.",
+      "hook_to_next_simulation": "Now apply these frameworks to real project deliverables."
+    }
+  ]
+}

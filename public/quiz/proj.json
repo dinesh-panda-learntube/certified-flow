@@ -1,0 +1,421 @@
+{
+  "path_title": "Employee Grievance Resolution With ChatGPT / Claude",
+  "simulations": [
+    {
+      "simulation_metadata": {
+        "simulation_id": "PROJ_SIM_01",
+        "simulation_title": "Employee Grievance Resolution With ChatGPT / Claude",
+        "why_this_matters_for_getting_hired": "HR Managers who can build prompts and case timelines for grievance resolution demonstrate high-value operational skill.",
+        "estimated_time": "20 minutes",
+        "deliverables_unlockable": {
+          "certifications": ["ER Prompt Engineering"],
+          "badges": ["AI-Powered Grievance Resolution"],
+          "recruiter_readable_proof": ["ChatGPT Triage Prompt", "ER Case Timeline", "Leadership Update Template"]
+        },
+        "primary_role_competencies_evaluated": [
+          "Prompt engineering for HR",
+          "Case timeline construction",
+          "Confidentiality judgment",
+          "Evidence-driven decision-making",
+          "Leadership communication"
+        ],
+        "impact_metrics": {
+          "time_saved": "3 days",
+          "cost_saved": "$600"
+        }
+      },
+      "scenario_breakdown": [
+        {
+          "scenario_id": "S1",
+          "scenario_title": "ER Triage & Prompt Building",
+          "workplace_context": { "company_type": "Mid-size tech company", "business_state": "Employee alleges harassment via DM" },
+          "crisis_or_decision_trigger": "Urgent triage needed—confidentiality and speed are critical.",
+          "central_artefact": "ChatGPT triage prompt",
+          "emotional_peak": "Balancing speed with safety"
+        },
+        {
+          "scenario_id": "S2",
+          "scenario_title": "Building the Case Timeline",
+          "workplace_context": { "company_type": "Mid-size tech company", "business_state": "Investigation underway, evidence being structured" },
+          "crisis_or_decision_trigger": "Timeline must be accurate and auditable.",
+          "central_artefact": "Case timeline table",
+          "emotional_peak": "Getting the sequence and containment right"
+        }
+      ],
+      "step_level_design": [
+        {
+          "step_id": 1,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "First Response Protocol",
+            "key_points": [
+              "**First Response** sets the tone for the entire investigation. Get it wrong and trust is broken before you even start.",
+              "**Common Mistake:** Forwarding to the manager or asking parties to resolve it themselves.",
+              "**Best Practice:** Acknowledge, ensure safety, capture basics. Protect the reporter first."
+            ]
+          },
+          "instruction_question": "An employee alleges harassment in a DM. Your first action as HR Manager is to…",
+          "explain_this_question": "First response: acknowledge, ensure safety, capture basics. Never forward or delay.",
+          "artefact_interaction_description": "You choose your first response to a harassment allegation.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Acknowledge, ensure safety, capture basics",
+            "Forward the DM to the manager",
+            "Tell them to email a formal complaint",
+            "Ask both parties to talk it out"
+          ],
+          "outcomes": {
+            "correct": "You protect the reporter and start the process correctly.",
+            "partially_correct": "You move the issue but break confidentiality.",
+            "incorrect": "You delay or endanger the reporter."
+          },
+          "immediate_feedback": "Safety first, process second.",
+          "skill_signals_observed": ["First response judgment", "Confidentiality"],
+          "prompt_template": "Employee DMs harassment allegation. First action: [____].",
+          "blank_options": [
+            "Acknowledge, ensure safety, capture basics",
+            "Forward the DM to the manager",
+            "Tell them to email a formal complaint",
+            "Ask both parties to talk it out"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 2,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Information Sharing Under Pressure",
+            "key_points": [
+              "**Need-to-Know** protects investigations. Directors have authority but not unlimited access to details.",
+              "**Common Mistake:** Sharing names or full logs to show urgency or build trust.",
+              "**Best Practice:** Share high-level summary, protect identity. Enable action without exposure."
+            ]
+          },
+          "instruction_question": "A director asks 'who reported this?' What's your best response today?",
+          "explain_this_question": "Share high-level summary, protect identity. Enable action without exposure.",
+          "artefact_interaction_description": "You decide how much to share with leadership.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Share high-level summary, protect identity",
+            "Share reporter name to build urgency",
+            "Share full chat logs for context",
+            "Refuse to share anything at all"
+          ],
+          "outcomes": {
+            "correct": "You enable action while protecting the reporter.",
+            "partially_correct": "You build urgency but risk retaliation.",
+            "incorrect": "You either over-share or block leadership."
+          },
+          "immediate_feedback": "Protect identity, enable action.",
+          "skill_signals_observed": ["Stakeholder communication", "Confidentiality"],
+          "prompt_template": "Director asks 'who reported?' You respond: [____].",
+          "blank_options": [
+            "Share high-level summary, protect identity",
+            "Share reporter name to build urgency",
+            "Share full chat logs for context",
+            "Refuse to share anything at all"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 3,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Prompt Engineering: Risk Triage",
+            "key_points": [
+              "**Risk Triage Prompting** gives AI the right context to return actionable, safe outputs.",
+              "**Common Mistake:** Leaving risk level or actions vague—AI will guess and may understate risk.",
+              "**Best Practice:** Specify exact output categories: Risk level, First 3 actions, What NOT to do."
+            ]
+          },
+          "instruction_question": "Complete the triage prompt. What's the correct risk level for a harassment allegation via DM?",
+          "explain_this_question": "Harassment = High risk by default. Set the risk level explicitly in your prompt.",
+          "artefact_interaction_description": "You fill the risk level in the ChatGPT prompt.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "High",
+            "Medium",
+            "Low",
+            "Unclear"
+          ],
+          "outcomes": {
+            "correct": "Harassment allegations are always High risk by default.",
+            "partially_correct": "Underestimating risk in ER cases is dangerous.",
+            "incorrect": "Never leave risk unclear or low for harassment."
+          },
+          "immediate_feedback": "Harassment = High. Always.",
+          "skill_signals_observed": ["Risk assessment", "Prompt precision"],
+          "prompt_template": "Risk level for harassment allegation: [____].",
+          "blank_options": [
+            "High",
+            "Medium",
+            "Low",
+            "Unclear"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 4,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Prompt Engineering: 2-Hour Actions",
+            "key_points": [
+              "**Time-Bound Actions** force actionable outputs from AI. Vague actions lead to vague outcomes.",
+              "**Common Mistake:** Actions that are passive (wait, monitor) or delegate responsibility.",
+              "**Best Practice:** Safety check + interim no-contact + preserve evidence. All within 2 hours."
+            ]
+          },
+          "instruction_question": "What are the correct first 3 actions in 2 hours for a harassment triage?",
+          "explain_this_question": "Safety, separation, and evidence preservation—all within 2 hours.",
+          "artefact_interaction_description": "You fill the 2-hour actions in the ChatGPT prompt.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Safety check + interim no-contact + preserve evidence",
+            "Ask both to resolve directly + close quickly",
+            "Send policy reminder to team + monitor",
+            "Wait for manager input + decide later"
+          ],
+          "outcomes": {
+            "correct": "You cover safety, separation, and evidence in 2 hours.",
+            "partially_correct": "You delegate resolution, missing your duty.",
+            "incorrect": "You delay or dilute the response."
+          },
+          "immediate_feedback": "Safety, separate, preserve. In that order.",
+          "skill_signals_observed": ["Action planning", "Time management"],
+          "prompt_template": "First 3 actions in 2 hours: [____].",
+          "blank_options": [
+            "Safety check + interim no-contact + preserve evidence",
+            "Ask both to resolve directly + close quickly",
+            "Send policy reminder to team + monitor",
+            "Wait for manager input + decide later"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 5,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Prompt Engineering: Negative Constraints",
+            "key_points": [
+              "**Negative Constraints** tell AI what NOT to do. This is often more important than what to do.",
+              "**Common Mistake:** Not specifying what to avoid—AI may generate outputs that share names or broadcast details.",
+              "**Best Practice:** 'What NOT to do: Name-sharing or broadcasting details.'"
+            ]
+          },
+          "instruction_question": "What should the prompt tell AI NOT to do?",
+          "explain_this_question": "Name-sharing or broadcasting details is the highest-risk output to prevent.",
+          "artefact_interaction_description": "You fill the 'What NOT to do' constraint in the prompt.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Name-sharing or broadcasting details",
+            "Documenting anything until closure",
+            "Pausing contact between parties",
+            "Asking clarifying questions"
+          ],
+          "outcomes": {
+            "correct": "You prevent the most dangerous output: identity exposure.",
+            "partially_correct": "Documentation should happen, not be avoided.",
+            "incorrect": "Contact pausing and questions are good things."
+          },
+          "immediate_feedback": "Constrain outputs that could cause harm.",
+          "skill_signals_observed": ["Safety constraints", "Prompt engineering"],
+          "prompt_template": "What NOT to do: [____].",
+          "blank_options": [
+            "Name-sharing or broadcasting details",
+            "Documenting anything until closure",
+            "Pausing contact between parties",
+            "Asking clarifying questions"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 6,
+          "scenario_id": "S1",
+          "theory_content": {
+            "title": "Neutral, Evidence-Driven Questions",
+            "key_points": [
+              "**Neutral Questions** avoid leading the reporter toward a conclusion. They extract facts, not opinions.",
+              "**Common Mistake:** Using emotion-led or assumption-led questions that bias the narrative.",
+              "**Best Practice:** Questions should be fact-based and time-anchored. Avoid leading questions."
+            ]
+          },
+          "instruction_question": "Make the prompt's questions neutral and evidence-driven. Choose the right question style.",
+          "explain_this_question": "Fact-based, time-anchored questions extract evidence without bias.",
+          "artefact_interaction_description": "You set the question style for the AI-generated investigation questions.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "fact-based",
+            "emotion-led",
+            "manager-led",
+            "assumption-led"
+          ],
+          "outcomes": {
+            "correct": "Fact-based questions extract evidence without bias.",
+            "partially_correct": "Emotion or manager framing introduces bias.",
+            "incorrect": "Assumptions contaminate the investigation."
+          },
+          "immediate_feedback": "Facts first, feelings later.",
+          "skill_signals_observed": ["Neutrality", "Investigation methodology"],
+          "prompt_template": "Generate questions that are [____].",
+          "blank_options": [
+            "fact-based",
+            "emotion-led",
+            "manager-led",
+            "assumption-led"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 7,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Timeline Construction",
+            "key_points": [
+              "**Case Timelines** are the backbone of any investigation. Every event needs a time, description, source, and risk level.",
+              "**Common Mistake:** Getting the sequence wrong—it changes the entire narrative.",
+              "**Best Practice:** Start with the earliest event and build forward. DM received comes before safety check."
+            ]
+          },
+          "instruction_question": "Fill the missing time to complete the first row of the case timeline. When was the DM received?",
+          "explain_this_question": "The DM was received at 10:00, before the safety check at 10:10.",
+          "artefact_interaction_description": "You fill the first timestamp in the case timeline.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "10:00",
+            "09:00",
+            "10:30",
+            "12:00"
+          ],
+          "outcomes": {
+            "correct": "10:00 is before the safety check at 10:10—correct sequence.",
+            "partially_correct": "Timing doesn't match the safety check sequence.",
+            "incorrect": "This time is after the safety check."
+          },
+          "immediate_feedback": "Sequence matters. DM → Safety check.",
+          "skill_signals_observed": ["Timeline construction", "Sequencing"],
+          "prompt_template": "DM received at [____], safety check at 10:10.",
+          "blank_options": [
+            "10:00",
+            "09:00",
+            "10:30",
+            "12:00"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 8,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Containment Events",
+            "key_points": [
+              "**Containment** is the immediate action to prevent further harm while investigation proceeds.",
+              "**Common Mistake:** Warning the accused (contaminates evidence) or telling the reporter to ignore it.",
+              "**Best Practice:** Interim no-contact plan set. Safe, neutral, preserves investigation integrity."
+            ]
+          },
+          "instruction_question": "Add the safest containment event to the timeline at 10:20.",
+          "explain_this_question": "Interim no-contact plan is the safest containment—neutral, documented, reversible.",
+          "artefact_interaction_description": "You add the containment event to the timeline.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Interim no-contact plan set",
+            "Accused warned by email",
+            "Reporter told to ignore it",
+            "Team notified to stay calm"
+          ],
+          "outcomes": {
+            "correct": "No-contact is safe, neutral, and documented.",
+            "partially_correct": "Warning the accused may contaminate evidence.",
+            "incorrect": "Ignoring or broadcasting makes things worse."
+          },
+          "immediate_feedback": "Contain without contaminating.",
+          "skill_signals_observed": ["Containment strategy", "Risk mitigation"],
+          "prompt_template": "Timeline 10:20 event: [____].",
+          "blank_options": [
+            "Interim no-contact plan set",
+            "Accused warned by email",
+            "Reporter told to ignore it",
+            "Team notified to stay calm"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 9,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Investigation Sequence",
+            "key_points": [
+              "**Investigation Sequence** follows a logic: preserve evidence first, then interview the reporter, then check witnesses.",
+              "**Common Mistake:** Interviewing the accused first or scheduling witnesses before preserving evidence.",
+              "**Best Practice:** Evidence → Reporter → Witnesses. This order protects integrity."
+            ]
+          },
+          "instruction_question": "What's the correct first event after containment at 10:25?",
+          "explain_this_question": "Evidence preservation comes first—before any interviews.",
+          "artefact_interaction_description": "You order the next investigation step.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Evidence preserved",
+            "Reporter interview scheduled",
+            "Witness check initiated",
+            "Accused interview scheduled"
+          ],
+          "outcomes": {
+            "correct": "Evidence preservation must come before any interviews.",
+            "partially_correct": "Interviews come after evidence is secured.",
+            "incorrect": "Accused interviews come last."
+          },
+          "immediate_feedback": "Preserve evidence before you interview anyone.",
+          "skill_signals_observed": ["Investigation order", "Evidence handling"],
+          "prompt_template": "After containment, first step: [____].",
+          "blank_options": [
+            "Evidence preserved",
+            "Reporter interview scheduled",
+            "Witness check initiated",
+            "Accused interview scheduled"
+          ],
+          "correct_answer_index": 0
+        },
+        {
+          "step_id": 10,
+          "scenario_id": "S2",
+          "theory_content": {
+            "title": "Leadership Updates",
+            "key_points": [
+              "**Leadership Updates** must be safe, measurable, and identity-free.",
+              "**Common Mistake:** Sharing names, opinions, or guilt assumptions in status updates.",
+              "**Best Practice:** 'Status: Containment in place; fact-finding underway. Next decision needed by: 6 PM.'"
+            ]
+          },
+          "instruction_question": "Complete the leadership update. What's the safest status text?",
+          "explain_this_question": "Safe = no names, no guilt, no opinions. Just facts and next deadline.",
+          "artefact_interaction_description": "You write the leadership status update.",
+          "interaction_type": "fill_blank",
+          "options_inputs": [
+            "Containment in place; fact-finding underway",
+            "Accused is guilty; action planned",
+            "Reporter is overreacting; closing soon",
+            "Names shared widely; waiting"
+          ],
+          "outcomes": {
+            "correct": "Neutral, factual, action-oriented. Perfect for leadership.",
+            "partially_correct": "Premature guilt assumptions create liability.",
+            "incorrect": "Dismissing or exposing creates legal and trust risk."
+          },
+          "immediate_feedback": "Facts, not opinions. Deadlines, not delays.",
+          "skill_signals_observed": ["Leadership communication", "Legal safety"],
+          "prompt_template": "Leadership status: [____].",
+          "blank_options": [
+            "Containment in place; fact-finding underway",
+            "Accused is guilty; action planned",
+            "Reporter is overreacting; closing soon",
+            "Names shared widely; waiting"
+          ],
+          "correct_answer_index": 0
+        }
+      ],
+      "end_state": "You've built a complete grievance resolution workflow with AI—prompt, timeline, and leadership update.",
+      "hook_to_next_simulation": "Now apply these skills to your CV as proof-of-work."
+    }
+  ]
+}

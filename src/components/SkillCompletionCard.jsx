@@ -1,11 +1,24 @@
 import { useState } from "react";
-import { skills } from "../data/profileData";
+import { skills, certifications, projects } from "../data/profileData";
 
 export default function SkillCompletionCard({ result }) {
   const [detailsOpen, setDetailsOpen] = useState(false);
 
-  const skill = skills.find((s) => s.id === result.skillId);
-  if (!skill) return null;
+  const itemId = result.skillId;
+  let item = null;
+  let itemLabel = "Earned Skill";
+
+  if (itemId?.startsWith("cert-")) {
+    item = certifications.find((c) => c.id === itemId);
+    itemLabel = "Earned Certification";
+  } else if (itemId?.startsWith("proj-")) {
+    item = projects.find((p) => p.id === itemId);
+    itemLabel = "Completed Project";
+  } else {
+    item = skills.find((s) => s.id === itemId);
+  }
+
+  if (!item) return null;
 
   const metrics = result.impactMetrics;
   const history = result.history || [];
@@ -25,20 +38,20 @@ export default function SkillCompletionCard({ result }) {
         </p>
       </div>
 
-      {/* Earned Skill Card */}
+      {/* Earned Item Card */}
       <div className="text-[11px] text-text-muted uppercase tracking-wider font-bold mb-2">
-        Earned Skill
+        {itemLabel}
       </div>
       <div className="bg-dark-surface rounded-xl px-4 py-3 mb-4 border border-cta/30">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-cta text-sm">✓</span>
             <span className="text-[13px] font-semibold text-text-primary">
-              {skill.title}
+              {item.title}
             </span>
           </div>
           <span className="text-star text-xs flex-shrink-0">
-            {"★".repeat(skill.rating)}
+            {"★".repeat(item.rating || 0)}
           </span>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { certifications } from "../data/profileData";
 
-export default function CertificationsSection({ addedItems, onAdd, isAfter }) {
+export default function CertificationsSection({ addedItems, onAdd, onStartScenario, isAfter }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const total = certifications.length;
 
@@ -65,10 +65,10 @@ export default function CertificationsSection({ addedItems, onAdd, isAfter }) {
                 <div>
                   {!added ? (
                     <button
-                      onClick={() => onAdd(cert.id)}
+                      onClick={() => onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id)}
                       className="btn-primary btn-highlight"
                     >
-                      Add Certification
+                      Start Scenario
                     </button>
                   ) : (
                     <span className="badge-added">✓ Added</span>

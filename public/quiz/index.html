@@ -85,7 +85,9 @@
             'simulation_1-5': 'v1',
             'simulation_v2_1-5': 'v2',
             'simulation_v3_1-5': 'v3',
-            'v4': 'v3'
+            'v4': 'v3',
+            'cert': 'v3',
+            'proj': 'v3'
         };
 
         function AppWrapper() {
@@ -119,7 +121,8 @@
                         window.UI_VERSION = detectedVersion;
 
                         // Tell the engine to auto-redirect on completion
-                        window.QUIZ_SKILL_ID = skillId;
+                        const itemId = params.get('cert') || params.get('proj') || skillId;
+                        window.QUIZ_SKILL_ID = itemId;
                         window.QUIZ_RETURN_URL = returnUrl;
 
                         setData(d);
@@ -140,25 +143,24 @@
 
             // Intercept simulation completion — save results & redirect
             useEffect(() => {
-                if (!skillId) return;
+                const simId = params.get('sim') || 'v4';
+                const itemId = params.get('cert') || params.get('proj') || skillId;
+                if (!itemId) return;
 
-                const profileUrl = `${returnUrl}?completed=${skillId}`;
+                const profileUrl = `${returnUrl}?completed=${itemId}`;
 
-                // Capture-phase click listener on known button IDs
-                const handleCapture = (e) => {
-                    const btn = e.target.closest('#reset-path, #unlock-next');
-                    if (btn) {
-                        e.stopImmediatePropagation();
-                        e.preventDefault();
-                        // Save results to localStorage before redirect
-                        saveResultsAndRedirect(profileUrl);
+                // Auto-redirect as soon as the completion screen appears — hide it instantly
+                const observer = new MutationObserver(() => {
+                    const endBtn = document.querySelector('#reset-path, #unlock-next');
+                    if (endBtn) {
+                        observer.disconnect();
+                        // Hide everything instantly so user doesn't see the results screen
+                        document.getElementById('root').style.opacity = '0';
+                        saveResultsAndRedirect(profileUrl, itemId);
                     }
-                };
-                document.addEventListener('click', handleCapture, true);
-
-                return () => {
-                    document.removeEventListener('click', handleCapture, true);
-                };
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+                return () => observer.disconnect();
             }, [skillId, returnUrl]);
 
             if (!data) return <div style={{ color: '#8BA3B9', padding: '40px', textAlign: 'center' }}>Loading quiz...</div>;
@@ -167,24 +169,58 @@
             return <window.HRSimulationApp simulationData={data} uiVersion={uiVersion} />;
         }
 
-        function saveResultsAndRedirect(profileUrl) {
-            // Gather result data from the engine
-            const skillId = window.QUIZ_SKILL_ID;
+        function saveResultsAndRedirect(profileUrl, itemId) {
             const simData = window.SIMULATION_DATA;
             const sim = simData?.simulations?.[0];
             const metadata = sim?.simulation_metadata || {};
 
+            // Try to get history from engine globals, fall back to scraping DOM
+            let history = window.QUIZ_USER_HISTORY || [];
+            let score = window.QUIZ_SCORE || 0;
+
+            // If engine didn't expose history, try to scrape from the results DOM
+            if (history.length === 0) {
+                try {
+                    const steps = sim?.step_level_design || [];
+                    // Check for stored answers in the engine
+                    const answers = window.QUIZ_ANSWERS || {};
+                    steps.forEach((step, idx) => {
+                        const userIdx = answers[idx];
+                        const options = step.blank_options || step.clickable_options || [];
+                        const correctIdx = step.correct_answer_index ?? 0;
+                        const userAnswer = options[userIdx] || options[0] || '';
+                        const correctAnswer = options[correctIdx] || '';
+                        const isCorrect = userIdx === correctIdx;
+                        const type = isCorrect ? 'correct' : (userIdx === 1 ? 'partial' : 'incorrect');
+
+                        history.push({
+                            question: step.instruction_question || `Step ${idx + 1}`,
+                            userAnswer: userAnswer,
+                            correctAnswer: correctAnswer,
+                            outcomeText: isCorrect
+                                ? (step.outcomes?.correct || '')
+                                : (step.outcomes?.incorrect || step.outcomes?.partially_correct || ''),
+                            type: type
+                        });
+
+                        if (isCorrect) score += 100;
+                    });
+                } catch (e) {
+                    console.error('Failed to build history:', e);
+                }
+            }
+
             const result = {
-                skillId: skillId,
+                skillId: itemId,
                 simTitle: metadata.simulation_title || '',
                 impactMetrics: metadata.impact_metrics || null,
-                score: window.QUIZ_SCORE || 0,
-                history: window.QUIZ_USER_HISTORY || [],
+                score: score,
+                history: history,
                 timestamp: Date.now(),
             };
 
             // Store in localStorage
-            localStorage.setItem(`quiz_result_${skillId}`, JSON.stringify(result));
+            localStorage.setItem(`quiz_result_${itemId}`, JSON.stringify(result));
             window.location.href = profileUrl;
         }
 
