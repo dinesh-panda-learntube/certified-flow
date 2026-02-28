@@ -141,12 +141,14 @@ export default function App() {
 
   // Navigate to quiz page for certification
   const startCertScenario = useCallback((certId) => {
-    window.location.href = `/quiz/index.html?sim=cert&cert=${certId}&return=/`;
+    const base = import.meta.env.BASE_URL;
+    window.location.href = `${base}quiz/index.html?sim=cert&cert=${certId}&return=${base}`;
   }, []);
 
   // Navigate to quiz page for project
   const startProjectSim = useCallback((projId) => {
-    window.location.href = `/quiz/index.html?sim=proj&proj=${projId}&return=/`;
+    const base = import.meta.env.BASE_URL;
+    window.location.href = `${base}quiz/index.html?sim=proj&proj=${projId}&return=${base}`;
   }, []);
 
 
