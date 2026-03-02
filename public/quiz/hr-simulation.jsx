@@ -64,33 +64,118 @@ window.OptionButton = ({ label, selected, onClick, disabled }) => {
   );
 };
 
-window.MarkdownText = ({ text, boldColor }) => {
+window.MarkdownText = ({ text, boldColor, renderToken }) => {
   if (!text) return null;
   if (typeof text !== 'string') return text;
 
-  // Split by **
-  const parts = text.split(/(\*\*.*?\*\*)/g);
-  return (
-    <span>
-      {parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          const content = part.slice(2, -2);
-          
-          let color;
-          if (boldColor) {
-             color = boldColor;
-          } else {
-             // Default logic
-             const isLabel = ['Issue:', 'Solution:', 'Common Mistake:', 'Best Practice:'].includes(content.trim());
-             color = isLabel ? '#FFFFFF' : window.COLORS.highlight;
+  const renderInline = (str) => {
+    const parts = str.split(/(\*\*.*?\*\*)/g);
+    return (
+      <React.Fragment>
+        {parts.map((part, i) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            const content = part.slice(2, -2);
+            let color = boldColor;
+            if (!boldColor) {
+              const isLabel = ['Issue:', 'Solution:', 'Common Mistake:', 'Best Practice:'].includes(content.trim());
+              color = isLabel ? '#FFFFFF' : window.COLORS.highlight;
+            }
+            return <strong key={i} style={{ color: color, fontWeight: 700 }}>{content}</strong>;
           }
 
-          return <strong key={i} style={{ color: color, fontWeight: 700 }}>{content}</strong>;
-        }
-        return part;
-      })}
-    </span>
-  );
+          if (renderToken) {
+            const subParts = part.split(/(\[[a-zA-Z0-9_ -]+\])/g);
+            return (
+              <React.Fragment key={i}>
+                {subParts.map((sp, j) => {
+                  if (sp.startsWith('[') && sp.endsWith(']')) {
+                    const tokenEl = renderToken(sp);
+                    if (tokenEl !== undefined) return <React.Fragment key={j}>{tokenEl}</React.Fragment>;
+                  }
+                  return sp;
+                })}
+              </React.Fragment>
+            );
+          }
+
+          return part;
+        })}
+      </React.Fragment>
+    );
+  };
+
+  if (text.includes('|') && text.includes('\n')) {
+    const lines = text.split('\n');
+    const tableLines = [];
+    const beforeTable = [];
+    const afterTable = [];
+    let state = 'before';
+
+    for (const line of lines) {
+      const isTableLine = line.trim().startsWith('|') && line.trim().endsWith('|');
+      if (isTableLine && state === 'before') {
+        state = 'table';
+      } else if (!isTableLine && state === 'table') {
+        state = 'after';
+      }
+
+      if (state === 'before') beforeTable.push(line);
+      else if (state === 'table') tableLines.push(line);
+      else afterTable.push(line);
+    }
+
+    if (tableLines.length >= 2 && tableLines[1].includes('|-')) {
+      const parseRow = (rowStr) => rowStr.split('|').slice(1, -1).map(cell => cell.trim());
+      const headers = parseRow(tableLines[0]);
+      const rows = tableLines.slice(2).map(parseRow);
+
+      const tableStyle = {
+        width: '100%',
+        borderCollapse: 'collapse',
+        marginTop: '12px',
+        marginBottom: '12px',
+        fontSize: '13px',
+      };
+
+      const cellStyle = {
+        border: `1px solid ${window.COLORS.bgLight}`,
+        padding: '8px 12px',
+        textAlign: 'left'
+      };
+
+      const headerStyle = {
+        ...cellStyle,
+        backgroundColor: window.COLORS.bgLight,
+        color: window.COLORS.textMuted,
+        fontWeight: 600
+      };
+
+      return (
+        <span style={{ display: 'block' }}>
+          {beforeTable.length > 0 && <span style={{ display: 'block', marginBottom: '8px' }}>{renderInline(beforeTable.join('\n'))}</span>}
+          <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${window.COLORS.bgLight}`, marginBottom: afterTable.length > 0 ? '8px' : '0' }}>
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  {headers.map((h, i) => <th key={i} style={headerStyle}>{renderInline(h)}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, i) => (
+                  <tr key={i} style={{ backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                    {row.map((cell, j) => <td key={j} style={cellStyle}>{renderInline(cell)}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {afterTable.length > 0 && <span>{renderInline(afterTable.join('\n'))}</span>}
+        </span>
+      );
+    }
+  }
+
+  return renderInline(text);
 };
 
 window.TheoryCard = ({ theoryContent }) => {
@@ -103,14 +188,14 @@ window.TheoryCard = ({ theoryContent }) => {
   return (
     <div style={{ marginBottom: '24px' }}>
       {/* Title removed as requested */}
-      
+
       {/* Key Points */}
       {key_points && key_points.length > 0 && (
         <div style={{ paddingLeft: '8px' }}>
           {key_points.map((point, idx) => {
             let icon = null;
             if (idx !== 0) {
-               icon = (
+              icon = (
                 <span style={{
                   color: COLORS.highlight,
                   fontSize: '16px',
@@ -118,58 +203,59 @@ window.TheoryCard = ({ theoryContent }) => {
                   flexShrink: 0,
                   opacity: 0.8
                 }}>•</span>
-               );
+              );
             }
-            
+
             if (point.includes('**Common Mistake:**')) {
-               icon = (
-                 <div style={{
-                   width: '18px', height: '18px',
-                   background: COLORS.warning,
-                   borderRadius: '50%',
-                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                   marginTop: '2px', flexShrink: 0
-                 }}>
-                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                     <line x1="18" y1="6" x2="6" y2="18"></line>
-                     <line x1="6" y1="6" x2="18" y2="18"></line>
-                   </svg>
-                 </div>
-               );
+              icon = (
+                <div style={{
+                  width: '18px', height: '18px',
+                  background: COLORS.warning,
+                  borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginTop: '2px', flexShrink: 0
+                }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </div>
+              );
             } else if (point.includes('**Best Practice:**')) {
-               icon = (
-                 <div style={{
-                   width: '18px', height: '18px',
-                   background: COLORS.success,
-                   borderRadius: '50%',
-                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                   marginTop: '2px', flexShrink: 0
-                 }}>
-                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                     <polyline points="20 6 9 17 4 12"></polyline>
-                   </svg>
-                 </div>
-               );
+              icon = (
+                <div style={{
+                  width: '18px', height: '18px',
+                  background: COLORS.success,
+                  borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginTop: '2px', flexShrink: 0
+                }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              );
             }
 
             return (
-            <div key={idx} style={{
-              display: 'flex',
-              gap: icon ? '12px' : '0',
-              marginBottom: idx === key_points.length - 1 ? '0' : '12px',
-              alignItems: 'flex-start'
-            }}>
-              {icon}
-              <span style={{
-                fontSize: '15px',
-                color: COLORS.text,
-                lineHeight: 1.6,
-                fontWeight: 400
+              <div key={idx} style={{
+                display: 'flex',
+                gap: icon ? '12px' : '0',
+                marginBottom: idx === key_points.length - 1 ? '0' : '12px',
+                alignItems: 'flex-start'
               }}>
-                <window.MarkdownText text={point} />
-              </span>
-            </div>
-          )})}
+                {icon}
+                <span style={{
+                  fontSize: '15px',
+                  color: COLORS.text,
+                  lineHeight: 1.6,
+                  fontWeight: 400
+                }}>
+                  <window.MarkdownText text={point} />
+                </span>
+              </div>
+            )
+          })}
         </div>
       )}
     </div>
@@ -229,6 +315,11 @@ window.FillBlankQuestion = ({ promptTemplate, blankOptions, onAnswer, disabled }
   const COLORS = window.COLORS;
   const [selected, setSelected] = React.useState(null);
 
+  // Reset selected state when a new question loads
+  React.useEffect(() => {
+    setSelected(null);
+  }, [promptTemplate]);
+
   const handleSelect = (index) => {
     if (disabled) return;
     setSelected(index);
@@ -250,23 +341,47 @@ window.FillBlankQuestion = ({ promptTemplate, blankOptions, onAnswer, disabled }
         marginBottom: '16px'
       }}>
         <div style={{ fontSize: '14px', color: COLORS.text, lineHeight: 1.8, marginBottom: '16px' }}>
-          {promptTemplate.split('[____]').map((part, idx, arr) => (
-            <React.Fragment key={idx}>
-              {part}
-              {idx < arr.length - 1 && (
-                <span style={{
-                  background: COLORS.highlightSoft,
-                  color: COLORS.highlight,
-                  padding: '4px 12px',
-                  borderRadius: '6px',
-                  fontWeight: 600,
-                  border: `2px dashed ${COLORS.highlight}`
-                }}>
-                  {selected !== null ? blankOptions[selected] : '[____]'}
-                </span>
-              )}
-            </React.Fragment>
-          ))}
+          <window.MarkdownText
+            text={promptTemplate}
+            renderToken={(part) => {
+              if (part === '[____]') {
+                return (
+                  <span style={{
+                    background: COLORS.highlightSoft,
+                    color: COLORS.highlight,
+                    padding: '4px 12px',
+                    borderRadius: '6px',
+                    fontWeight: 600,
+                    border: `2px ${selected !== null ? 'solid' : 'dashed'} ${COLORS.highlight}`,
+                    display: 'inline-block',
+                    verticalAlign: 'middle',
+                    margin: '0 4px',
+                    textAlign: 'center'
+                  }}>
+                    {selected !== null ? blankOptions[selected] : '[____]'}
+                  </span>
+                );
+              } else if (part === '[INACTIVE_BLANK]') {
+                return (
+                  <span style={{
+                    background: COLORS.highlightSoft,
+                    color: COLORS.highlight,
+                    padding: '4px 12px',
+                    borderRadius: '6px',
+                    fontWeight: 600,
+                    border: `2px dashed ${COLORS.highlight}`,
+                    display: 'inline-block',
+                    verticalAlign: 'middle',
+                    margin: '0 4px',
+                    textAlign: 'center'
+                  }}>
+                    [____]
+                  </span>
+                );
+              }
+              return undefined;
+            }}
+          />
         </div>
       </div>
 
@@ -448,13 +563,13 @@ window.ClickablePromptQuestion = ({ scenarioContext, promptText, clickableOption
   const renderPrompt = () => {
     // 1. Find all occurrences of all markers
     const segments = [];
-    
+
     clickableOptions.forEach((option, index) => {
       const startMarker = `{{${index}}}`;
       const endMarker = `{{/${index}}}`;
       const startIndex = promptText.indexOf(startMarker);
       const endIndex = promptText.indexOf(endMarker);
-      
+
       if (startIndex !== -1 && endIndex !== -1) {
         segments.push({
           start: startIndex,
@@ -503,7 +618,7 @@ window.ClickablePromptQuestion = ({ scenarioContext, promptText, clickableOption
         key: `text-end`
       });
     }
-    
+
     return parts.map(part => {
       if (part.type === 'text') {
         return <span key={part.key}>{part.content}</span>;
@@ -556,12 +671,12 @@ window.ClickablePromptQuestion = ({ scenarioContext, promptText, clickableOption
       )}
 
       {/* Instruction Header */}
-      <div style={{ 
-        fontSize: '12px', 
-        color: COLORS.textMuted, 
-        fontWeight: 600, 
-        textAlign: 'center', 
-        marginBottom: '12px' 
+      <div style={{
+        fontSize: '12px',
+        color: COLORS.textMuted,
+        fontWeight: 600,
+        textAlign: 'center',
+        marginBottom: '12px'
       }}>
         Click the error phrase in the prompt
       </div>
@@ -579,10 +694,10 @@ window.ClickablePromptQuestion = ({ scenarioContext, promptText, clickableOption
             💬 YOUR AI PROMPT DRAFT
           </div>
         </div>
-        
-        <div style={{ 
-          fontSize: '16px', 
-          color: COLORS.text, 
+
+        <div style={{
+          fontSize: '16px',
+          color: COLORS.text,
           lineHeight: 1.9,
           fontFamily: 'Georgia, serif'
         }}>
@@ -626,72 +741,6 @@ window.FillBlanksSequence = ({ template, blankOrder, options, requiredSelections
     setCurrentBlankIndex(index);
   };
 
-  const renderPromptWithBlanks = () => {
-    if (!template) return null;
-    let parts = [];
-    let remaining = template;
-
-    blankOrder.forEach((blankId, idx) => {
-      const blankToken = `[${blankId}]`;
-      const splitIndex = remaining.indexOf(blankToken);
-
-      if (splitIndex !== -1) {
-        // Add text before blank
-        if (splitIndex > 0) {
-          parts.push({ type: 'text', content: remaining.substring(0, splitIndex) });
-        }
-
-        // Add blank
-        parts.push({
-          type: 'blank',
-          id: blankId,
-          index: idx,
-          value: selections[blankId]
-        });
-
-        remaining = remaining.substring(splitIndex + blankToken.length);
-      }
-    });
-
-    // Add remaining text
-    if (remaining) {
-      parts.push({ type: 'text', content: remaining });
-    }
-
-    return parts.map((part, i) => {
-      if (part.type === 'text') {
-        return <span key={i} style={{ whiteSpace: 'pre-wrap' }}>{part.content}</span>;
-      } else {
-        const isActive = part.index === currentBlankIndex;
-        const isFilled = !!part.value;
-
-        return (
-          <span
-            key={i}
-            onClick={() => handleBlankClick(part.id, part.index)}
-            style={{
-              display: 'inline-block',
-              minWidth: '120px',
-              padding: '6px 12px',
-              margin: '0 4px',
-              borderRadius: '6px',
-              background: isActive ? COLORS.highlightSoft : (isFilled ? COLORS.bgCard : COLORS.warningBg),
-              border: `2px ${isActive ? 'solid' : 'dashed'} ${isActive ? COLORS.highlight : (isFilled ? COLORS.highlight : COLORS.textDim)}`,
-              color: isFilled ? COLORS.text : COLORS.textMuted,
-              fontWeight: isFilled ? 600 : 400,
-              cursor: disabled ? 'not-allowed' : 'pointer',
-              textAlign: 'center',
-              transition: 'all 0.2s ease',
-              opacity: disabled ? 0.6 : 1
-            }}
-          >
-            {part.value || `[${part.index + 1}]`}
-          </span>
-        );
-      }
-    });
-  };
-
   return (
     <div style={{ marginBottom: '20px' }}>
       <div style={{
@@ -704,7 +753,44 @@ window.FillBlanksSequence = ({ template, blankOrder, options, requiredSelections
           Tap options in order to fill the blanks:
         </div>
         <div style={{ fontSize: '15px', color: COLORS.text, lineHeight: 2, fontFamily: 'monospace' }}>
-          {renderPromptWithBlanks()}
+          <window.MarkdownText
+            text={template}
+            renderToken={(part) => {
+              if (part.startsWith('[') && part.endsWith(']')) {
+                const blankId = part.slice(1, -1);
+                const idx = blankOrder.indexOf(blankId);
+                if (idx !== -1) {
+                  const isActive = idx === currentBlankIndex;
+                  const isFilled = !!selections[blankId];
+                  return (
+                    <span
+                      key={idx}
+                      onClick={() => handleBlankClick(blankId, idx)}
+                      style={{
+                        display: 'inline-block',
+                        minWidth: '120px',
+                        padding: '6px 12px',
+                        margin: '0 4px',
+                        borderRadius: '6px',
+                        background: isActive ? COLORS.highlightSoft : (isFilled ? COLORS.bgCard : COLORS.warningBg),
+                        border: `2px ${isActive ? 'solid' : 'dashed'} ${isActive ? COLORS.highlight : (isFilled ? COLORS.highlight : COLORS.textDim)}`,
+                        color: isFilled ? COLORS.text : COLORS.textMuted,
+                        fontWeight: isFilled ? 600 : 400,
+                        cursor: disabled ? 'not-allowed' : 'pointer',
+                        textAlign: 'center',
+                        transition: 'all 0.2s ease',
+                        opacity: disabled ? 0.6 : 1,
+                        verticalAlign: 'middle'
+                      }}
+                    >
+                      {selections[blankId] || `[${idx + 1}]`}
+                    </span>
+                  );
+                }
+              }
+              return undefined;
+            }}
+          />
         </div>
       </div>
 
@@ -740,22 +826,25 @@ window.FillBlanksSequence = ({ template, blankOrder, options, requiredSelections
             ))}
           </div>
         </div>
-      )}
+      )
+      }
 
-      {allFilled && (
-        <div style={{
-          padding: '12px',
-          background: COLORS.highlightSoft,
-          borderRadius: '8px',
-          textAlign: 'center',
-          fontSize: '13px',
-          color: COLORS.highlight,
-          fontWeight: 600
-        }}>
-          ✓ All blanks filled! Proceeding...
-        </div>
-      )}
-    </div>
+      {
+        allFilled && (
+          <div style={{
+            padding: '12px',
+            background: COLORS.highlightSoft,
+            borderRadius: '8px',
+            textAlign: 'center',
+            fontSize: '13px',
+            color: COLORS.highlight,
+            fontWeight: 600
+          }}>
+            ✓ All blanks filled! Proceeding...
+          </div>
+        )
+      }
+    </div >
   );
 };
 
@@ -1533,10 +1622,10 @@ window.SimulationResult = ({ simulation, score, onContinue, nextSimTitle, histor
 
   const toggleItem = (id) => {
     setExpandedItems(prev => {
-        const next = new Set(prev);
-        if (next.has(id)) next.delete(id);
-        else next.add(id);
-        return next;
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
     });
   };
 
@@ -1553,7 +1642,7 @@ window.SimulationResult = ({ simulation, score, onContinue, nextSimTitle, histor
         transition: 'background 0.2s ease'
       }}>
         {/* Header - Always Visible */}
-        <div 
+        <div
           onClick={() => toggleItem(uniqueId)}
           style={{
             padding: '14px 16px',
@@ -1565,71 +1654,71 @@ window.SimulationResult = ({ simulation, score, onContinue, nextSimTitle, histor
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, overflow: 'hidden' }}>
-             {/* Status Icon */}
-             <div style={{ 
-               width: '20px', 
-               height: '20px', 
-               borderRadius: '50%', 
-               background: color, 
-               flexShrink: 0,
-               display: 'flex',
-               alignItems: 'center',
-               justifyContent: 'center',
-               color: '#000',
-               fontSize: '12px',
-               fontWeight: 800
-             }}>
-               {icon}
-             </div>
-             
-             {/* Title (Question) */}
-             <div style={{ 
-               fontSize: '14px', 
-               fontWeight: 500, 
-               color: COLORS.text,
-               whiteSpace: 'nowrap', 
-               overflow: 'hidden', 
-               textOverflow: 'ellipsis',
-               opacity: isExpanded ? 1 : 0.9
-             }}>
-               <window.MarkdownText text={item.question} />
-             </div>
+            {/* Status Icon */}
+            <div style={{
+              width: '20px',
+              height: '20px',
+              borderRadius: '50%',
+              background: color,
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#000',
+              fontSize: '12px',
+              fontWeight: 800
+            }}>
+              {icon}
+            </div>
+
+            {/* Title (Question) */}
+            <div style={{
+              fontSize: '14px',
+              fontWeight: 500,
+              color: COLORS.text,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              opacity: isExpanded ? 1 : 0.9
+            }}>
+              <window.MarkdownText text={item.question} />
+            </div>
           </div>
-          
+
           <div style={{ color: COLORS.textDim, fontSize: '18px', marginLeft: '12px', lineHeight: 1 }}>
-             {isExpanded ? '−' : '+'}
+            {isExpanded ? '−' : '+'}
           </div>
         </div>
 
         {/* Expanded Content - Details */}
         {isExpanded && (
           <div style={{ padding: '16px 16px 20px 16px', borderTop: `1px solid ${COLORS.bgLight}` }}>
-             <div style={{ display: 'grid', gap: '16px' }}>
-                
-                {/* Selected Answer */}
-                <div>
-                   <div style={{ fontSize: '11px', color: COLORS.textDim, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Selected Answer</div>
-                   <div style={{ fontSize: '14px', color: COLORS.text, lineHeight: 1.5 }}>
-                     {item.userAnswer}
-                   </div>
-                </div>
+            <div style={{ display: 'grid', gap: '16px' }}>
 
-                {/* Review / Outcome */}
-                <div>
-                   <div style={{ fontSize: '11px', color: color, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Review</div>
-                   <div style={{ fontSize: '14px', color: COLORS.textMuted, lineHeight: 1.5 }}>
-                     <window.MarkdownText text={item.outcomeText} />
-                   </div>
+              {/* Selected Answer */}
+              <div>
+                <div style={{ fontSize: '11px', color: COLORS.textDim, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Selected Answer</div>
+                <div style={{ fontSize: '14px', color: COLORS.text, lineHeight: 1.5 }}>
+                  {item.userAnswer}
                 </div>
-                
-                {/* Best Answer (if needed) */}
-                {item.correctAnswer && item.type !== 'correct' && (
-                   <div style={{ background: 'rgba(74, 222, 128, 0.05)', border: `1px dashed ${COLORS.success}40`, padding: '12px', borderRadius: '8px' }}>
-                      <div style={{ fontSize: '11px', color: COLORS.success, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px', fontWeight: 700 }}>Best Answer</div>
-                      <div style={{ fontSize: '14px', color: COLORS.success }}>{item.correctAnswer}</div>
-                   </div>
-                )}
-             </div>
+              </div>
+
+              {/* Review / Outcome */}
+              <div>
+                <div style={{ fontSize: '11px', color: color, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Review</div>
+                <div style={{ fontSize: '14px', color: COLORS.textMuted, lineHeight: 1.5 }}>
+                  <window.MarkdownText text={item.outcomeText} />
+                </div>
+              </div>
+
+              {/* Best Answer (if needed) */}
+              {item.correctAnswer && item.type !== 'correct' && (
+                <div style={{ background: 'rgba(74, 222, 128, 0.05)', border: `1px dashed ${COLORS.success}40`, padding: '12px', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '11px', color: COLORS.success, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px', fontWeight: 700 }}>Best Answer</div>
+                  <div style={{ fontSize: '14px', color: COLORS.success }}>{item.correctAnswer}</div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -1683,17 +1772,17 @@ window.SimulationResult = ({ simulation, score, onContinue, nextSimTitle, histor
             </div>
           </div>
         )}
-        
+
         {/* Review Section - Card Style */}
         {history && history.length > 0 && (
           <div style={{ background: COLORS.bgCard, borderRadius: '16px', padding: '20px', marginBottom: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
               <div style={{ fontSize: '12px', color: COLORS.highlight, fontWeight: 700, textTransform: 'uppercase' }}>YOUR PERFORMANCE ANALYSIS</div>
-              <div 
-                 onClick={() => setIsReviewOpen(!isReviewOpen)}
-                 style={{ fontSize: '12px', color: COLORS.highlight, cursor: 'pointer', fontWeight: 600 }}
+              <div
+                onClick={() => setIsReviewOpen(!isReviewOpen)}
+                style={{ fontSize: '12px', color: COLORS.highlight, cursor: 'pointer', fontWeight: 600 }}
               >
-                 {isReviewOpen ? 'Show Less' : 'Show More'}
+                {isReviewOpen ? 'Show Less' : 'Show More'}
               </div>
             </div>
 
@@ -1701,44 +1790,44 @@ window.SimulationResult = ({ simulation, score, onContinue, nextSimTitle, histor
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {/* If collapsed, show max 3 items (prioritizing incorrect/partial) */}
               {!isReviewOpen ? (
-                 <>
-                   {[...incorrectItems, ...partialItems, ...correctItems].slice(0, 3).map((item, i) => {
-                      let color = COLORS.success;
-                      let icon = '✓';
-                      if(item.type === 'incorrect') { color = COLORS.warning; icon = '!'; }
-                      else if(item.type === 'partial') { color = '#FCD34D'; icon = '!'; }
-                      return renderReviewItem(item, `preview-${i}`, color, icon);
-                   })}
-                   {history.length > 3 && (
-                     <div 
-                       onClick={() => setIsReviewOpen(true)}
-                       style={{ textAlign: 'center', fontSize: '12px', color: COLORS.textDim, marginTop: '8px', cursor: 'pointer' }}
-                     >
-                       + {history.length - 3} more items
-                     </div>
-                   )}
-                 </>
-              ) : (
-                 /* Expanded View - Grouped */
                 <>
-                   {incorrectItems.length > 0 && (
-                     <div style={{ marginBottom: '8px' }}>
-                       <div style={{ fontSize: '14px', color: COLORS.warning, fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Needs Attention</div>
-                       {incorrectItems.map((item, i) => renderReviewItem(item, `inc-${i}`, COLORS.warning, '!'))}
-                     </div>
-                   )}
-                   {partialItems.length > 0 && (
-                     <div style={{ marginBottom: '8px' }}>
-                       <div style={{ fontSize: '14px', color: '#FCD34D', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Room for Improvement</div>
-                       {partialItems.map((item, i) => renderReviewItem(item, `part-${i}`, '#FCD34D', '!'))}
-                     </div>
-                   )}
-                   {correctItems.length > 0 && (
-                     <div style={{ marginBottom: '8px' }}>
-                       <div style={{ fontSize: '14px', color: COLORS.success, fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Good Decisions</div>
-                       {correctItems.map((item, i) => renderReviewItem(item, `corr-${i}`, COLORS.success, '✓'))}
-                     </div>
-                   )}
+                  {[...incorrectItems, ...partialItems, ...correctItems].slice(0, 3).map((item, i) => {
+                    let color = COLORS.success;
+                    let icon = '✓';
+                    if (item.type === 'incorrect') { color = COLORS.warning; icon = '!'; }
+                    else if (item.type === 'partial') { color = '#FCD34D'; icon = '!'; }
+                    return renderReviewItem(item, `preview-${i}`, color, icon);
+                  })}
+                  {history.length > 3 && (
+                    <div
+                      onClick={() => setIsReviewOpen(true)}
+                      style={{ textAlign: 'center', fontSize: '12px', color: COLORS.textDim, marginTop: '8px', cursor: 'pointer' }}
+                    >
+                      + {history.length - 3} more items
+                    </div>
+                  )}
+                </>
+              ) : (
+                /* Expanded View - Grouped */
+                <>
+                  {incorrectItems.length > 0 && (
+                    <div style={{ marginBottom: '8px' }}>
+                      <div style={{ fontSize: '14px', color: COLORS.warning, fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Needs Attention</div>
+                      {incorrectItems.map((item, i) => renderReviewItem(item, `inc-${i}`, COLORS.warning, '!'))}
+                    </div>
+                  )}
+                  {partialItems.length > 0 && (
+                    <div style={{ marginBottom: '8px' }}>
+                      <div style={{ fontSize: '14px', color: '#FCD34D', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Room for Improvement</div>
+                      {partialItems.map((item, i) => renderReviewItem(item, `part-${i}`, '#FCD34D', '!'))}
+                    </div>
+                  )}
+                  {correctItems.length > 0 && (
+                    <div style={{ marginBottom: '8px' }}>
+                      <div style={{ fontSize: '14px', color: COLORS.success, fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Good Decisions</div>
+                      {correctItems.map((item, i) => renderReviewItem(item, `corr-${i}`, COLORS.success, '✓'))}
+                    </div>
+                  )}
                 </>
               )}
             </div>
@@ -2233,6 +2322,15 @@ window.HRSimulationApp = function ({ simulationData, uiVersion }) {
           history: userHistory,
           timestamp: Date.now(),
         };
+
+        window.QUIZ_SCORE = score;
+        window.QUIZ_USER_HISTORY = userHistory;
+
+        if (window.onSimulationComplete) {
+          window.onSimulationComplete();
+          return;
+        }
+
         localStorage.setItem(`quiz_result_${skillId}`, JSON.stringify(result));
         window.location.href = `${returnUrl}?completed=${skillId}`;
         return;
@@ -2565,18 +2663,18 @@ window.HRSimulationApp = function ({ simulationData, uiVersion }) {
         {/* Scenario Header for Q1 */}
         {currentStep === 0 && (
           <div style={{ marginBottom: '24px' }}>
-             <h2 style={{ fontSize: '24px', fontWeight: 700, color: COLORS.text, marginBottom: '12px' }}>{currentScenario.scenario_title}</h2>
-             <p style={{ fontSize: '15px', color: COLORS.textMuted, lineHeight: 1.6 }}>
-               You are a HR Manager in <strong>{currentScenario.workplace_context.company_type}</strong>. {currentScenario.workplace_context.business_state}.
-               <br/><br/>
-               {currentScenario.crisis_or_decision_trigger}
-             </p>
+            <h2 style={{ fontSize: '24px', fontWeight: 700, color: COLORS.text, marginBottom: '12px' }}>{currentScenario.scenario_title}</h2>
+            <p style={{ fontSize: '15px', color: COLORS.textMuted, lineHeight: 1.6 }}>
+              You are a HR Manager in <strong>{currentScenario.workplace_context.company_type}</strong>. {currentScenario.workplace_context.business_state}.
+              <br /><br />
+              {currentScenario.crisis_or_decision_trigger}
+            </p>
           </div>
         )}
 
         {/* Integrated Mentor Notes / Theory Content */}
         {step.theory_content && (
-           <window.TheoryCard theoryContent={step.theory_content} />
+          <window.TheoryCard theoryContent={step.theory_content} />
         )}
 
         {/* Scenario Context - Displayed above question */}

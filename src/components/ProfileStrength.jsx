@@ -1,5 +1,5 @@
 export default function ProfileStrength({ totalAdded }) {
-  const maxItems = 15;
+  const maxItems = 10;
   const percentage = Math.min((totalAdded / maxItems) * 100, 100);
 
   const getStrengthLabel = () => {
@@ -22,21 +22,25 @@ export default function ProfileStrength({ totalAdded }) {
     <div className="mt-5 pt-5 border-t border-dark-border">
       <div className="flex justify-between items-center mb-3">
         <span className="text-sm font-bold text-text-primary">
-          Profile Strength
+          Profile Strength <span className="text-text-muted font-normal"> - {getStrengthLabel()}</span>
         </span>
         <span className="badge badge-cta">
-          {totalAdded}/{maxItems}
+          {Math.round(percentage)}% Complete
         </span>
       </div>
 
-      <div className="w-full h-3 bg-dark-surface rounded-full overflow-hidden">
+      <div className="w-full h-3 bg-dark-surface rounded-full overflow-hidden mt-1">
         <div
           className={`h-full rounded-full transition-all duration-700 ease-out ${getBarColor()}`}
           style={{ width: `${percentage}%` }}
         />
       </div>
 
-      <div className="flex justify-between items-center mt-3">
+      <p className="text-[11px] text-text-muted text-center mt-3 font-medium tracking-wide">
+        Unlocks Certification & CV Referrals On Completing
+      </p>
+
+      {/* <div className="flex justify-between items-center mt-3">
         <span className="text-xs font-semibold text-text-secondary">
           {getStrengthLabel()}
         </span>
@@ -45,7 +49,7 @@ export default function ProfileStrength({ totalAdded }) {
             Add {3 - totalAdded} more to get started
           </span>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,139 +1,134 @@
-import { useState } from "react";
 import { projects } from "../data/profileData";
 
 export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter }) {
-  const [expanded, setExpanded] = useState({});
-
-  const toggle = (id) =>
-    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
-
   return (
     <section className="mt-14">
-      <h2 className={`text-lg font-extrabold text-text-primary ${isAfter ? "mb-3" : ""}`}>
-        Projects That Look Like Real HR Work
-      </h2>
+      <div className={`flex items-center justify-between ${isAfter ? "mb-3" : "mb-2"}`}>
+        <h2 className={`text-lg font-extrabold text-text-primary`}>
+          Real HR Work Projects
+        </h2>
+        {isAfter && (
+          <span className="text-[11px] font-bold text-text-muted">
+            {projects.filter(p => addedItems.includes(p.id)).length}/{projects.length}
+          </span>
+        )}
+      </div>
       {!isAfter && (
         <p className="text-text-secondary text-[13px] mt-2 leading-relaxed mb-6">
-          Complete role-relevant tasks using realistic artefacts (docs, trackers,
-          chats). These become proof on your CV.
+          Complete projects based on role-relevant tasks.
         </p>
       )}
 
       {isAfter ? (
         <div className="space-y-4">
-          {projects.map((project) => (
-            <div key={project.id} className="glass-card">
-              <h3 className="text-[13px] font-bold text-text-primary mb-3">
-                {project.title}
-              </h3>
-              <div className="space-y-2">
-                {project.outcomes.map((o, i) => (
-                  <p
-                    key={i}
-                    className="flex items-start gap-2 text-[11px] text-text-secondary"
-                  >
-                    <span className="text-cta flex-shrink-0 mt-px">▸</span>
-                    {o}
-                  </p>
-                ))}
+          {projects.map((project) => {
+            const added = addedItems.includes(project.id);
+            return (
+              <div
+                key={project.id}
+                className="glass-card cursor-pointer hover:border-highlight transition-colors flex flex-col"
+                onClick={() => onStartSim(project.id)}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-2 flex-wrap mr-2">
+                    {!added && (
+                      <span className="text-[11px] font-bold text-highlight mr-1 flex items-center h-6">
+                        💰 {project.salaryRange}
+                      </span>
+                    )}
+                    {project.tools.map((tool) => (
+                      <span key={tool} className="tag-tool h-6">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                  {added ? (
+                    <span className="text-[10px] text-cta font-semibold bg-cta/10 border border-cta/30 px-2 py-0.5 rounded whitespace-nowrap flex-shrink-0">
+                      ✓ Added
+                    </span>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onStartSim(project.id);
+                      }}
+                      className="text-[10px] text-highlight font-semibold border border-highlight/30 bg-highlight/10 px-3 py-1 rounded whitespace-nowrap flex-shrink-0 hover:bg-highlight/20 transition-colors"
+                    >
+                      + Add
+                    </button>
+                  )}
+                </div>
+                <h3 className="text-[13px] font-bold text-text-primary mb-3">
+                  {project.title}
+                </h3>
+                <div className="space-y-2">
+                  {project.outcomes.map((o, i) => (
+                    <p
+                      key={i}
+                      className="flex items-start gap-2 text-[11px] text-text-secondary"
+                    >
+                      <span className="text-cta flex-shrink-0 mt-px">▸</span>
+                      {o}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <div className="space-y-4">
           {projects.map((project) => {
             const added = addedItems.includes(project.id);
-            const isOpen = !!expanded[project.id];
 
             return (
-              <div key={project.id} className="glass-card" style={!added ? { borderStyle: "dashed" } : undefined}>
-                <button
-                  onClick={() => toggle(project.id)}
-                  className="w-full flex items-center justify-between text-left"
-                >
-                  <h3 className="text-[13px] font-bold text-text-primary pr-3">
-                    {project.title}
-                  </h3>
-                  <span
-                    className={`text-text-muted text-lg flex-shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  >
-                    ▾
-                  </span>
-                </button>
-
-                {isOpen && (
-                  <div className="mt-4 animate-fadeIn">
-                    <div className="flex items-center gap-2 mb-5 flex-wrap">
-                      <span className="badge badge-highlight">
-                        {project.match} match
-                      </span>
-                      {project.tools.map((tool) => (
-                        <span key={tool} className="tag-tool">
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="space-y-5 mb-5">
-                      <div className="flex items-start gap-3">
-                        <span className="text-sm mt-0.5 flex-shrink-0">📎</span>
-                        <div>
-                          <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest block mb-1.5">
-                            Includes artefacts
-                          </span>
-                          <p className="text-[11px] text-text-secondary leading-relaxed">
-                            {project.evidence}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <span className="text-sm mt-0.5 flex-shrink-0">📝</span>
-                        <div>
-                          <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest block mb-2">
-                            What you&apos;ll submit
-                          </span>
-                          <div className="flex flex-wrap gap-2">
-                            {project.deliverables.map((d) => (
-                              <span key={d} className="tag-deliverable">
-                                {d}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="text-[11px] text-text-muted mb-5 space-y-2">
-                      <p>💰 {project.salaryRange}</p>
-                      {project.outcomes.map((o, i) => (
-                        <p
-                          key={i}
-                          className="flex items-start gap-2 text-text-secondary"
-                        >
-                          <span className="text-cta flex-shrink-0 mt-px">▸</span>
-                          {o}
-                        </p>
-                      ))}
-                    </div>
-
-                    <div className="pt-1">
-                      {!added ? (
-                        <button
-                          onClick={() => onStartSim ? onStartSim(project.id) : onAdd(project.id)}
-                          className="btn-primary btn-highlight"
-                        >
-                          Start Simulation
-                        </button>
-                      ) : (
-                        <span className="badge-added">✓ Added To CV</span>
-                      )}
-                    </div>
+              <div
+                key={project.id}
+                className="glass-card cursor-pointer hover:border-highlight transition-colors flex flex-col"
+                style={!added ? { borderStyle: "dashed", background: "transparent" } : undefined}
+                onClick={() => onStartSim ? onStartSim(project.id) : onAdd(project.id)}
+              >
+                <div className="w-full text-left flex-1 mb-4">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-[13px] font-bold text-text-primary pr-3 mb-3">
+                      {project.title}
+                    </h3>
                   </div>
-                )}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="badge badge-highlight font-medium">
+                      💰 {project.salaryRange}
+                    </span>
+                    {project.tools.map((tool) => (
+                      <span key={tool} className="tag-tool">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2 mt-auto">
+                  {!added ? (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onStartSim ? onStartSim(project.id) : onAdd(project.id);
+                      }}
+                      className="btn-primary btn-highlight w-full"
+                    >
+                      + Add
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onStartSim ? onStartSim(project.id) : onAdd(project.id);
+                      }}
+                      className="badge-added w-full text-center"
+                    >
+                      ✓ Added To CV
+                    </button>
+                  )}
+                </div>
               </div>
             );
           })}

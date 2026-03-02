@@ -7,6 +7,7 @@ import ProfileStrength from "./components/ProfileStrength";
 import StickyFooter from "./components/StickyFooter";
 import SkillCompletionCard from "./components/SkillCompletionCard";
 import SkillQuizModal from "./components/SkillQuizModal";
+import CoverPage from "./components/CoverPage";
 
 // Load persisted state from localStorage
 function loadFromStorage(key, fallback) {
@@ -19,14 +20,30 @@ function loadFromStorage(key, fallback) {
 }
 
 export default function App() {
+  const params = new URLSearchParams(window.location.search);
+  const userProfile = {
+    ...profile,
+    name: params.get("name") || profile.name,
+    currentRole: params.get("current") || profile.currentRole,
+    targetRole: params.get("target") || profile.targetRole,
+    experience: params.get("goal") || profile.experience,
+    goal: params.get("goal") || profile.goal
+  };
+
   const [addedItems, setAddedItems] = useState(() =>
     loadFromStorage("profile_addedItems", { skills: [], certifications: [], projects: [] })
   );
-  const [cvView, setCvView] = useState("before");
+  const [customCertifications, setCustomCertifications] = useState(certifications);
+  const [cvView, setCvView] = useState("after");
   const [passedQuizzes, setPassedQuizzes] = useState(() =>
     loadFromStorage("profile_passedQuizzes", [])
   );
   const [completionResult, setCompletionResult] = useState(null);
+
+  const [hasStarted, setHasStarted] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.has("completed");
+  });
 
   // Persist addedItems and passedQuizzes to localStorage
   useEffect(() => {
@@ -43,7 +60,27 @@ export default function App() {
     const completedItem = params.get("completed");
     if (completedItem) {
       // Determine which category this belongs to
-      if (completedItem.startsWith("cert-")) {
+      if (completedItem === "HR Management Certification") {
+        setCustomCertifications((prev) => {
+          const updated = [...prev];
+          updated[0] = {
+            id: "cert-custom-1",
+            title: "HR Management Certification",
+            caption: "Validated expertise in core HR policies and lifecycles.",
+            match: "100%",
+            salaryRange: "₹8L–₹12L",
+            industrySignal: "Mid-Sized & Enterprise HR Teams",
+            cvSignal: "Found in 58% HR Manager CVs at MNCs"
+          };
+          return updated;
+        });
+        setAddedItems((prev) => ({
+          ...prev,
+          certifications: prev.certifications.includes("cert-custom-1")
+            ? prev.certifications
+            : [...prev.certifications, "cert-custom-1"],
+        }));
+      } else if (completedItem.startsWith("cert-")) {
         setAddedItems((prev) => ({
           ...prev,
           certifications: prev.certifications.includes(completedItem)
@@ -101,15 +138,9 @@ export default function App() {
 
   const isAfter = cvView === "after";
 
-  const effectiveAdded = isAfter
-    ? {
-        skills: skills.map((s) => s.id),
-        certifications: certifications.map((c) => c.id),
-        projects: projects.map((p) => p.id),
-      }
-    : addedItems;
+  const effectiveAdded = addedItems;
 
-  const effectivePassed = isAfter ? skills.map((s) => s.id) : passedQuizzes;
+  const effectivePassed = passedQuizzes;
 
   const totalAdded =
     effectiveAdded.skills.length +
@@ -139,39 +170,61 @@ export default function App() {
     setActiveSkillQuiz(null);
   }, []);
 
-  // Navigate to quiz page for certification
   const startCertScenario = useCallback((certId) => {
     const base = import.meta.env.BASE_URL;
-    window.location.href = `${base}quiz/index.html?sim=cert&cert=${certId}&return=${base}`;
+    const certNum = certId.replace('cert-', '0');
+    window.location.href = `${base}quiz/index.html?sim=v1/hr_manager-certifications-${certNum}&cert=${certId}&return=${base}`;
   }, []);
 
-  // Navigate to quiz page for project
   const startProjectSim = useCallback((projId) => {
     const base = import.meta.env.BASE_URL;
-    window.location.href = `${base}quiz/index.html?sim=proj&proj=${projId}&return=${base}`;
+    const projNum = projId.replace('proj-', '0');
+    window.location.href = `${base}quiz/index.html?sim=v1/hr_manager-projects-${projNum}&proj=${projId}&return=${base}`;
   }, []);
+
+  const handleStartNext = useCallback((type, id) => {
+    if (type === "Skill") startSkillQuiz(id);
+    else if (type === "Certification") startCertScenario(id);
+    else if (type === "Project") startProjectSim(id);
+  }, [startSkillQuiz, startCertScenario, startProjectSim]);
 
 
   // Show completion content inside profile card when returning from quiz
   const showCompletion = !isAfter && completionResult;
+
+  // Determine next item
+  let nextItem = null;
+  const remainingSkills = skills.filter((s) => !effectivePassed.includes(s.id));
+  if (remainingSkills.length > 0) {
+    nextItem = { type: "Skill", title: remainingSkills[0].title, id: remainingSkills[0].id };
+  } else {
+    const remainingCerts = customCertifications.filter(
+      (c) => !effectiveAdded.certifications.includes(c.id)
+    );
+    if (remainingCerts.length > 0) {
+      nextItem = { type: "Certification", title: remainingCerts[0].title, id: remainingCerts[0].id };
+    } else {
+      const remainingProj = projects.filter(
+        (p) => !effectiveAdded.projects.includes(p.id)
+      );
+      if (remainingProj.length > 0) {
+        nextItem = { type: "Project", title: remainingProj[0].title, id: remainingProj[0].id };
+      }
+    }
+  }
+
+  if (!hasStarted) {
+    return <CoverPage profile={userProfile} onStart={() => setHasStarted(true)} />;
+  }
 
   return (
     <div className="min-h-screen bg-dark-bg pb-54">
       <div className="max-w-md mx-auto px-5 pt-8 pb-6">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-lg font-extrabold bg-gradient-to-r from-cta to-highlight bg-clip-text text-transparent">
-            Profile
+            My Profile
           </h1>
           <div className="flex bg-dark-card border border-dark-border rounded-xl overflow-hidden">
-            <button
-              onClick={() => setCvView("before")}
-              className={`px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300
-                ${cvView === "before"
-                  ? "bg-highlight text-white"
-                  : "text-text-muted hover:text-text-secondary"}`}
-            >
-              Before
-            </button>
             <button
               onClick={() => setCvView("after")}
               className={`px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300
@@ -179,7 +232,16 @@ export default function App() {
                   ? "bg-cta text-dark-bg"
                   : "text-text-muted hover:text-text-secondary"}`}
             >
-              After
+              Target
+            </button>
+            <button
+              onClick={() => setCvView("before")}
+              className={`px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300
+                ${cvView === "before"
+                  ? "bg-highlight text-white"
+                  : "text-text-muted hover:text-text-secondary"}`}
+            >
+              Configure
             </button>
           </div>
         </div>
@@ -193,14 +255,18 @@ export default function App() {
             </div>
             <div>
               <p className="font-bold text-[17px] text-text-primary">
-                {profile.name}
+                {userProfile.name}
               </p>
-              <p
-                className={`text-xs font-semibold mt-0.5 ${
-                  isAfter ? "text-cta" : "text-text-muted"
-                }`}
-              >
-                {isAfter ? profile.targetRole : profile.currentRole}
+              <p className="text-xs font-semibold mt-0.5 text-text-muted">
+                {isAfter ? (
+                  <>
+                    <span className="opacity-70">{userProfile.currentRole}</span>
+                    <span className="mx-1.5 text-text-secondary">→</span>
+                    <span className="text-cta">{userProfile.targetRole}</span>
+                  </>
+                ) : (
+                  userProfile.currentRole
+                )}
               </p>
             </div>
           </div>
@@ -214,10 +280,10 @@ export default function App() {
             /* Default info rows — shown when no completion card */
             !isAfter && (
               <div className="grid grid-cols-2 gap-3">
-                <InfoRow label="Target Role" value={profile.targetRole} />
-                <InfoRow label="Experience" value={profile.experience} />
-                <InfoRow label="Current" value={profile.currentRole} />
-                <InfoRow label="Goal" value={profile.goal} />
+                <InfoRow label="Target Role" value={userProfile.targetRole} />
+                <InfoRow label="Experience" value={userProfile.experience} />
+                <InfoRow label="Current" value={userProfile.currentRole} />
+                <InfoRow label="Goal" value={userProfile.goal} />
               </div>
             )
           )}
@@ -237,6 +303,7 @@ export default function App() {
           onAdd={(id) => addItem("certifications", id)}
           onStartScenario={startCertScenario}
           isAfter={isAfter}
+          certificationsList={customCertifications}
         />
 
         <ProjectsSection
@@ -258,7 +325,7 @@ export default function App() {
         )}
       </div>
 
-      <StickyFooter />
+      <StickyFooter totalAdded={totalAdded} nextItem={nextItem} onStartNext={handleStartNext} />
 
       {activeSkillQuiz && (
         <SkillQuizModal

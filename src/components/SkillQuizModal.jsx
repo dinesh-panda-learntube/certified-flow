@@ -5,12 +5,12 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const quizData = skillQuizData[skillId];
   const skill = skills.find((s) => s.id === skillId);
   const questions = quizData?.questions || [];
-  const timeboxPerQ = quizData?.timebox_seconds || 30;
+  const totalTimebox = quizData?.timebox_seconds || 30;
 
   const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(timeboxPerQ);
+  const [timeLeft, setTimeLeft] = useState(totalTimebox);
   const [finished, setFinished] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [skillEarned, setSkillEarned] = useState(false);
@@ -30,16 +30,9 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const handleTimeout = useCallback(() => {
     setShowFeedback(true);
     setTimeout(() => {
-      if (currentQ < questions.length - 1) {
-        setCurrentQ((q) => q + 1);
-        setSelected(null);
-        setShowFeedback(false);
-        setTimeLeft(timeboxPerQ);
-      } else {
-        setFinished(true);
-      }
+      setFinished(true);
     }, 800);
-  }, [currentQ, questions.length, timeboxPerQ]);
+  }, []);
 
   const handleSelect = useCallback(
     (idx) => {
@@ -54,13 +47,12 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
           setCurrentQ((q) => q + 1);
           setSelected(null);
           setShowFeedback(false);
-          setTimeLeft(timeboxPerQ);
         } else {
           setFinished(true);
         }
       }, 800);
     },
-    [currentQ, questions, showFeedback, timeboxPerQ]
+    [currentQ, questions, showFeedback]
   );
 
   const handleAddToCv = useCallback(() => {
@@ -82,11 +74,11 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
       <div className="relative w-full max-w-md mx-4 sm:mx-auto glass-card
                       rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto
                       animate-slideUp shadow-[0_-8px_40px_rgba(0,0,0,0.3)]"
-           style={{ background: "linear-gradient(145deg, #112f48, #0f2940)", border: "1px solid #1e4c6b" }}>
+        style={{ background: "linear-gradient(145deg, #112f48, #0f2940)", border: "1px solid #1e4c6b" }}>
 
         {/* Header */}
         <div className="sticky top-0 rounded-t-3xl z-10 px-6 py-5 border-b border-dark-border/50"
-             style={{ background: "rgba(15,45,68,0.95)", backdropFilter: "blur(8px)" }}>
+          style={{ background: "rgba(15,45,68,0.95)", backdropFilter: "blur(8px)" }}>
           <div className="flex justify-between items-center">
             <div className="pr-4">
               <p className="text-[10px] text-highlight font-bold uppercase tracking-widest mb-1">
@@ -112,11 +104,10 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                 Question {currentQ + 1} of {questions.length}
               </span>
               <span
-                className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${
-                  timeLeft < 10
-                    ? "text-danger bg-danger/10 animate-pulse"
-                    : "text-cta bg-cta/10"
-                }`}
+                className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${timeLeft < 10
+                  ? "text-danger bg-danger/10 animate-pulse"
+                  : "text-cta bg-cta/10"
+                  }`}
               >
                 0:{timeLeft.toString().padStart(2, "0")}
               </span>
@@ -160,7 +151,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
             <>
               {currentQ === 0 && !showFeedback && (
                 <div className="text-xs text-text-muted mb-5 bg-dark-surface/60 rounded-xl p-4 border border-dark-border/30">
-                  ⏱ {timeboxPerQ} seconds per question. Answer fast—this is scored.
+                  ⏱ {totalTimebox} seconds total to complete. Answer fast—this is scored.
                 </div>
               )}
 
@@ -211,9 +202,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
               </p>
               <p className="text-sm text-text-muted mb-2">{pct}%</p>
               <p
-                className={`text-sm mb-8 font-medium ${
-                  passed ? "text-cta" : "text-danger"
-                }`}
+                className={`text-sm mb-8 font-medium ${passed ? "text-cta" : "text-danger"
+                  }`}
               >
                 {passed
                   ? "Verified. Add this skill to your CV."

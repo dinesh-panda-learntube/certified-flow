@@ -1,0 +1,266 @@
+{
+  "simulation_id": "CERT_ENTERPRISE_HR_STRATEGY_CERTIFICATION_01",
+  "section": "certifications",
+  "certification_title": "Enterprise HR Strategy Certification",
+  "question_count_total": 10,
+  "scenarios": [
+    {
+      "scenario_id": "SC01",
+      "title": "Flipkart Ops attrition spike",
+      "questions": [
+        {
+          "q_id": "SC01_Q01",
+          "q": "New HR Manager at Flipkart: Ops attrition spike. First move in 60 mins?",
+          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "options": [
+            {
+              "text": "Define scope + pull 3 key data points",
+              "feedback": "You frame impact → faster alignment."
+            },
+            {
+              "text": "Broadcast a generic policy reminder",
+              "feedback": "You act broad → real driver stays hidden."
+            },
+            {
+              "text": "Start a long survey immediately",
+              "feedback": "You add delay → urgency compounds."
+            },
+            {
+              "text": "Ask teams to handle it locally",
+              "feedback": "You lose visibility → actions fragment."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC01_Q02",
+          "q": "Early signals conflict. What’s the safest next step?",
+          "explain_this": "Containment: reduce harm now while verifying facts.",
+          "options": [
+            {
+              "text": "Separate facts vs claims; list gaps",
+              "feedback": "You stay neutral → path to proof opens."
+            },
+            {
+              "text": "Assume senior version is true",
+              "feedback": "You bias early → decisions get challenged."
+            },
+            {
+              "text": "Wait for perfect information",
+              "feedback": "You delay action → risk grows."
+            },
+            {
+              "text": "Share raw details widely",
+              "feedback": "You overshare → privacy risk increases."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC01_Q03",
+          "q": "Leadership asks for plan by EOD. What format wins trust?",
+          "explain_this": "Decision memo: options, trade-offs, recommendation, checkpoint.",
+          "options": [
+            {
+              "text": "3 options + trade-offs + recommendation",
+              "feedback": "You enable decision → pace improves."
+            },
+            {
+              "text": "A long narrative with screenshots",
+              "feedback": "You add noise → decision slows."
+            },
+            {
+              "text": "Only your preferred option",
+              "feedback": "You hide trade-offs → pushback rises."
+            },
+            {
+              "text": "A list of complaints as-is",
+              "feedback": "You share inputs → no action path."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "scenario_id": "SC02",
+      "title": "Amazon India ER escalation",
+      "questions": [
+        {
+          "q_id": "SC02_Q01",
+          "q": "New HR Manager at Amazon India: ER escalation. First move in 60 mins?",
+          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "options": [
+            {
+              "text": "Define scope + pull 3 key data points",
+              "feedback": "You frame impact → faster alignment."
+            },
+            {
+              "text": "Broadcast a generic policy reminder",
+              "feedback": "You act broad → real driver stays hidden."
+            },
+            {
+              "text": "Start a long survey immediately",
+              "feedback": "You add delay → urgency compounds."
+            },
+            {
+              "text": "Ask teams to handle it locally",
+              "feedback": "You lose visibility → actions fragment."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC02_Q02",
+          "q": "Early signals conflict. What’s the safest next step?",
+          "explain_this": "Containment: reduce harm now while verifying facts.",
+          "options": [
+            {
+              "text": "Separate facts vs claims; list gaps",
+              "feedback": "You stay neutral → path to proof opens."
+            },
+            {
+              "text": "Assume senior version is true",
+              "feedback": "You bias early → decisions get challenged."
+            },
+            {
+              "text": "Wait for perfect information",
+              "feedback": "You delay action → risk grows."
+            },
+            {
+              "text": "Share raw details widely",
+              "feedback": "You overshare → privacy risk increases."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC02_Q03",
+          "q": "Leadership asks for plan by EOD. What format wins trust?",
+          "explain_this": "Decision memo: options, trade-offs, recommendation, checkpoint.",
+          "options": [
+            {
+              "text": "3 options + trade-offs + recommendation",
+              "feedback": "You enable decision → pace improves."
+            },
+            {
+              "text": "A long narrative with screenshots",
+              "feedback": "You add noise → decision slows."
+            },
+            {
+              "text": "Only your preferred option",
+              "feedback": "You hide trade-offs → pushback rises."
+            },
+            {
+              "text": "A list of complaints as-is",
+              "feedback": "You share inputs → no action path."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "scenario_id": "SC03",
+      "title": "Infosys Audit deadline",
+      "questions": [
+        {
+          "q_id": "SC03_Q01",
+          "q": "New HR Manager at Infosys: Audit deadline. First move in 60 mins?",
+          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "options": [
+            {
+              "text": "Define scope + pull 3 key data points",
+              "feedback": "You frame impact → faster alignment."
+            },
+            {
+              "text": "Broadcast a generic policy reminder",
+              "feedback": "You act broad → real driver stays hidden."
+            },
+            {
+              "text": "Start a long survey immediately",
+              "feedback": "You add delay → urgency compounds."
+            },
+            {
+              "text": "Ask teams to handle it locally",
+              "feedback": "You lose visibility → actions fragment."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC03_Q02",
+          "q": "Early signals conflict. What’s the safest next step?",
+          "explain_this": "Containment: reduce harm now while verifying facts.",
+          "options": [
+            {
+              "text": "Separate facts vs claims; list gaps",
+              "feedback": "You stay neutral → path to proof opens."
+            },
+            {
+              "text": "Assume senior version is true",
+              "feedback": "You bias early → decisions get challenged."
+            },
+            {
+              "text": "Wait for perfect information",
+              "feedback": "You delay action → risk grows."
+            },
+            {
+              "text": "Share raw details widely",
+              "feedback": "You overshare → privacy risk increases."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC03_Q03",
+          "q": "High-stakes: audit/PR deadline today. What do you propose?",
+          "explain_this": "Exception handling: document risk, temp control, remediation owner.",
+          "options": [
+            {
+              "text": "Time-bound exception + remediation plan",
+              "feedback": "You meet deadline → reduce repeat risk."
+            },
+            {
+              "text": "Refuse to sign anything",
+              "feedback": "You stall closure → escalations trigger."
+            },
+            {
+              "text": "Sign off without noting gaps",
+              "feedback": "You hide risk → future audit hits harder."
+            },
+            {
+              "text": "Ask to extend the deadline",
+              "feedback": "You miss timeline → credibility drops."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "SC03_Q04",
+          "q": "High-stakes: audit/PR deadline today. What do you propose?",
+          "explain_this": "Exception handling: document risk, temp control, remediation owner.",
+          "options": [
+            {
+              "text": "Time-bound exception + remediation plan",
+              "feedback": "You meet deadline → reduce repeat risk."
+            },
+            {
+              "text": "Refuse to sign anything",
+              "feedback": "You stall closure → escalations trigger."
+            },
+            {
+              "text": "Sign off without noting gaps",
+              "feedback": "You hide risk → future audit hits harder."
+            },
+            {
+              "text": "Ask to extend the deadline",
+              "feedback": "You miss timeline → credibility drops."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}

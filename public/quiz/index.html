@@ -103,7 +103,15 @@
             useEffect(() => {
                 const simId = params.get('sim') || 'v4';
                 const jsonPath = `${simId}.json?t=${Date.now()}`;
-                const detectedVersion = UI_VERSION_MAP[simId] || 'v2';
+
+                // Default to v3 for new v1/ content
+                let detectedVersion = 'v2';
+                if (simId.startsWith('v1/')) {
+                    detectedVersion = 'v3';
+                } else if (UI_VERSION_MAP[simId]) {
+                    detectedVersion = UI_VERSION_MAP[simId];
+                }
+
                 setUiVersion(detectedVersion);
 
                 fetch(jsonPath)
@@ -112,6 +120,151 @@
                         return r.json();
                     })
                     .then(d => {
+                        // Map v1 JSON format to expected format
+                        if (!d.simulations) {
+                            if (d.scenarios) {
+                                const mappedSim = {
+                                    simulation_metadata: {
+                                        simulation_title: d.certification_title || d.project_title || d.skill_title || d.title || 'Simulation',
+                                        why_this_matters_for_getting_hired: '',
+                                        estimated_time: '15 minutes'
+                                    },
+                                    scenario_breakdown: d.scenarios.map(sc => ({
+                                        scenario_id: sc.scenario_id,
+                                        scenario_title: sc.title,
+                                        crisis_or_decision_trigger: sc.title,
+                                        workplace_context: {
+                                            company_type: 'the specified domain',
+                                            business_state: 'facing a critical challenge'
+                                        }
+                                    })),
+                                    step_level_design: []
+                                };
+
+                                d.scenarios.forEach(sc => {
+                                    sc.questions.forEach(q => {
+                                        // Move the correct option to index 0. Reorder others around it to ensure
+                                        // logic correctly handles correct=0 index, as hr-simulation requires.
+                                        const opts = [...q.options];
+                                        const cIdx = q.correct_index || 0;
+                                        if (cIdx !== 0 && opts.length > 0) {
+                                            const temp = opts[0];
+                                            opts[0] = opts[cIdx];
+                                            opts[cIdx] = temp;
+                                        }
+
+                                        mappedSim.step_level_design.push({
+                                            step_id: q.q_id,
+                                            scenario_id: sc.scenario_id,
+                                            instruction_question: q.q,
+                                            options_inputs: opts.map(o => o.text),
+                                            outcomes: {
+                                                correct: opts[0]?.feedback || "Correct",
+                                                partially_correct: opts[1]?.feedback || "Partially correct",
+                                                incorrect: opts[2]?.feedback || "Incorrect"
+                                            },
+                                            explain_this_question: q.explain_this,
+                                            interaction_type: 'multiple_choice'
+                                        });
+                                    });
+                                });
+
+                                d = { simulations: [mappedSim] };
+                            } else if (d.steps) {
+                                const mappedSim = {
+                                    simulation_metadata: {
+                                        simulation_title: d.project_title || d.certification_title || d.skill_title || d.title || 'Simulation',
+                                        why_this_matters_for_getting_hired: '',
+                                        estimated_time: '15 minutes'
+                                    },
+                                    scenario_breakdown: [{
+                                        scenario_id: d.simulation_id || 'PROJ_01',
+                                        scenario_title: d.project_title || d.title || 'Project Setup',
+                                        crisis_or_decision_trigger: 'Complete the project steps.',
+                                        workplace_context: {
+                                            company_type: 'the specified domain',
+                                            business_state: 'facing a critical challenge'
+                                        }
+                                    }],
+                                    step_level_design: []
+                                };
+
+                                d.steps.forEach(q => {
+                                    let interactionType = 'multiple_choice';
+                                    let promptTemplate = undefined;
+                                    let blankOptions = undefined;
+                                    let artefactPromptTemplate = undefined;
+                                    let blankOrder = undefined;
+                                    let opts = q.options ? [...q.options] : [];
+
+                                    if (q.step_type === 'artefact_fill' && q.artefact && q.options_by_target) {
+                                        interactionType = 'fill_blank';
+                                        const targetToken = Object.keys(q.options_by_target)[0];
+
+                                        // Temporarily hide the active token from the generic regex, apply generic regex, then restore as active blank
+                                        let tempState = q.artefact.state.replaceAll(targetToken, '|||ACTIVE_BLANK|||');
+                                        promptTemplate = tempState
+                                            .replace(/\[[a-zA-Z0-9_ -]+\]/g, '[INACTIVE_BLANK]')
+                                            .replaceAll('|||ACTIVE_BLANK|||', '[____]');
+                                        let options = q.options_by_target[targetToken] || [];
+
+                                        let correctIdx = 0;
+                                        if (q.validation && q.validation.correct_final_state) {
+                                            correctIdx = options.findIndex(opt => q.validation.correct_final_state.includes(opt));
+                                            if (correctIdx === -1) correctIdx = 0;
+                                        }
+
+                                        opts = [...options];
+                                        if (correctIdx !== 0 && opts.length > 0 && opts[correctIdx]) {
+                                            const temp = opts[0];
+                                            opts[0] = opts[correctIdx];
+                                            opts[correctIdx] = temp;
+                                        }
+
+                                        blankOptions = opts.map(o => o.text || o);
+                                    } else if (q.step_type === 'artefact_ordering' && q.artefact && q.targets_in_order) {
+                                        interactionType = 'tap_sequence';
+                                        artefactPromptTemplate = q.artefact.state;
+                                        blankOrder = q.targets_in_order.map(t => t.replace('[', '').replace(']', ''));
+                                        opts = q.pieces || [];
+
+                                        // For TapSequence questions, we usually don't shuffle or "answer" the same way,
+                                        // they work by sequence selection. Options inputs are the available pieces.
+                                    } else {
+                                        // MCQ default behavior
+                                        const cIdx = (q.validation && q.validation.correct_index) !== undefined ? q.validation.correct_index : 0;
+
+                                        if (cIdx !== 0 && opts.length > 0 && opts[cIdx]) {
+                                            const temp = opts[0];
+                                            opts[0] = opts[cIdx];
+                                            opts[cIdx] = temp;
+                                        }
+                                    }
+
+                                    mappedSim.step_level_design.push({
+                                        step_id: q.step_id,
+                                        scenario_id: d.simulation_id || 'PROJ_01',
+                                        instruction_question: q.q,
+                                        options_inputs: opts.map(o => o.text || o),
+                                        outcomes: {
+                                            correct: "Correct",
+                                            partially_correct: "Partially correct",
+                                            incorrect: "Incorrect"
+                                        },
+                                        explain_this_question: q.explain_this || "",
+                                        interaction_type: interactionType,
+                                        prompt_template: promptTemplate,
+                                        blank_options: blankOptions,
+                                        artefact_prompt_template: artefactPromptTemplate,
+                                        blank_order: blankOrder,
+                                        required_selections: q.targets_in_order ? q.targets_in_order.length : undefined
+                                    });
+                                });
+
+                                d = { simulations: [mappedSim] };
+                            }
+                        }
+
                         // Pick only the simulation that maps to this skill
                         if (skillId && simIndexOverride !== undefined && d.simulations) {
                             const idx = Math.min(simIndexOverride, d.simulations.length - 1);
@@ -132,6 +285,7 @@
                         setData({ error: true, message: `Failed to load ${jsonPath}.` });
                     });
 
+
                 const timer = setInterval(() => {
                     if (window.HRSimulationApp) {
                         setEngineReady(true);
@@ -148,6 +302,11 @@
                 if (!itemId) return;
 
                 const profileUrl = `${returnUrl}?completed=${itemId}`;
+
+                window.onSimulationComplete = () => {
+                    document.getElementById('root').style.opacity = '0';
+                    saveResultsAndRedirect(profileUrl, itemId);
+                };
 
                 // Auto-redirect as soon as the completion screen appears — hide it instantly
                 const observer = new MutationObserver(() => {
