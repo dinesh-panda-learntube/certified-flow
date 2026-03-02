@@ -5,6 +5,7 @@ import CertificationsSection from "./components/CertificationsSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ProfileStrength from "./components/ProfileStrength";
 import StickyFooter from "./components/StickyFooter";
+import StickyHeader from "./components/StickyHeader";
 import SkillCompletionCard from "./components/SkillCompletionCard";
 import SkillQuizModal from "./components/SkillQuizModal";
 import CoverPage from "./components/CoverPage";
@@ -253,7 +254,7 @@ export default function App() {
         </div>
 
         {/* Profile Card */}
-        <div className="glass-card mb-6">
+        <div id="profile-card-section" className="glass-card mb-6">
           {/* Profile header — always shown */}
           <div className={`flex items-center gap-4 ${!showCompletion && !isAfter ? "mb-5" : isAfter ? "" : "mb-4"}`}>
             <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl border bg-dark-surface border-dark-border">
@@ -331,7 +332,11 @@ export default function App() {
         )}
       </div>
 
-      <StickyFooter totalAdded={totalAdded} nextItem={nextItem} onStartNext={handleStartNext} />
+      {isAfter ? (
+        <StickyHeader totalAdded={totalAdded} nextItem={nextItem} onStartNext={handleStartNext} />
+      ) : (
+        <StickyFooter totalAdded={totalAdded} nextItem={nextItem} onStartNext={handleStartNext} />
+      )}
 
       {activeSkillQuiz && (
         <SkillQuizModal

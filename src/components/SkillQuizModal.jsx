@@ -165,10 +165,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                     "border-dark-border/60 text-text-secondary hover:border-highlight/40 hover:bg-highlight/5";
 
                   if (showFeedback) {
-                    if (idx === questions[currentQ].correct_index) {
-                      optClass = "border-cta/50 bg-cta/10 text-cta";
-                    } else if (idx === selected && idx !== questions[currentQ].correct_index) {
-                      optClass = "border-danger/50 bg-danger/10 text-danger";
+                    if (idx === selected) {
+                      optClass = "border-highlight/60 bg-highlight/10 text-highlight";
                     } else {
                       optClass = "border-dark-border/30 text-text-muted opacity-40";
                     }
