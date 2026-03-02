@@ -42,7 +42,8 @@ export default function App() {
 
   const [hasStarted, setHasStarted] = useState(() => {
     const params = new URLSearchParams(window.location.search);
-    return params.has("completed");
+    const completed = params.get("completed");
+    return completed !== null && completed !== "HR Management Certification";
   });
 
   // Persist addedItems and passedQuizzes to localStorage
@@ -131,8 +132,13 @@ export default function App() {
         });
       }
 
-      // Clean the URL
-      window.history.replaceState({}, "", window.location.pathname);
+      // Clean the URL conditionally to preserve Outreach campaigns
+      if (completedItem !== "HR Management Certification") {
+        params.delete("completed");
+        const newSearch = params.toString();
+        const newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '');
+        window.history.replaceState({}, "", newUrl);
+      }
     }
   }, []);
 

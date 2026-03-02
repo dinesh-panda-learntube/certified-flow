@@ -18,7 +18,7 @@ export default function CoverPage({ profile, onStart }) {
                     <span className="opacity-80">{profile.currentRole}</span>
                     <span className="text-text-muted">→</span>
                     <span className="text-cta">{profile.targetRole}</span>
-                    <span className="opacity-80">({profile.experience})</span>
+                    {/* <span className="opacity-80">({profile.experience})</span> */}
                 </p>
             </div>
 
