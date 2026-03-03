@@ -254,7 +254,7 @@ export default function App() {
         </div>
 
         {/* Profile Card */}
-        <div id="profile-card-section" className="glass-card mb-6">
+        <div id="profile-card-section" className={`glass-card ${isAfter ? "mb-4" : "mb-6"}`}>
           {/* Profile header — always shown */}
           <div className={`flex items-center gap-4 ${!showCompletion && !isAfter ? "mb-5" : isAfter ? "" : "mb-4"}`}>
             <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl border bg-dark-surface border-dark-border">
@@ -298,6 +298,8 @@ export default function App() {
           <ProfileStrength totalAdded={totalAdded} />
         </div>
 
+        {isAfter && <ProfileCardBanner totalAdded={totalAdded} />}
+
         <SkillsSection
           addedItems={effectiveAdded.skills}
           passedQuizzes={effectivePassed}
@@ -320,16 +322,22 @@ export default function App() {
           isAfter={isAfter}
         />
 
-        {!isAfter && (
-          <div className="mt-16 text-center space-y-3 pb-8">
+        <div className="mt-16 text-center space-y-3 pb-8 px-4">
+          {!isAfter ? (
+            <>
+              <p className="text-text-secondary text-sm">
+                Your CV updates live as you add items.
+              </p>
+              <p className="text-text-muted text-xs opacity-70">
+                Toggle &lsquo;After&rsquo; to preview the full completed profile.
+              </p>
+            </>
+          ) : (
             <p className="text-text-secondary text-sm">
-              Your CV updates live as you add items.
+              Complete 10 Within 3 Days To Unlock Certifications Worth ₹2199 & Upgrade Your CV For Free.
             </p>
-            <p className="text-text-muted text-xs opacity-70">
-              Toggle &lsquo;After&rsquo; to preview the full completed profile.
-            </p>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {isAfter ? (
@@ -356,6 +364,32 @@ function InfoRow({ label, value }) {
         {label}
       </p>
       <p className="text-xs font-semibold text-text-primary">{value}</p>
+    </div>
+  );
+}
+
+function ProfileCardBanner({ totalAdded }) {
+  const [showColon, setShowColon] = useState(true);
+
+  useEffect(() => {
+    const colonInterval = setInterval(() => setShowColon((prev) => !prev), 1000);
+    return () => clearInterval(colonInterval);
+  }, []);
+
+  if (totalAdded === 0) {
+    return (
+      <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-highlight text-center px-4 py-2 shadow-lg border border-highlight/50">
+        <p className="text-white text-[10px] font-extrabold tracking-widest uppercase">
+          Free Access For 23H<span className={showColon ? "opacity-100" : "opacity-0"}>:</span>59M - Complete 1 to extend
+        </p>
+      </div>
+    );
+  }
+  return (
+    <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-[#1b3b5c] text-center px-4 py-2 shadow-lg border border-[#1b3b5c]/50">
+      <p className="text-white/90 text-[10px] font-extrabold tracking-widest uppercase">
+        Complete Within 3 Days & Get Certification Free
+      </p>
     </div>
   );
 }
