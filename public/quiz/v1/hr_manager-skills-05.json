@@ -2,7 +2,7 @@
   "quiz_id": "SK_ONBOARDING_PROGRAM_DESIGN_05",
   "section": "skills",
   "simulation_title": "Onboarding Program Design — Micro Check",
-  "timebox_seconds": 30,
+  "timebox_seconds": 60,
   "questions": [
     {
       "q_id": "Q01",

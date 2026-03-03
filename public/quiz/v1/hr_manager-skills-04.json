@@ -2,7 +2,7 @@
   "quiz_id": "SK_HR_POLICY_DOCUMENTATION_04",
   "section": "skills",
   "simulation_title": "HR Policy & Documentation — Micro Check",
-  "timebox_seconds": 30,
+  "timebox_seconds": 60,
   "questions": [
     {
       "q_id": "Q01",

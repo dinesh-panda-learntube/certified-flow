@@ -2,7 +2,7 @@
   "quiz_id": "SK_EMPLOYEE_RELATIONS_HANDLING_03",
   "section": "skills",
   "simulation_title": "Employee Relations Handling — Micro Check",
-  "timebox_seconds": 30,
+  "timebox_seconds": 60,
   "questions": [
     {
       "q_id": "Q01",

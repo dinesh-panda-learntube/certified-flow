@@ -5,7 +5,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const quizData = skillQuizData[skillId];
   const skill = skills.find((s) => s.id === skillId);
   const questions = quizData?.questions || [];
-  const totalTimebox = quizData?.timebox_seconds || 30;
+  const totalTimebox = quizData?.timebox_seconds || 60;
 
   const [currentQ, setCurrentQ] = useState(0);
 
