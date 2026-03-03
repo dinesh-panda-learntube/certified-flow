@@ -6,65 +6,65 @@
   "questions": [
     {
       "q_id": "Q01",
-      "q": "In HR, stakeholder management mainly means…",
+      "q": "Stakeholder management in HR means…",
       "options": [
         "aligning decisions across teams",
-        "sending daily reminders",
+        "sending reminders to everyone",
         "approving all requests",
-        "avoiding escalation"
+        "avoiding escalations"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q02",
-      "q": "Best first move when a leader pings “urgent” but vague?",
+      "q": "Leader says “urgent” but unclear. First move?",
       "options": [
         "ask impact + deadline + owner",
-        "draft policy note now",
-        "escalate to CEO",
-        "call a 1-hour meeting"
+        "draft policy mail now",
+        "set 60‑min meeting",
+        "escalate to CEO"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q03",
-      "q": "Odd one out in a good update:",
+      "q": "Odd one out in a crisp update:",
       "options": [
         "decision needed",
         "current status",
-        "next steps + owner",
+        "next step + owner",
         "full chat transcript"
       ],
       "correct_index": 3
     },
     {
       "q_id": "Q04",
-      "q": "RACI helps you clarify…",
+      "q": "A stakeholder map helps you…",
       "options": [
-        "roles + accountability",
-        "salary bands",
-        "org chart titles",
-        "leave balances"
+        "prioritize influence vs impact",
+        "set salary bands",
+        "rank employees",
+        "finalize offers"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q05",
-      "q": "A single-threaded owner means…",
+      "q": "RACI is used to clarify…",
       "options": [
-        "one person drives closure",
-        "HR owns everything",
-        "no one decides",
-        "only managers act"
+        "who owns what",
+        "who is unhappy",
+        "who is senior",
+        "who is remote"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q06",
-      "q": "When facts are incomplete, best opener is…",
+      "q": "Best line when facts are partial:",
       "options": [
-        "here’s what we know + next check-in",
-        "this is definitely true",
+        "here’s what we know + next check‑in",
+        "this is confirmed true",
         "we’ll close today",
         "someone is at fault"
       ],
@@ -72,34 +72,34 @@
     },
     {
       "q_id": "Q07",
-      "q": "A stakeholder map is most useful to…",
+      "q": "To reduce noisy pings, you should…",
       "options": [
-        "prioritize influence vs impact",
-        "rank employees",
-        "set payroll dates",
-        "write offer letters"
+        "agree cadence + format",
+        "reply to every ping",
+        "go silent for a week",
+        "send long daily emails"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q08",
-      "q": "Best way to reduce noisy pings from stakeholders?",
+      "q": "In a cross-team conflict, strongest move is…",
       "options": [
-        "agree cadence + format",
-        "reply instantly always",
-        "send weekly long email",
-        "ignore until later"
+        "restate goal + constraints",
+        "pick the loudest voice",
+        "promise everything",
+        "delay until it fades"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q09",
-      "q": "In an ER escalation, first 60 mins should focus on…",
+      "q": "Decision-ready note should include…",
       "options": [
-        "safety + containment + evidence",
-        "finding who to blame",
-        "writing final verdict",
-        "sharing to all"
+        "options + trade-offs + rec",
+        "only background",
+        "only screenshots",
+        "only complaints"
       ],
       "correct_index": 0
     },
@@ -107,30 +107,30 @@
       "q_id": "Q10",
       "q": "Odd one out for decision readiness:",
       "options": [
-        "options + trade-offs",
-        "recommendation",
-        "decision owner",
-        "raw screenshots dump"
+        "owner",
+        "deadline",
+        "trade-offs",
+        "full transcript"
       ],
       "correct_index": 3
     },
     {
       "q_id": "Q11",
-      "q": "A “decision log” should capture…",
+      "q": "A decision log must capture…",
       "options": [
-        "what decided + by whom + when",
-        "who complained",
+        "decision + date + approver",
+        "everyone’s opinion",
         "meeting jokes",
-        "personal opinions"
+        "personal feelings"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q12",
-      "q": "Best question to clarify scope is…",
+      "q": "Best scope question is…",
       "options": [
         "what does success look like?",
-        "who’s wrong?",
+        "who is wrong?",
         "can we skip process?",
         "is this confidential?"
       ],
@@ -138,73 +138,73 @@
     },
     {
       "q_id": "Q13",
-      "q": "If Legal must weigh in, you should…",
+      "q": "If Legal must weigh in, send…",
       "options": [
-        "send a 5-line brief with clear ask",
-        "wait silently",
-        "forward whole thread",
-        "guess the answer"
+        "5-line brief with clear ask",
+        "complete chat export",
+        "only your guess",
+        "a 10-page doc first"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q14",
-      "q": "In stakeholder conflict, strongest move is…",
+      "q": "Hard: Fastest way to unblock approval?",
       "options": [
-        "restate goal + constraints",
-        "pick the loudest voice",
-        "promise everything",
-        "delay indefinitely"
+        "2 options + risk + rec",
+        "schedule 3 meetings",
+        "wait for replies",
+        "share full history"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q15",
-      "q": "Hard: What’s the fastest way to unblock approval?",
+      "q": "Hard: Manager asks “quick exception”. You…",
       "options": [
-        "2 options + risk + your rec",
-        "share full history",
-        "schedule 3 meetings",
-        "ask them to ‘review’"
+        "offer safe options + document risk",
+        "approve to keep peace",
+        "deny with only 'policy'",
+        "post in group chat"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q16",
-      "q": "Hard: A manager wants a “quick exception”. You…",
+      "q": "Hard: When to move from chat to writing?",
       "options": [
-        "clarify rationale + offer safe options",
-        "approve instantly",
-        "deny with only ‘policy’",
-        "escalate publicly"
+        "when commitments are made",
+        "when chat is friendly",
+        "when emojis appear",
+        "when HR is tagged"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q17",
-      "q": "Hard: Conflicting accounts—your notes should separate…",
+      "q": "Hard: Conflicting accounts—notes should split…",
       "options": [
         "facts vs claims + gaps",
         "intent assumptions",
-        "rank of people",
-        "emotions summary"
+        "seniority ranks",
+        "tone analysis"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q18",
-      "q": "Hard: Most leadership-safe status line is…",
+      "q": "Hard: Best status line to leadership:",
       "options": [
         "containment done; next decision at 5pm",
-        "everything is fine",
+        "all good",
         "someone messed up",
-        "we will terminate"
+        "terminating today"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q19",
-      "q": "Hard: Which metric reflects stakeholder mgmt quality?",
+      "q": "Hard: Best metric for stakeholder mgmt:",
       "options": [
         "time-to-decision on escalations",
         "messages sent",
@@ -215,12 +215,12 @@
     },
     {
       "q_id": "Q20",
-      "q": "Hard: When to move from chat to written note?",
+      "q": "Hard: Good escalation first line includes…",
       "options": [
-        "when commitments are made",
-        "when chat is friendly",
-        "when emojis appear",
-        "when HR is tagged"
+        "decision needed + by when",
+        "full history",
+        "who said what",
+        "every link"
       ],
       "correct_index": 0
     }

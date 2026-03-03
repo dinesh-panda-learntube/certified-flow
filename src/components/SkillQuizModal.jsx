@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { skillQuizData, skills } from "../data/profileData";
 
 export default function SkillQuizModal({ skillId, onPass, onClose }) {
@@ -8,6 +8,24 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const totalTimebox = quizData?.timebox_seconds || 30;
 
   const [currentQ, setCurrentQ] = useState(0);
+
+  const shuffledOptions = useMemo(() => {
+    const q = questions[currentQ];
+    if (!q) return [];
+
+    // Map options tracking their original indices for stable grading checks
+    const opts = q.options.map((text, index) => ({
+      text,
+      originalIndex: index
+    }));
+
+    // Fisher-Yates secure shuffle without mutating source objects natively
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    return opts;
+  }, [currentQ, questions]);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(totalTimebox);
@@ -36,23 +54,15 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
 
   const handleSelect = useCallback(
     (idx) => {
-      if (showFeedback) return;
-      setSelected(idx);
-      setShowFeedback(true);
-
       if (idx === questions[currentQ].correct_index) setScore((s) => s + 1);
 
-      setTimeout(() => {
-        if (currentQ < questions.length - 1) {
-          setCurrentQ((q) => q + 1);
-          setSelected(null);
-          setShowFeedback(false);
-        } else {
-          setFinished(true);
-        }
-      }, 800);
+      if (currentQ < questions.length - 1) {
+        setCurrentQ((q) => q + 1);
+      } else {
+        setFinished(true);
+      }
     },
-    [currentQ, questions, showFeedback]
+    [currentQ, questions]
   );
 
   const handleAddToCv = useCallback(() => {
@@ -101,12 +111,12 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
           {!finished && !skillEarned && (
             <div className="flex justify-between items-center mt-3">
               <span className="text-[11px] text-text-muted font-medium">
-                Question {currentQ + 1} of {questions.length}
+                {currentQ} Completed
               </span>
               <span
                 className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${timeLeft < 10
                   ? "text-danger bg-danger/10 animate-pulse"
-                  : "text-cta bg-cta/10"
+                  : "text-highlight bg-highlight/10"
                   }`}
               >
                 0:{timeLeft.toString().padStart(2, "0")}
@@ -117,8 +127,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
           {!finished && !skillEarned && (
             <div className="w-full h-1.5 bg-dark-surface rounded-full mt-3 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-highlight to-cta rounded-full transition-all duration-500"
-                style={{ width: `${((currentQ + 1) / questions.length) * 100}%` }}
+                className="h-full bg-highlight rounded-full transition-all duration-1000 ease-linear"
+                style={{ width: `${(timeLeft / totalTimebox) * 100}%` }}
               />
             </div>
           )}
@@ -160,32 +170,28 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
               </p>
 
               <div className="space-y-3">
-                {questions[currentQ].options.map((opt, idx) => {
+                {shuffledOptions.map((opt) => {
                   let optClass =
                     "border-dark-border/60 text-text-secondary hover:border-highlight/40 hover:bg-highlight/5";
 
                   if (showFeedback) {
-                    if (idx === selected) {
+                    if (opt.originalIndex === selected) {
                       optClass = "border-highlight/60 bg-highlight/10 text-highlight";
                     } else {
                       optClass = "border-dark-border/30 text-text-muted opacity-40";
                     }
-                  } else if (selected === idx) {
+                  } else if (selected === opt.originalIndex) {
                     optClass = "border-highlight/60 bg-highlight/10 text-highlight";
                   }
 
                   return (
                     <button
-                      key={idx}
-                      onClick={() => handleSelect(idx)}
+                      key={opt.originalIndex}
+                      onClick={() => handleSelect(opt.originalIndex)}
                       disabled={showFeedback}
-                      className={`w-full text-left px-5 py-3.5 rounded-xl border text-[13px]
-                                  transition-all duration-200 min-h-[48px] leading-relaxed ${optClass}`}
+                      className={`w-full text-left px-4 py-3 border rounded-xl transition-all font-medium text-[13px] leading-snug ${optClass}`}
                     >
-                      <span className="font-bold mr-2 opacity-40 text-xs">
-                        {String.fromCharCode(65 + idx)}.
-                      </span>
-                      {opt}
+                      {opt.text}
                     </button>
                   );
                 })}

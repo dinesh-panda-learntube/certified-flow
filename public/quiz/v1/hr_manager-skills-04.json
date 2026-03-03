@@ -6,221 +6,221 @@
   "questions": [
     {
       "q_id": "Q01",
-      "q": "In HR, stakeholder management mainly means…",
+      "q": "HR policy documentation is mainly for…",
       "options": [
-        "aligning decisions across teams",
-        "sending daily reminders",
-        "approving all requests",
-        "avoiding escalation"
+        "consistency + defensibility",
+        "making rules complex",
+        "avoiding exceptions",
+        "reducing hiring"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q02",
-      "q": "Best first move when a leader pings “urgent” but vague?",
+      "q": "Best first step before drafting a policy?",
       "options": [
-        "ask impact + deadline + owner",
-        "draft policy note now",
-        "escalate to CEO",
-        "call a 1-hour meeting"
+        "define intent + scope",
+        "write final version",
+        "announce to employees",
+        "collect signatures"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q03",
-      "q": "Odd one out in a good update:",
+      "q": "Odd one out in a good policy doc:",
       "options": [
-        "decision needed",
-        "current status",
-        "next steps + owner",
-        "full chat transcript"
+        "definitions",
+        "scope",
+        "process steps",
+        "personal opinions"
       ],
       "correct_index": 3
     },
     {
       "q_id": "Q04",
-      "q": "RACI helps you clarify…",
+      "q": "What makes documentation audit-friendly?",
       "options": [
-        "roles + accountability",
-        "salary bands",
-        "org chart titles",
-        "leave balances"
+        "version + approvals",
+        "longer text",
+        "many fonts",
+        "hidden changes"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q05",
-      "q": "A single-threaded owner means…",
+      "q": "A common misconception is…",
       "options": [
-        "one person drives closure",
-        "HR owns everything",
-        "no one decides",
-        "only managers act"
+        "policies cover every edge case",
+        "policies need clear scope",
+        "templates save time",
+        "logs reduce risk"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q06",
-      "q": "When facts are incomplete, best opener is…",
+      "q": "Best way to handle exceptions?",
       "options": [
-        "here’s what we know + next check-in",
-        "this is definitely true",
-        "we’ll close today",
-        "someone is at fault"
+        "define exception route",
+        "ignore exceptions",
+        "approve verbally",
+        "deny all always"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q07",
-      "q": "A stakeholder map is most useful to…",
+      "q": "Where should key decisions be captured?",
       "options": [
-        "prioritize influence vs impact",
-        "rank employees",
-        "set payroll dates",
-        "write offer letters"
+        "decision log",
+        "WhatsApp chat",
+        "memory",
+        "meeting hallway"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q08",
-      "q": "Best way to reduce noisy pings from stakeholders?",
+      "q": "Odd one out for compliant records:",
       "options": [
-        "agree cadence + format",
-        "reply instantly always",
-        "send weekly long email",
-        "ignore until later"
+        "timestamps",
+        "owner",
+        "retention rule",
+        "emoji reactions"
       ],
-      "correct_index": 0
+      "correct_index": 3
     },
     {
       "q_id": "Q09",
-      "q": "In an ER escalation, first 60 mins should focus on…",
+      "q": "Best heading for a process section is…",
       "options": [
-        "safety + containment + evidence",
-        "finding who to blame",
-        "writing final verdict",
-        "sharing to all"
+        "Steps + owner + SLA",
+        "Random notes",
+        "Nice-to-have",
+        "Background only"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q10",
-      "q": "Odd one out for decision readiness:",
+      "q": "When updating a policy, you must…",
       "options": [
-        "options + trade-offs",
-        "recommendation",
-        "decision owner",
-        "raw screenshots dump"
+        "communicate change + effective date",
+        "delete old copies",
+        "only tell managers",
+        "avoid documenting"
       ],
-      "correct_index": 3
+      "correct_index": 0
     },
     {
       "q_id": "Q11",
-      "q": "A “decision log” should capture…",
+      "q": "To reduce misinterpretation, include…",
       "options": [
-        "what decided + by whom + when",
-        "who complained",
-        "meeting jokes",
-        "personal opinions"
+        "examples + definitions",
+        "more legal words",
+        "long intros",
+        "jargon acronyms"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q12",
-      "q": "Best question to clarify scope is…",
+      "q": "Best way to avoid 'policy vs practice' gap?",
       "options": [
-        "what does success look like?",
-        "who’s wrong?",
-        "can we skip process?",
-        "is this confidential?"
+        "test with real cases",
+        "publish once",
+        "assume managers follow",
+        "skip training"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q13",
-      "q": "If Legal must weigh in, you should…",
+      "q": "If policy conflicts across docs, first do…",
       "options": [
-        "send a 5-line brief with clear ask",
-        "wait silently",
-        "forward whole thread",
-        "guess the answer"
+        "identify source of truth",
+        "pick newest email",
+        "ask random manager",
+        "ignore conflict"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q14",
-      "q": "In stakeholder conflict, strongest move is…",
+      "q": "Hard: Most useful audit question is…",
       "options": [
-        "restate goal + constraints",
-        "pick the loudest voice",
-        "promise everything",
-        "delay indefinitely"
+        "who approved + when?",
+        "who is popular?",
+        "who complained?",
+        "who is loud?"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q15",
-      "q": "Hard: What’s the fastest way to unblock approval?",
+      "q": "Hard: What belongs in a retention schedule?",
       "options": [
-        "2 options + risk + your rec",
-        "share full history",
-        "schedule 3 meetings",
-        "ask them to ‘review’"
+        "how long to keep records",
+        "team lunch dates",
+        "salary gossip",
+        "meeting memes"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q16",
-      "q": "Hard: A manager wants a “quick exception”. You…",
+      "q": "Hard: Best sign-off flow is…",
       "options": [
-        "clarify rationale + offer safe options",
-        "approve instantly",
-        "deny with only ‘policy’",
-        "escalate publicly"
+        "draft → review → approve → publish",
+        "publish → review later",
+        "approve verbally",
+        "ask interns only"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q17",
-      "q": "Hard: Conflicting accounts—your notes should separate…",
+      "q": "Hard: What makes a template dangerous?",
       "options": [
-        "facts vs claims + gaps",
-        "intent assumptions",
-        "rank of people",
-        "emotions summary"
+        "reusing without context",
+        "having headings",
+        "saving time",
+        "standard sections"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q18",
-      "q": "Hard: Most leadership-safe status line is…",
+      "q": "Hard: Best way to track changes?",
       "options": [
-        "containment done; next decision at 5pm",
-        "everything is fine",
-        "someone messed up",
-        "we will terminate"
+        "version history + changelog",
+        "rename file 'final final'",
+        "overwrite file",
+        "email attachments only"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q19",
-      "q": "Hard: Which metric reflects stakeholder mgmt quality?",
+      "q": "Hard: A policy is 'effective' when…",
       "options": [
-        "time-to-decision on escalations",
-        "messages sent",
-        "meeting hours",
-        "docs created"
+        "date communicated + access given",
+        "HR thinks so",
+        "manager says so",
+        "PDF created"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q20",
-      "q": "Hard: When to move from chat to written note?",
+      "q": "Hard: Good policy scope line:",
       "options": [
-        "when commitments are made",
-        "when chat is friendly",
-        "when emojis appear",
-        "when HR is tagged"
+        "Applies to X; excludes Y",
+        "For everyone always",
+        "Maybe applies",
+        "Depends"
       ],
       "correct_index": 0
     }

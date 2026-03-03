@@ -180,13 +180,13 @@ export default function App() {
   const startCertScenario = useCallback((certId) => {
     const base = import.meta.env.BASE_URL;
     const certNum = certId.replace('cert-', '0');
-    window.location.href = `${base}quiz/index.html?sim=v1/hr_manager-certifications-${certNum}&cert=${certId}&return=${base}`;
+    window.open(`${base}quiz/index.html?sim=v1/hr_manager-certifications-${certNum}&cert=${certId}&return=${base}`, '_blank');
   }, []);
 
   const startProjectSim = useCallback((projId) => {
     const base = import.meta.env.BASE_URL;
     const projNum = projId.replace('proj-', '0');
-    window.location.href = `${base}quiz/index.html?sim=v1/hr_manager-projects-${projNum}&proj=${projId}&return=${base}`;
+    window.open(`${base}quiz/index.html?sim=v1/hr_manager-projects-${projNum}&proj=${projId}&return=${base}`, '_blank');
   }, []);
 
   const handleStartNext = useCallback((type, id) => {

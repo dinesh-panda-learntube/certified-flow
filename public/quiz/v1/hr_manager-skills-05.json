@@ -6,221 +6,221 @@
   "questions": [
     {
       "q_id": "Q01",
-      "q": "In HR, stakeholder management mainly means…",
+      "q": "Good onboarding primarily improves…",
       "options": [
-        "aligning decisions across teams",
-        "sending daily reminders",
-        "approving all requests",
-        "avoiding escalation"
+        "time-to-productivity",
+        "office decoration",
+        "meeting count",
+        "email volume"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q02",
-      "q": "Best first move when a leader pings “urgent” but vague?",
+      "q": "New joiner feels lost Day 1. First fix?",
       "options": [
-        "ask impact + deadline + owner",
-        "draft policy note now",
-        "escalate to CEO",
-        "call a 1-hour meeting"
+        "clear agenda + buddy + essentials",
+        "send policy PDFs",
+        "ask them to explore alone",
+        "schedule 10 meetings"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q03",
-      "q": "Odd one out in a good update:",
+      "q": "Odd one out in onboarding essentials:",
       "options": [
-        "decision needed",
-        "current status",
-        "next steps + owner",
-        "full chat transcript"
+        "role clarity",
+        "tools access",
+        "success metrics",
+        "random fun trivia"
       ],
       "correct_index": 3
     },
     {
       "q_id": "Q04",
-      "q": "RACI helps you clarify…",
+      "q": "A buddy program works when…",
       "options": [
-        "roles + accountability",
-        "salary bands",
-        "org chart titles",
-        "leave balances"
+        "buddy has time + checklist",
+        "buddy is senior-most",
+        "buddy is random",
+        "buddy is hidden"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q05",
-      "q": "A single-threaded owner means…",
+      "q": "Best onboarding metric for HR Manager?",
       "options": [
-        "one person drives closure",
-        "HR owns everything",
-        "no one decides",
-        "only managers act"
+        "time to first milestone",
+        "number of sessions",
+        "slides created",
+        "welcome email length"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q06",
-      "q": "When facts are incomplete, best opener is…",
+      "q": "To avoid overload, you should…",
       "options": [
-        "here’s what we know + next check-in",
-        "this is definitely true",
-        "we’ll close today",
-        "someone is at fault"
+        "sequence tasks by priority",
+        "dump all docs Day 1",
+        "add more meetings",
+        "only rely on FAQs"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q07",
-      "q": "A stakeholder map is most useful to…",
+      "q": "Odd one out for a 30-60-90 plan:",
       "options": [
-        "prioritize influence vs impact",
-        "rank employees",
-        "set payroll dates",
-        "write offer letters"
+        "milestones",
+        "owners",
+        "signals of success",
+        "guesses"
       ],
-      "correct_index": 0
+      "correct_index": 3
     },
     {
       "q_id": "Q08",
-      "q": "Best way to reduce noisy pings from stakeholders?",
+      "q": "A common misconception is…",
       "options": [
-        "agree cadence + format",
-        "reply instantly always",
-        "send weekly long email",
-        "ignore until later"
+        "more content means better onboarding",
+        "role clarity beats volume",
+        "access delays hurt",
+        "check-ins reduce churn"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q09",
-      "q": "In an ER escalation, first 60 mins should focus on…",
+      "q": "Best Day 0 checklist item is…",
       "options": [
-        "safety + containment + evidence",
-        "finding who to blame",
-        "writing final verdict",
-        "sharing to all"
+        "tools + access ready",
+        "team lunch plan",
+        "birthday list",
+        "office tour only"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q10",
-      "q": "Odd one out for decision readiness:",
+      "q": "For remote onboarding, biggest risk is…",
       "options": [
-        "options + trade-offs",
-        "recommendation",
-        "decision owner",
-        "raw screenshots dump"
+        "silence + no feedback loops",
+        "too many emojis",
+        "too many badges",
+        "too many holidays"
       ],
-      "correct_index": 3
+      "correct_index": 0
     },
     {
       "q_id": "Q11",
-      "q": "A “decision log” should capture…",
+      "q": "To improve manager quality, provide…",
       "options": [
-        "what decided + by whom + when",
-        "who complained",
-        "meeting jokes",
-        "personal opinions"
+        "weekly 1:1 template",
+        "generic welcome note",
+        "only HR videos",
+        "no structure"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q12",
-      "q": "Best question to clarify scope is…",
+      "q": "Best place to capture onboarding gaps is…",
       "options": [
-        "what does success look like?",
-        "who’s wrong?",
-        "can we skip process?",
-        "is this confidential?"
+        "joiner feedback log",
+        "memory",
+        "Slack jokes",
+        "random doc"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q13",
-      "q": "If Legal must weigh in, you should…",
+      "q": "If joiners churn early, first check…",
       "options": [
-        "send a 5-line brief with clear ask",
-        "wait silently",
-        "forward whole thread",
-        "guess the answer"
+        "role expectations + manager support",
+        "logo design",
+        "snack budget",
+        "parking"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q14",
-      "q": "In stakeholder conflict, strongest move is…",
+      "q": "Hard: Best early outcome signal is…",
       "options": [
-        "restate goal + constraints",
-        "pick the loudest voice",
-        "promise everything",
-        "delay indefinitely"
+        "first deliverable shipped",
+        "attended all meetings",
+        "read all policies",
+        "posted intro message"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q15",
-      "q": "Hard: What’s the fastest way to unblock approval?",
+      "q": "Hard: How to personalize onboarding?",
       "options": [
-        "2 options + risk + your rec",
-        "share full history",
-        "schedule 3 meetings",
-        "ask them to ‘review’"
+        "role-based paths",
+        "same for everyone",
+        "manager improvises",
+        "only videos"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q16",
-      "q": "Hard: A manager wants a “quick exception”. You…",
+      "q": "Hard: Best fix for access delays?",
       "options": [
-        "clarify rationale + offer safe options",
-        "approve instantly",
-        "deny with only ‘policy’",
-        "escalate publicly"
+        "pre-provision + SLA + owner",
+        "ask joiner to wait",
+        "escalate daily loudly",
+        "send more docs"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q17",
-      "q": "Hard: Conflicting accounts—your notes should separate…",
+      "q": "Hard: A strong Week 1 check-in asks…",
       "options": [
-        "facts vs claims + gaps",
-        "intent assumptions",
-        "rank of people",
-        "emotions summary"
+        "what blocked you + next support",
+        "are you happy?",
+        "do you like company?",
+        "rate HR"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q18",
-      "q": "Hard: Most leadership-safe status line is…",
+      "q": "Hard: Best way to reduce drop-offs?",
       "options": [
-        "containment done; next decision at 5pm",
-        "everything is fine",
-        "someone messed up",
-        "we will terminate"
+        "small milestones + visible wins",
+        "one big final test",
+        "no check-ins",
+        "only surveys"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q19",
-      "q": "Hard: Which metric reflects stakeholder mgmt quality?",
+      "q": "Hard: Best onboarding doc format is…",
       "options": [
-        "time-to-decision on escalations",
-        "messages sent",
-        "meeting hours",
-        "docs created"
+        "task checklist + links",
+        "long narrative",
+        "chat transcript",
+        "slide deck only"
       ],
       "correct_index": 0
     },
     {
       "q_id": "Q20",
-      "q": "Hard: When to move from chat to written note?",
+      "q": "Hard: What shows program ROI?",
       "options": [
-        "when commitments are made",
-        "when chat is friendly",
-        "when emojis appear",
-        "when HR is tagged"
+        "faster ramp + lower early attrition",
+        "more welcome posts",
+        "more swag",
+        "more meetings"
       ],
       "correct_index": 0
     }

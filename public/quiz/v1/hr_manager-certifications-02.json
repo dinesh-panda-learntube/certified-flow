@@ -6,27 +6,27 @@
   "scenarios": [
     {
       "scenario_id": "SC01",
-      "title": "Flipkart Ops attrition spike",
+      "title": "Flipkart Warehouse Attrition Spike",
       "questions": [
         {
           "q_id": "SC01_Q01",
-          "q": "New HR Manager at Flipkart: Ops attrition spike. First move in 60 mins?",
-          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "q": "New HR Manager at Flipkart: Warehouse Attrition Spike. First move in 60 mins?",
+          "explain_this": "Triage: clarify impact, owner, timeline, minimum facts.",
           "options": [
             {
               "text": "Define scope + pull 3 key data points",
-              "feedback": "You frame impact → faster alignment."
+              "feedback": "You frame impact → alignment speeds up."
             },
             {
-              "text": "Broadcast a generic policy reminder",
-              "feedback": "You act broad → real driver stays hidden."
+              "text": "Send a broad policy reminder",
+              "feedback": "You go generic → root cause stays hidden."
             },
             {
-              "text": "Start a long survey immediately",
-              "feedback": "You add delay → urgency compounds."
+              "text": "Launch a long survey now",
+              "feedback": "You add delay → issue compounds."
             },
             {
-              "text": "Ask teams to handle it locally",
+              "text": "Ask teams to handle locally",
               "feedback": "You lose visibility → actions fragment."
             }
           ],
@@ -34,16 +34,16 @@
         },
         {
           "q_id": "SC01_Q02",
-          "q": "Early signals conflict. What’s the safest next step?",
+          "q": "Signals are mixed in Flipkart. Safest next step?",
           "explain_this": "Containment: reduce harm now while verifying facts.",
           "options": [
             {
               "text": "Separate facts vs claims; list gaps",
-              "feedback": "You stay neutral → path to proof opens."
+              "feedback": "You stay neutral → proof path opens."
             },
             {
               "text": "Assume senior version is true",
-              "feedback": "You bias early → decisions get challenged."
+              "feedback": "You bias early → decision gets challenged."
             },
             {
               "text": "Wait for perfect information",
@@ -51,7 +51,7 @@
             },
             {
               "text": "Share raw details widely",
-              "feedback": "You overshare → privacy risk increases."
+              "feedback": "You overshare → privacy risk rises."
             }
           ],
           "correct_index": 0
@@ -62,19 +62,19 @@
           "explain_this": "Decision memo: options, trade-offs, recommendation, checkpoint.",
           "options": [
             {
-              "text": "3 options + trade-offs + recommendation",
+              "text": "Options + trade-offs + recommendation",
               "feedback": "You enable decision → pace improves."
             },
             {
-              "text": "A long narrative with screenshots",
+              "text": "Long narrative with screenshots",
               "feedback": "You add noise → decision slows."
             },
             {
               "text": "Only your preferred option",
-              "feedback": "You hide trade-offs → pushback rises."
+              "feedback": "You hide trade-offs → pushback increases."
             },
             {
-              "text": "A list of complaints as-is",
+              "text": "Raw complaints pasted as-is",
               "feedback": "You share inputs → no action path."
             }
           ],
@@ -84,27 +84,27 @@
     },
     {
       "scenario_id": "SC02",
-      "title": "Amazon India ER escalation",
+      "title": "Zomato Harassment Escalation",
       "questions": [
         {
           "q_id": "SC02_Q01",
-          "q": "New HR Manager at Amazon India: ER escalation. First move in 60 mins?",
-          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "q": "New HR Manager at Zomato: Harassment Escalation. First move in 60 mins?",
+          "explain_this": "Triage: clarify impact, owner, timeline, minimum facts.",
           "options": [
             {
               "text": "Define scope + pull 3 key data points",
-              "feedback": "You frame impact → faster alignment."
+              "feedback": "You frame impact → alignment speeds up."
             },
             {
-              "text": "Broadcast a generic policy reminder",
-              "feedback": "You act broad → real driver stays hidden."
+              "text": "Send a broad policy reminder",
+              "feedback": "You go generic → root cause stays hidden."
             },
             {
-              "text": "Start a long survey immediately",
-              "feedback": "You add delay → urgency compounds."
+              "text": "Launch a long survey now",
+              "feedback": "You add delay → issue compounds."
             },
             {
-              "text": "Ask teams to handle it locally",
+              "text": "Ask teams to handle locally",
               "feedback": "You lose visibility → actions fragment."
             }
           ],
@@ -112,16 +112,16 @@
         },
         {
           "q_id": "SC02_Q02",
-          "q": "Early signals conflict. What’s the safest next step?",
+          "q": "Signals are mixed in Zomato. Safest next step?",
           "explain_this": "Containment: reduce harm now while verifying facts.",
           "options": [
             {
               "text": "Separate facts vs claims; list gaps",
-              "feedback": "You stay neutral → path to proof opens."
+              "feedback": "You stay neutral → proof path opens."
             },
             {
               "text": "Assume senior version is true",
-              "feedback": "You bias early → decisions get challenged."
+              "feedback": "You bias early → decision gets challenged."
             },
             {
               "text": "Wait for perfect information",
@@ -129,7 +129,7 @@
             },
             {
               "text": "Share raw details widely",
-              "feedback": "You overshare → privacy risk increases."
+              "feedback": "You overshare → privacy risk rises."
             }
           ],
           "correct_index": 0
@@ -140,19 +140,19 @@
           "explain_this": "Decision memo: options, trade-offs, recommendation, checkpoint.",
           "options": [
             {
-              "text": "3 options + trade-offs + recommendation",
+              "text": "Options + trade-offs + recommendation",
               "feedback": "You enable decision → pace improves."
             },
             {
-              "text": "A long narrative with screenshots",
+              "text": "Long narrative with screenshots",
               "feedback": "You add noise → decision slows."
             },
             {
               "text": "Only your preferred option",
-              "feedback": "You hide trade-offs → pushback rises."
+              "feedback": "You hide trade-offs → pushback increases."
             },
             {
-              "text": "A list of complaints as-is",
+              "text": "Raw complaints pasted as-is",
               "feedback": "You share inputs → no action path."
             }
           ],
@@ -162,27 +162,27 @@
     },
     {
       "scenario_id": "SC03",
-      "title": "Infosys Audit deadline",
+      "title": "Infosys Compliance Evidence Gap",
       "questions": [
         {
           "q_id": "SC03_Q01",
-          "q": "New HR Manager at Infosys: Audit deadline. First move in 60 mins?",
-          "explain_this": "Triage: define impact, owner, timeline, minimum facts.",
+          "q": "New HR Manager at Infosys: Compliance Evidence Gap. First move in 60 mins?",
+          "explain_this": "Triage: clarify impact, owner, timeline, minimum facts.",
           "options": [
             {
               "text": "Define scope + pull 3 key data points",
-              "feedback": "You frame impact → faster alignment."
+              "feedback": "You frame impact → alignment speeds up."
             },
             {
-              "text": "Broadcast a generic policy reminder",
-              "feedback": "You act broad → real driver stays hidden."
+              "text": "Send a broad policy reminder",
+              "feedback": "You go generic → root cause stays hidden."
             },
             {
-              "text": "Start a long survey immediately",
-              "feedback": "You add delay → urgency compounds."
+              "text": "Launch a long survey now",
+              "feedback": "You add delay → issue compounds."
             },
             {
-              "text": "Ask teams to handle it locally",
+              "text": "Ask teams to handle locally",
               "feedback": "You lose visibility → actions fragment."
             }
           ],
@@ -190,16 +190,16 @@
         },
         {
           "q_id": "SC03_Q02",
-          "q": "Early signals conflict. What’s the safest next step?",
+          "q": "Signals are mixed in Infosys. Safest next step?",
           "explain_this": "Containment: reduce harm now while verifying facts.",
           "options": [
             {
               "text": "Separate facts vs claims; list gaps",
-              "feedback": "You stay neutral → path to proof opens."
+              "feedback": "You stay neutral → proof path opens."
             },
             {
               "text": "Assume senior version is true",
-              "feedback": "You bias early → decisions get challenged."
+              "feedback": "You bias early → decision gets challenged."
             },
             {
               "text": "Wait for perfect information",
@@ -207,15 +207,15 @@
             },
             {
               "text": "Share raw details widely",
-              "feedback": "You overshare → privacy risk increases."
+              "feedback": "You overshare → privacy risk rises."
             }
           ],
           "correct_index": 0
         },
         {
           "q_id": "SC03_Q03",
-          "q": "High-stakes: audit/PR deadline today. What do you propose?",
-          "explain_this": "Exception handling: document risk, temp control, remediation owner.",
+          "q": "Audit clock is ticking at Infosys. What do you propose?",
+          "explain_this": "Governance: document risk, set temporary control, assign owner.",
           "options": [
             {
               "text": "Time-bound exception + remediation plan",
@@ -238,24 +238,24 @@
         },
         {
           "q_id": "SC03_Q04",
-          "q": "High-stakes: audit/PR deadline today. What do you propose?",
-          "explain_this": "Exception handling: document risk, temp control, remediation owner.",
+          "q": "Final checkpoint: what should be logged for traceability?",
+          "explain_this": "Traceability: link decisions to evidence, approvals, dates.",
           "options": [
             {
-              "text": "Time-bound exception + remediation plan",
-              "feedback": "You meet deadline → reduce repeat risk."
+              "text": "Decision + rationale + approver + date",
+              "feedback": "You create proof → audits simplify."
             },
             {
-              "text": "Refuse to sign anything",
-              "feedback": "You stall closure → escalations trigger."
+              "text": "Only meeting notes and feelings",
+              "feedback": "You lack proof → questions escalate."
             },
             {
-              "text": "Sign off without noting gaps",
-              "feedback": "You hide risk → future audit hits harder."
+              "text": "A screenshot dump in a folder",
+              "feedback": "You add noise → gaps remain hidden."
             },
             {
-              "text": "Ask to extend the deadline",
-              "feedback": "You miss timeline → credibility drops."
+              "text": "Verbal confirmation from manager",
+              "feedback": "You rely on memory → risk increases."
             }
           ],
           "correct_index": 0

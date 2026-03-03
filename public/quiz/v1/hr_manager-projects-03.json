@@ -9,14 +9,14 @@
   "technical_skills": [
     {
       "skill_id": "TS1",
-      "name": "Case Triage + Risk Logging",
-      "artefact_label": "Case Triage Map",
-      "artefact_type": "table"
+      "name": "Policy Documentation",
+      "artefact_label": "Policy Change Note",
+      "artefact_type": "doc"
     },
     {
       "skill_id": "TS2",
       "name": "Leadership-Safe Update Writing",
-      "artefact_label": "Stakeholder Update",
+      "artefact_label": "Stakeholder Note",
       "artefact_type": "email"
     }
   ],
@@ -24,19 +24,19 @@
     {
       "step_id": "S01",
       "step_type": "mcq",
-      "q": "A report says “I’m being targeted.” First response?",
+      "q": "You’re drafting a policy. First step?",
       "options": [
         {
-          "text": "Acknowledge + safety check"
+          "text": "Define intent + scope"
         },
         {
-          "text": "Ask them to confront the peer"
+          "text": "Publish immediately"
         },
         {
-          "text": "Promise action before facts"
+          "text": "Collect signatures first"
         },
         {
-          "text": "Loop in whole team for context"
+          "text": "Skip approvals"
         }
       ],
       "validation": {
@@ -48,206 +48,206 @@
       "step_id": "S02",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS1",
-      "q": "Fill the case issue in the triage map.",
+      "q": "Fill the missing field in the artefact.",
       "artefact": {
-        "label": "Case Triage Map",
-        "state": "| Field | Entry |\n|---|---|\n| Issue | [ISSUE] |\n| Impact | [IMPACT] |\n| Risk | [RISK] |\n| Next step (60 min) | [NEXT] |"
+        "label": "Policy Change Note",
+        "state": "Title: [TITLE]\n\nScope: [SCOPE]\nEffective: [DATE]\n\nChange:\n- [CHANGE]\n\nException route:\n- [EXC]"
       },
       "targets": [
         {
-          "token": "[ISSUE]",
-          "hint": "What is alleged?"
+          "token": "[TITLE]",
+          "hint": "Pick the best replacement."
         }
       ],
       "options_by_target": {
-        "[ISSUE]": [
-          "Exclusion by team",
-          "Unclear role expectations",
-          "Shift scheduling bias",
-          "Onboarding delay"
+        "[TITLE]": [
+          "Leave policy update",
+          "Random HR notes",
+          "Important announcement",
+          "FYI message"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | [IMPACT] |\n| Risk | [RISK] |\n| Next step (60 min) | [NEXT] |"
+        "correct_final_state": "Title: Leave policy update\n\nScope: [SCOPE]\nEffective: [DATE]\n\nChange:\n- [CHANGE]\n\nException route:\n- [EXC]"
       }
     },
     {
       "step_id": "S03",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS1",
-      "q": "Add business impact (neutral + brief).",
+      "q": "Fill the missing field in the artefact.",
       "artefact": {
-        "label": "Case Triage Map",
-        "state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | [IMPACT] |\n| Risk | [RISK] |\n| Next step (60 min) | [NEXT] |"
+        "label": "Policy Change Note",
+        "state": "Title: Leave policy update\n\nScope: [SCOPE]\nEffective: [DATE]\n\nChange:\n- [CHANGE]\n\nException route:\n- [EXC]"
       },
       "targets": [
         {
-          "token": "[IMPACT]",
-          "hint": "What could worsen if delayed?"
+          "token": "[SCOPE]",
+          "hint": "Pick the best replacement."
         }
       ],
       "options_by_target": {
-        "[IMPACT]": [
-          "Attrition + productivity drop",
-          "More calendar conflicts",
-          "Lower snack budget",
-          "Extra emails"
+        "[SCOPE]": [
+          "Applies to full-time employees",
+          "Everyone always",
+          "Only HR team",
+          "Maybe applies"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | Attrition + productivity drop |\n| Risk | [RISK] |\n| Next step (60 min) | [NEXT] |"
+        "correct_final_state": "Title: Leave policy update\n\nScope: Applies to full-time employees\nEffective: [DATE]\n\nChange:\n- [CHANGE]\n\nException route:\n- [EXC]"
       }
     },
     {
       "step_id": "S04",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS1",
-      "q": "Pick the best risk label for this case.",
+      "q": "Fill the missing field in the artefact.",
       "artefact": {
-        "label": "Case Triage Map",
-        "state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | Attrition + productivity drop |\n| Risk | [RISK] |\n| Next step (60 min) | [NEXT] |"
+        "label": "Policy Change Note",
+        "state": "Title: Leave policy update\n\nScope: Applies to full-time employees\nEffective: [DATE]\n\nChange:\n- [CHANGE]\n\nException route:\n- [EXC]"
       },
       "targets": [
         {
-          "token": "[RISK]",
-          "hint": "What must you prevent?"
+          "token": "[CHANGE]",
+          "hint": "Pick the best replacement."
         }
       ],
       "options_by_target": {
-        "[RISK]": [
-          "Retaliation + privacy breach",
-          "Brand guidelines drift",
-          "Invoice mismatch",
-          "Tool downtime"
+        "[CHANGE]": [
+          "Carry-forward capped at 10 days",
+          "Lots of changes",
+          "Update later",
+          "Depends"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | Attrition + productivity drop |\n| Risk | Retaliation + privacy breach |\n| Next step (60 min) | [NEXT] |"
+        "correct_final_state": "Title: Leave policy update\n\nScope: Applies to full-time employees\nEffective: [DATE]\n\nChange:\n- Carry-forward capped at 10 days\n\nException route:\n- [EXC]"
       }
     },
     {
       "step_id": "S05",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS1",
-      "q": "Choose the best 60-min next step (containment).",
+      "q": "Fill the missing field in the artefact.",
       "artefact": {
-        "label": "Case Triage Map",
-        "state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | Attrition + productivity drop |\n| Risk | Retaliation + privacy breach |\n| Next step (60 min) | [NEXT] |"
+        "label": "Policy Change Note",
+        "state": "Title: Leave policy update\n\nScope: Applies to full-time employees\nEffective: [DATE]\n\nChange:\n- Carry-forward capped at 10 days\n\nException route:\n- [EXC]"
       },
       "targets": [
         {
-          "token": "[NEXT]",
-          "hint": "What do you do now?"
+          "token": "[EXC]",
+          "hint": "Pick the best replacement."
         }
       ],
       "options_by_target": {
-        "[NEXT]": [
-          "Safety check + preserve evidence",
-          "Send policy PDF to all",
-          "Ask manager to decide alone",
-          "Close as misunderstanding"
+        "[EXC]": [
+          "HRBP review + written approval",
+          "Manager decides verbally",
+          "No exceptions ever",
+          "WhatsApp approval"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "| Field | Entry |\n|---|---|\n| Issue | Exclusion by team |\n| Impact | Attrition + productivity drop |\n| Risk | Retaliation + privacy breach |\n| Next step (60 min) | Safety check + preserve evidence |"
+        "correct_final_state": "Title: Leave policy update\n\nScope: Applies to full-time employees\nEffective: [DATE]\n\nChange:\n- Carry-forward capped at 10 days\n\nException route:\n- HRBP review + written approval"
       }
     },
     {
       "step_id": "S06",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS2",
-      "q": "Write the opening acknowledgment line.",
+      "q": "Write a neutral acknowledgment line.",
       "artefact": {
-        "label": "Stakeholder Update",
-        "state": "Subject: Next steps on your concern\n\nHi [NAME],\n\n[ACK]\n\nToday I will: [ACTION].\nI need 2 details: [ASK].\nNext check-in: [CHECKIN].\n\n— HR"
+        "label": "Stakeholder Note",
+        "state": "Subject: Policy change rollout\n\nHi [NAME],\n\n[ACK]\n\nRollout: [ACTION].\nConfirm: [ASK].\nCheckpoint: [CHECKIN].\n\n— HR"
       },
       "targets": [
         {
           "token": "[ACK]",
-          "hint": "Acknowledge without judging."
+          "hint": "Acknowledge without judgement."
         }
       ],
       "options_by_target": {
         "[ACK]": [
-          "Thanks for flagging this—I'm taking it seriously.",
-          "This seems like a small issue.",
-          "You should deal with it directly.",
-          "I'll share this with everyone."
+          "Thanks—I'll handle this with care and process.",
+          "This is probably nothing.",
+          "You should sort it out yourself.",
+          "I'll tell everyone to stop it."
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: [ACTION].\nI need 2 details: [ASK].\nNext check-in: [CHECKIN].\n\n— HR"
+        "correct_final_state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: [ACTION].\nConfirm: [ASK].\nCheckpoint: [CHECKIN].\n\n— HR"
       }
     },
     {
       "step_id": "S07",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS2",
-      "q": "Choose the safest immediate action line.",
+      "q": "Choose the best action line.",
       "artefact": {
-        "label": "Stakeholder Update",
-        "state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: [ACTION].\nI need 2 details: [ASK].\nNext check-in: [CHECKIN].\n\n— HR"
+        "label": "Stakeholder Note",
+        "state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: [ACTION].\nConfirm: [ASK].\nCheckpoint: [CHECKIN].\n\n— HR"
       },
       "targets": [
         {
           "token": "[ACTION]",
-          "hint": "Containment + privacy."
+          "hint": "Containment + clarity."
         }
       ],
       "options_by_target": {
         "[ACTION]": [
-          "ensure safety + limit sharing to need-to-know",
-          "announce names to stop rumors",
-          "decide the outcome in this email",
-          "ask the manager to handle alone"
+          "contain risk + keep need-to-know",
+          "finalize decision right now",
+          "share names to reduce rumors",
+          "wait silently until resolved"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: ensure safety + limit sharing to need-to-know.\nI need 2 details: [ASK].\nNext check-in: [CHECKIN].\n\n— HR"
+        "correct_final_state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: contain risk + keep need-to-know.\nConfirm: [ASK].\nCheckpoint: [CHECKIN].\n\n— HR"
       }
     },
     {
       "step_id": "S08",
       "step_type": "artefact_fill",
       "technical_skill_id": "TS2",
-      "q": "Pick the best 2 details to request (facts, not opinions).",
+      "q": "Select the best info request.",
       "artefact": {
-        "label": "Stakeholder Update",
-        "state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: ensure safety + limit sharing to need-to-know.\nI need 2 details: [ASK].\nNext check-in: [CHECKIN].\n\n— HR"
+        "label": "Stakeholder Note",
+        "state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: contain risk + keep need-to-know.\nConfirm: [ASK].\nCheckpoint: [CHECKIN].\n\n— HR"
       },
       "targets": [
         {
           "token": "[ASK]",
-          "hint": "Event + when; keep it factual."
+          "hint": "Keep it factual."
         }
       ],
       "options_by_target": {
         "[ASK]": [
           "what happened + date/time",
-          "who you dislike most",
-          "who should be fired",
-          "your full career history"
+          "who should be blamed",
+          "your full personal history",
+          "your opinion on HR"
         ]
       },
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: ensure safety + limit sharing to need-to-know.\nI need 2 details: what happened + date/time.\nNext check-in: [CHECKIN].\n\n— HR"
+        "correct_final_state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: contain risk + keep need-to-know.\nConfirm: what happened + date/time.\nCheckpoint: [CHECKIN].\n\n— HR"
       }
     },
     {
       "step_id": "S09",
       "step_type": "artefact_ordering",
       "technical_skill_id": "TS2",
-      "q": "Order the pieces to set a leadership-safe check-in line.",
+      "q": "Order the pieces to complete the check-in line.",
       "artefact": {
-        "label": "Stakeholder Update",
-        "state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: ensure safety + limit sharing to need-to-know.\nI need 2 details: what happened + date/time.\nNext check-in: [A] [B] [C]\n\n— HR"
+        "label": "Stakeholder Note",
+        "state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: contain risk + keep need-to-know.\nConfirm: what happened + date/time.\nCheckpoint: [A] [B] [C].\n\n— HR"
       },
       "targets_in_order": [
         "[A]",
@@ -261,25 +261,25 @@
       ],
       "validation": {
         "type": "final_state_match",
-        "correct_final_state": "Subject: Next steps on your concern\n\nHi [NAME],\n\nThanks for flagging this—I'm taking it seriously.\n\nToday I will: ensure safety + limit sharing to need-to-know.\nI need 2 details: what happened + date/time.\nNext check-in: I'll update you by 5pm today with what we know + next steps.\n\n— HR"
+        "correct_final_state": "Subject: Policy change rollout\n\nHi [NAME],\n\nThanks—I'll handle this with care and process.\n\nRollout: contain risk + keep need-to-know.\nConfirm: what happened + date/time.\nCheckpoint: I'll update you by 5pm today with what we know + next steps.\n\n— HR"
       }
     },
     {
       "step_id": "S10",
       "step_type": "mcq",
-      "q": "Which action best reduces legal/comms exposure?",
+      "q": "What reduces policy misreads most?",
       "options": [
         {
-          "text": "Document facts vs claims"
+          "text": "Definitions + examples"
         },
         {
-          "text": "Share raw details broadly"
+          "text": "More jargon"
         },
         {
-          "text": "Decide outcome before review"
+          "text": "Longer intro"
         },
         {
-          "text": "Name people in group chat"
+          "text": "Hidden changes"
         }
       ],
       "validation": {

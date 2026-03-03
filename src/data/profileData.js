@@ -1,6 +1,6 @@
 export const profile = {
-  name: "Dinesh Panda",
-  currentRole: "Talent Recruiter",
+  name: "Your Name Here",
+  currentRole: "HR Professional",
   targetRole: "HR Manager",
   experience: "1–5 years",
   goal: "Get a Good Job",
