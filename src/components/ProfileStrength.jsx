@@ -124,7 +124,7 @@ export default function ProfileStrength({ totalAdded, totalTasks }) {
             </div>
           </div>
           <span className="text-[11px] font-bold text-text-secondary ml-3 flex-1 opacity-70 pl-4">
-            CV Upgrade, Certification & Jobs Free Within 3 Days
+            Free CV Upgrade, Certification & Jobs Within 3 Days
           </span>
         </div>
       </div>
