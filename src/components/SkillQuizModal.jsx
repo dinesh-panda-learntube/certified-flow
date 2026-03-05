@@ -99,8 +99,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={onClose} />
 
-      <div className="relative w-full max-w-md mx-4 sm:mx-auto glass-card
-                      rounded-t-3xl sm:rounded-3xl max-h-[90vh] overflow-y-auto
+      <div className="relative w-full sm:max-w-md mx-0 sm:mx-auto glass-card
+                      rounded-none sm:rounded-3xl max-h-[90vh] overflow-y-auto
                       animate-slideUp shadow-[0_-8px_40px_rgba(0,0,0,0.3)]"
         style={{ background: "linear-gradient(145deg, #112f48, #0f2940)", border: "1px solid #1e4c6b" }}>
 
@@ -108,7 +108,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
         <div className="sticky top-0 rounded-t-3xl z-10 px-6 py-5 border-b border-dark-border/50"
           style={{ background: "rgba(15,45,68,0.95)", backdropFilter: "blur(8px)" }}>
           <div className="flex justify-between items-center">
-            <div className="pr-4">
+            <div className="flex-1 min-w-0 pr-10">
               <p className="text-[10px] text-highlight font-bold uppercase tracking-widest mb-1">
                 Skill Quiz
               </p>
@@ -118,9 +118,9 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="w-9 h-9 flex items-center justify-center rounded-full
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full
                          bg-dark-surface/80 text-text-muted hover:text-text-primary hover:bg-dark-surface
-                         transition-all duration-200 min-w-[36px] min-h-[36px]"
+                         transition-all duration-200 z-20"
             >
               ✕
             </button>
@@ -148,7 +148,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                   : "text-highlight bg-highlight/10"
                   }`}
               >
-                0:{timeLeft.toString().padStart(2, "0")}
+                {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, "0")}
               </span>
             </div>
           )}
@@ -190,7 +190,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
             <>
               {currentQ === 0 && !showFeedback && (
                 <div className="text-xs text-text-muted mb-5 bg-dark-surface/60 rounded-xl p-4 border border-dark-border/30">
-                  ⏱ {totalTimebox} seconds total to complete. Answer fast—this is scored.
+                  ⏱ 3 mins total to complete. Answer fast—this is scored.
                 </div>
               )}
 
