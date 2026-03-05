@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Star, Banknote, Check } from "lucide-react";
 import { skills, certifications, projects } from "../data/profileData";
 
 export default function SkillCompletionCard({ result }) {
@@ -30,8 +31,8 @@ export default function SkillCompletionCard({ result }) {
     <div className="animate-fadeIn">
       {/* Simulation Complete Badge */}
       <div className="text-center mb-4">
-        <div className="inline-block bg-cta/20 text-cta text-[11px] font-bold tracking-wide px-3 py-1 rounded-full mb-2">
-          ✓ SIMULATION COMPLETE
+        <div className="inline-flex items-center gap-1.5 bg-cta/20 text-cta text-[11px] font-bold tracking-wide px-3 py-1 rounded-full mb-2">
+          <Check size={14} /> SIMULATION COMPLETE
         </div>
         <p className="text-text-muted text-[11px]">
           +{result.score?.toLocaleString() || 0} Skillions Earned
@@ -45,13 +46,15 @@ export default function SkillCompletionCard({ result }) {
       <div className="bg-dark-surface rounded-xl px-4 py-3 mb-4 border border-cta/30">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-cta text-sm">✓</span>
+            <span className="text-cta"><Check size={16} /></span>
             <span className="text-[13px] font-semibold text-text-primary">
               {item.title}
             </span>
           </div>
-          <span className="text-star text-xs flex-shrink-0">
-            {"★".repeat(item.rating || 0)}
+          <span className="flex items-center gap-0.5 flex-shrink-0">
+            {Array.from({ length: item.rating || 0 }).map((_, i) => (
+              <Star key={i} size={12} className="text-star fill-star" />
+            ))}
           </span>
         </div>
       </div>
@@ -101,7 +104,9 @@ export default function SkillCompletionCard({ result }) {
               )}
               {metrics.cost_saved && (
                 <div className="bg-dark-surface rounded-xl p-3 border border-dark-border">
-                  <div className="text-lg mb-1">💰</div>
+                  <div className="flex justify-center mb-1">
+                    <Banknote size={20} className="text-cta" />
+                  </div>
                   <div className="text-sm font-bold text-cta">
                     {metrics.cost_saved}
                   </div>
@@ -161,7 +166,7 @@ export default function SkillCompletionCard({ result }) {
                       key={`corr-${i}`}
                       item={item}
                       color="green"
-                      icon="✓"
+                      icon={<Check size={12} />}
                     />
                   ))}
                 </div>

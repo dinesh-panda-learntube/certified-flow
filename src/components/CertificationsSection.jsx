@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { certifications } from "../data/profileData";
+import { Check } from "lucide-react";
 
 export default function CertificationsSection({ addedItems, onAdd, onStartScenario, isAfter, certificationsList = certifications }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -190,9 +191,9 @@ export default function CertificationsSection({ addedItems, onAdd, onStartScenar
                             e.stopPropagation();
                             onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id);
                           }}
-                          className="badge-added w-full text-center"
+                          className="badge-added w-full flex items-center justify-center gap-1"
                         >
-                          ✓ Added
+                          <Check size={14} /> Added
                         </button>
                       )}
                     </div>

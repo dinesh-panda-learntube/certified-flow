@@ -1,0 +1,248 @@
+{
+  "simulation_id": "proj-5",
+  "project_title": "Prepare a Monthly HR Ops Report",
+  "tools_pair": [
+    "HRIS",
+    "Core Tools"
+  ],
+  "technical_skills": [
+    {
+      "skill_id": "TS1",
+      "name": "Project Execution",
+      "artefact_label": "Project Master Plan",
+      "artefact_type": "doc"
+    }
+  ],
+  "steps": [
+    {
+      "step_type": "mcq",
+      "q": "Step 1: It's the 1st of the month. You need to pull data for the HR deck. What is the foundational metric of any HR report?",
+      "options": [
+        {
+          "text": "Current Total Headcount across all departments, split by full-time vs. contingent workers."
+        },
+        {
+          "text": "The number of birthday cakes bought."
+        },
+        {
+          "text": "The total number of job applications received all year."
+        },
+        {
+          "text": "The CEO's daily agenda."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S1"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 2: You need to calculate the Attrition Rate. You started with 500 headcount, ended with 520, and 15 people resigned. What's the denominator?",
+      "options": [
+        {
+          "text": "The Average Headcount for the month (510)."
+        },
+        {
+          "text": "The Starting Headcount only."
+        },
+        {
+          "text": "The people who resigned."
+        },
+        {
+          "text": "The total number of interviews."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S2"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 3: What segment of attrition data should you prioritize visualizing for the executive team to show risk?",
+      "options": [
+        {
+          "text": "Regrettable Attrition—the loss of high-performers or critical-impact roles."
+        },
+        {
+          "text": "Non-regrettable attrition of poor performers."
+        },
+        {
+          "text": "The attrition of summer interns."
+        },
+        {
+          "text": "Attrition grouped by alphabetical order of names."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S3"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 4: Looking at Talent Acquisition metrics, what does 'Time-to-Fill' actually measure?",
+      "options": [
+        {
+          "text": "The number of days between an open requisition being approved and the candidate formally accepting the offer."
+        },
+        {
+          "text": "The time it takes to write a Job Description."
+        },
+        {
+          "text": "The duration of the candidate's first interview."
+        },
+        {
+          "text": "The time it takes to fire someone."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S4"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 5: You notice the Time-to-Fill in Engineering has spiked from 30 days to 65 days. What is your diagnostic action?",
+      "options": [
+        {
+          "text": "Audit the funnel to see if the bottleneck is top-of-funnel sourcing or delays in manager interview feedback."
+        },
+        {
+          "text": "Blame the recruiters and move on."
+        },
+        {
+          "text": "Assume there are no engineers left in the world."
+        },
+        {
+          "text": "Delete the metric from the report to look good."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S5"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 6: To report on Diversity, what data point should you include alongside the current demographic breakdown?",
+      "options": [
+        {
+          "text": "The diversity ratios within the hiring funnel (applicants vs. offers) to highlight pipeline equity."
+        },
+        {
+          "text": "Just a picture of diverse people."
+        },
+        {
+          "text": "The exact home addresses of all employees."
+        },
+        {
+          "text": "Only data from 5 years ago."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S6"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 7: The CFO wants to see HR's cost-efficiency. Which metric should you add to the 'Financials' section of your report?",
+      "options": [
+        {
+          "text": "Cost-Per-Hire, breaking down agency fees, job board spend, and internal referral bonuses."
+        },
+        {
+          "text": "The cost of the office coffee machine."
+        },
+        {
+          "text": "The CEO's travel expenses."
+        },
+        {
+          "text": "The total revenue of the company's main product."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S7"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 8: You import the raw CSV into Tableau/Excel. Design-wise, how should you present the data to the executive board?",
+      "options": [
+        {
+          "text": "Using highly visual scorecards displaying MoM (Month-over-Month) trends accompanied by a single-sentence insight."
+        },
+        {
+          "text": "A 40-column spreadsheet in size 8 font."
+        },
+        {
+          "text": "A pie chart with 30 different slices."
+        },
+        {
+          "text": "No charts, just a wall of text."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S8"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 9: You spot a 'Red Flag': 4 employees resigned from the Sales team in one week, all citing identical leadership issues. You must:",
+      "options": [
+        {
+          "text": "Include this cluster in the Executive Summary with a recommended action plan (e.g., immediate skip-level meetings)."
+        },
+        {
+          "text": "Hide it so the Sales VP doesn't get mad."
+        },
+        {
+          "text": "Email the whole company about it."
+        },
+        {
+          "text": "Wait for next month to see if it fixes itself."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S9"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 10: When presenting the report in the live executive meeting, what is your role as the HR representative?",
+      "options": [
+        {
+          "text": "To narrate the 'why' behind the numbers, anchoring the data to business outcomes and proposing strategic interventions."
+        },
+        {
+          "text": "Just read the numbers off the slides monotonously."
+        },
+        {
+          "text": "Argue violently if anyone questions the data."
+        },
+        {
+          "text": "Hand out the paper and leave the room."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S10"
+    }
+  ]
+}

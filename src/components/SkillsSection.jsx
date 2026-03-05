@@ -1,4 +1,5 @@
 import { skills } from "../data/profileData";
+import { Star, Check } from "lucide-react";
 
 export default function SkillsSection({
   addedItems,
@@ -20,7 +21,7 @@ export default function SkillsSection({
       </div>
       {!isAfter && (
         <p className="text-text-secondary text-[13px] leading-relaxed mb-5">
-          Verify with quick quizzes & get your 5 ★ rating.
+          Verify with quick quizzes & get your 5 <Star size={12} className="inline text-star fill-star" /> rating.
         </p>
       )}
 
@@ -37,7 +38,7 @@ export default function SkillsSection({
                 >
                   <div className="flex items-center gap-3">
                     {added ? (
-                      <span className="text-cta text-sm hidden sm:inline-block">✓</span>
+                      <span className="text-cta hidden sm:inline-block"><Check size={16} /></span>
                     ) : (
                       <span className="text-text-muted text-sm opacity-50 hidden sm:inline-block">○</span>
                     )}
@@ -46,8 +47,10 @@ export default function SkillsSection({
                     </span>
                   </div>
                   {added ? (
-                    <span className="text-star text-xs flex-shrink-0 tracking-widest font-bold ml-3">
-                      {"★".repeat(skill.rating)}
+                    <span className="flex items-center gap-0.5 flex-shrink-0 ml-3">
+                      {Array.from({ length: skill.rating }).map((_, i) => (
+                        <Star key={i} size={12} className="text-star fill-star" />
+                      ))}
                     </span>
                   ) : (
                     <button
@@ -86,7 +89,7 @@ export default function SkillsSection({
                     className="w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-cta text-sm hidden sm:inline-block">✓</span>
+                      <span className="text-cta hidden sm:inline-block"><Check size={16} /></span>
                       <span className="text-[13px] font-semibold text-text-primary text-left">
                         {skill.title}
                       </span>

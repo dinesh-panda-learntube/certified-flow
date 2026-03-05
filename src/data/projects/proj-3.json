@@ -1,0 +1,248 @@
+{
+  "simulation_id": "proj-3",
+  "project_title": "Create an HR Policy Update",
+  "tools_pair": [
+    "HRIS",
+    "Core Tools"
+  ],
+  "technical_skills": [
+    {
+      "skill_id": "TS1",
+      "name": "Project Execution",
+      "artefact_label": "Project Master Plan",
+      "artefact_type": "doc"
+    }
+  ],
+  "steps": [
+    {
+      "step_type": "mcq",
+      "q": "Step 1: The CEO asks you to update the company's outdated Work-From-Home policy. What is the crucial first step?",
+      "options": [
+        {
+          "text": "Survey the existing business needs and benchmark competitor policies to define a realistic baseline."
+        },
+        {
+          "text": "Instantly ban all WFH."
+        },
+        {
+          "text": "Copy-paste a policy from a Google search without reading it."
+        },
+        {
+          "text": "Send out an email saying WFH is now unlimited with no rules."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S1"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 2: You need to define the 'Scope' of the policy. Which statement is correct?",
+      "options": [
+        {
+          "text": "The scope must explicitly state which roles, locations, or job formats are eligible versus ineligible for WFH."
+        },
+        {
+          "text": "The scope should just say 'everyone'."
+        },
+        {
+          "text": "The scope should be kept a secret."
+        },
+        {
+          "text": "The scope only applies to the executive team."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S2"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 3: A manager asks how they will monitor productivity if people are at home. You draft a clause that states:",
+      "options": [
+        {
+          "text": "Productivity will be measured by output, KPIs, and deliverables, rather than screen-time or hours logged."
+        },
+        {
+          "text": "Managers must install keystroke trackers on all laptops."
+        },
+        {
+          "text": "Employees must keep their webcams on for 8 hours a day."
+        },
+        {
+          "text": "Productivity cannot be monitored at home."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S3"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 4: You must address 'Information Security' in the WFH policy. What is the required mandate?",
+      "options": [
+        {
+          "text": "Employees must use company-issued VPNs on secured networks and avoid working on confidential data in public spaces."
+        },
+        {
+          "text": "Employees can use personal laptops for everything."
+        },
+        {
+          "text": "Security doesn't matter at home."
+        },
+        {
+          "text": "Employees must buy their own enterprise firewalls."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S4"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 5: To handle exceptions (e.g., someone needing to WFH 5 days a week due to illness), the policy must include:",
+      "options": [
+        {
+          "text": "A clear escalation matrix and process for requesting medical or special accommodations via HR."
+        },
+        {
+          "text": "A strict 'no exceptions ever' clause."
+        },
+        {
+          "text": "A clause saying managers can play favorites."
+        },
+        {
+          "text": "A rule that exceptions cost money."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S5"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 6: Before finalizing the draft, who must absolutely review the document to mitigate legal risk?",
+      "options": [
+        {
+          "text": "The corporate legal counsel or compliance officer, to ensure alignment with local labor and tax laws."
+        },
+        {
+          "text": "The social media team."
+        },
+        {
+          "text": "The newest intern."
+        },
+        {
+          "text": "No one, HR has final say on all legal matters."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S6"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 7: The policy is approved. What is the most effective change-management strategy to roll it out?",
+      "options": [
+        {
+          "text": "Host a targeted training session for managers on how to enforce it, followed by a company-wide town hall and FAQ release."
+        },
+        {
+          "text": "Silently upload it to an obscure folder on the intranet."
+        },
+        {
+          "text": "Email it at 11:59 PM on a Friday."
+        },
+        {
+          "text": "Print it and tape it to the bathroom mirrors."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S7"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 8: How do you ensure employees have officially acknowledged the new compliance rules in the policy?",
+      "options": [
+        {
+          "text": "Deploy it via the HRIS requiring a digital signature/checkbox acknowledgment from every employee."
+        },
+        {
+          "text": "Assume if they opened the email they read it."
+        },
+        {
+          "text": "Ask them in the hallway."
+        },
+        {
+          "text": "Make an announcement on a megaphone."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S8"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 9: Two weeks after rollout, a department head refuses to let their eligible team WFH. How do you respond?",
+      "options": [
+        {
+          "text": "Meet with the department head to understand their resistance and firmly align them with the executive-approved policy."
+        },
+        {
+          "text": "Let them do whatever they want."
+        },
+        {
+          "text": "Fire the whole department."
+        },
+        {
+          "text": "Revoke the policy for the entire company."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S9"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 10: Six months post-rollout, how do you audit the policy's success?",
+      "options": [
+        {
+          "text": "Analyze productivity metrics, review office-space cost savings, and pulse employee satisfaction via a survey."
+        },
+        {
+          "text": "Just assume it's fine."
+        },
+        {
+          "text": "Count how many people complain to HR daily."
+        },
+        {
+          "text": "Check the weather."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S10"
+    }
+  ]
+}

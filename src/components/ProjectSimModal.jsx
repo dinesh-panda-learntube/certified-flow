@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { projectSimData, projects } from "../data/profileData";
+import { Check } from "lucide-react";
 
 export default function ProjectSimModal({ projectId, onPass, onClose }) {
   const simData = projectSimData[projectId];
@@ -336,7 +337,7 @@ export default function ProjectSimModal({ projectId, onPass, onClose }) {
                         const correct = rendered === step.validation?.correct_final_state;
                         return (
                           <p className={`text-[12px] font-semibold ${correct ? "text-cta" : "text-danger"}`}>
-                            {correct ? "✓ Correct!" : "✗ Not quite right"}
+                            {correct ? <span className="flex items-center gap-1"><Check size={14} /> Correct!</span> : "✗ Not quite right"}
                           </p>
                         );
                       })()}
@@ -405,7 +406,7 @@ export default function ProjectSimModal({ projectId, onPass, onClose }) {
                         const correct = rendered === step.validation?.correct_final_state;
                         return (
                           <p className={`text-[12px] font-semibold ${correct ? "text-cta" : "text-danger"}`}>
-                            {correct ? "✓ Correct order!" : "✗ Not quite right"}
+                            {correct ? <span className="flex items-center gap-1"><Check size={14} /> Correct order!</span> : "✗ Not quite right"}
                           </p>
                         );
                       })()}
@@ -470,7 +471,7 @@ export default function ProjectSimModal({ projectId, onPass, onClose }) {
                              transition-all duration-200 min-h-[52px]
                              shadow-[0_0_24px_rgba(127,194,65,0.25)]"
                 >
-                  Add to CV ✓
+                  Add to CV <Check size={16} className="inline ml-1 mb-0.5" />
                 </button>
               ) : (
                 <button

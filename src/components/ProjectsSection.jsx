@@ -1,4 +1,5 @@
 import { projects } from "../data/profileData";
+import { Banknote, Check } from "lucide-react";
 
 export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter }) {
   return (
@@ -31,20 +32,20 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2 flex-wrap mr-2">
-                    {!added && (
-                      <span className="text-[11px] font-bold text-highlight mr-1 flex items-center h-6">
-                        💰 {project.salaryRange}
-                      </span>
-                    )}
                     {project.tools.map((tool) => (
                       <span key={tool} className="tag-tool h-6">
                         {tool}
                       </span>
                     ))}
+                    {!added && (
+                      <span className="text-[11px] font-bold text-highlight mr-1 flex items-center h-6">
+                        <Banknote size={12} className="inline mr-1" /> {project.salaryRange}
+                      </span>
+                    )}
                   </div>
                   {added ? (
-                    <span className="text-[10px] text-cta font-semibold bg-cta/10 border border-cta/30 px-2 py-0.5 rounded whitespace-nowrap flex-shrink-0">
-                      ✓ Added
+                    <span className="text-[10px] text-cta font-semibold bg-cta/10 border border-cta/30 px-2 py-0.5 rounded whitespace-nowrap flex-shrink-0 flex items-center gap-1">
+                      <Check size={12} /> Added
                     </span>
                   ) : (
                     <button
@@ -95,14 +96,14 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
                     </h3>
                   </div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="badge badge-highlight font-medium">
-                      💰 {project.salaryRange}
-                    </span>
                     {project.tools.map((tool) => (
                       <span key={tool} className="tag-tool">
                         {tool}
                       </span>
                     ))}
+                    <span className="badge badge-highlight font-medium">
+                      <Banknote size={12} className="inline mr-1" /> {project.salaryRange}
+                    </span>
                   </div>
                 </div>
 
@@ -123,9 +124,9 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
                         e.stopPropagation();
                         onStartSim ? onStartSim(project.id) : onAdd(project.id);
                       }}
-                      className="badge-added w-full text-center"
+                      className="badge-added w-full flex items-center justify-center gap-1"
                     >
-                      ✓ Added To CV
+                      <Check size={14} /> Added To CV
                     </button>
                   )}
                 </div>

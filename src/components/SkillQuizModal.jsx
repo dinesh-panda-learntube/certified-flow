@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { skillQuizData, skills } from "../data/profileData";
+import { Star, Check } from "lucide-react";
 
 export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const quizData = skillQuizData[skillId];
@@ -139,8 +140,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
           {skillEarned ? (
             /* Skill Earned screen */
             <div className="text-center py-8 animate-fadeIn">
-              <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-cta/20 flex items-center justify-center">
-                <span className="text-4xl text-cta">✓</span>
+              <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-cta/20 flex items-center justify-center text-cta">
+                <Check size={40} />
               </div>
               <p className="text-xs text-cta font-bold uppercase tracking-widest mb-2">
                 Skill Earned
@@ -152,8 +153,8 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                 Added to your CV
               </p>
               <div className="mt-4 flex justify-center">
-                {"★".repeat(skill.rating || 0).split("").map((_, i) => (
-                  <span key={i} className="text-star text-lg mx-0.5">★</span>
+                {Array.from({ length: skill.rating || 0 }).map((_, i) => (
+                  <Star key={i} size={18} className="text-star fill-star mx-0.5" />
                 ))}
               </div>
             </div>
@@ -222,7 +223,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                              transition-all duration-200 min-h-[52px]
                              shadow-[0_0_24px_rgba(127,194,65,0.25)]"
                 >
-                  Add to CV ✓
+                  Add to CV <Check size={16} className="inline ml-1 mb-0.5" />
                 </button>
               ) : (
                 <button

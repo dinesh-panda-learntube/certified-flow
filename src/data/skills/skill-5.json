@@ -1,0 +1,62 @@
+{
+  "quiz_id": "SKILL_SIM_05_ONBOARDING___JOINING_EXPERIENCE",
+  "simulation_title": "Onboarding & Joining Experience",
+  "timebox_seconds": 30,
+  "questions": [
+    {
+      "q_id": "Q01",
+      "q": "What's the most critical element of a Day 1 onboarding experience?",
+      "options": [
+        "A welcome party",
+        "Clear communication of role expectations, tools access, and team introductions",
+        "A long orientation presentation",
+        "Giving them a company t-shirt"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q02",
+      "q": "A new hire feels lost after their first week. Most likely cause?",
+      "options": [
+        "They aren't smart enough",
+        "No structured onboarding plan or buddy was assigned",
+        "The office is too big",
+        "They should have figured it out"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q03",
+      "q": "What's the ideal duration for a structured onboarding program?",
+      "options": [
+        "Just Day 1",
+        "30-60-90 days with clear milestones",
+        "1 week maximum",
+        "Until the employee asks to stop"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q04",
+      "q": "Pre-boarding (before Day 1) should include?",
+      "options": [
+        "Nothing — wait until they arrive",
+        "Welcome email, document submission, tools setup, and team intro",
+        "Just the offer letter",
+        "A surprise party plan"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q05",
+      "q": "How do you measure onboarding effectiveness?",
+      "options": [
+        "By how happy the new hire seems",
+        "Time-to-productivity, 90-day retention rate, and manager feedback",
+        "By the number of documents signed",
+        "Whether they attended all meetings"
+      ],
+      "correct_index": 1
+    }
+  ]
+}

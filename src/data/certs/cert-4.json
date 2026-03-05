@@ -1,0 +1,252 @@
+{
+  "simulation_id": "CERT_SIM_04",
+  "certification_title": "HR Operations, Compliance & Records",
+  "scenarios": [
+    {
+      "scenario_id": "SC01",
+      "title": "Comprehensive Assessment",
+      "questions": [
+        {
+          "q_id": "Q1",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 1)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q2",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 2)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q3",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 3)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q4",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 4)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q5",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 5)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q6",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 6)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q7",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 7)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q8",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 8)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q9",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 9)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q10",
+          "q": "To ensure HR compliance, what documentation practice is mandatory (Question 10)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Keeping all employee records accurate and up-to-date in secured systems.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Keeping paper files on desks.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Sharing salary details with the whole team.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Deleting records once an employee leaves.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}

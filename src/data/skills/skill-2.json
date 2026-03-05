@@ -1,0 +1,62 @@
+{
+  "quiz_id": "SKILL_SIM_02_INTERVIEWING___CANDIDATE_EVALUATION",
+  "simulation_title": "Interviewing & Candidate Evaluation",
+  "timebox_seconds": 30,
+  "questions": [
+    {
+      "q_id": "Q01",
+      "q": "A candidate answers vaguely in a competency-based interview. What should you do?",
+      "options": [
+        "Move to the next question",
+        "Use a probing follow-up like 'Can you walk me through a specific example?'",
+        "Mark the answer as unsatisfactory",
+        "End the interview early"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q02",
+      "q": "What's the primary purpose of a structured interview?",
+      "options": [
+        "To make interviews shorter",
+        "To ensure every candidate gets the same evaluation criteria",
+        "To avoid legal issues",
+        "To impress the candidate"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q03",
+      "q": "Which is the best way to reduce unconscious bias during interviews?",
+      "options": [
+        "Have only one interviewer",
+        "Use a standardized scorecard with predefined competencies",
+        "Rely on gut feeling",
+        "Ask personal questions to build rapport"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q04",
+      "q": "A hiring manager insists on a 'culture fit' rejection without evidence. You should?",
+      "options": [
+        "Accept the decision",
+        "Ask for specific behavioral examples that support the rejection",
+        "Hire the candidate anyway",
+        "Ignore the feedback"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q05",
+      "q": "What's the STAR method used for in interviews?",
+      "options": [
+        "Rating candidates on a 5-star scale",
+        "Structuring behavioral questions: Situation, Task, Action, Result",
+        "A salary negotiation technique",
+        "Screening resumes"
+      ],
+      "correct_index": 1
+    }
+  ]
+}

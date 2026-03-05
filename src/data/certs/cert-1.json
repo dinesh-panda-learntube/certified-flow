@@ -1,0 +1,252 @@
+{
+  "simulation_id": "CERT_SIM_01",
+  "certification_title": "Enterprise HR Strategy Certification",
+  "scenarios": [
+    {
+      "scenario_id": "SC01",
+      "title": "Comprehensive Assessment",
+      "questions": [
+        {
+          "q_id": "Q1",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 1)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q2",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 2)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q3",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 3)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q4",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 4)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q5",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 5)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q6",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 6)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q7",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 7)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q8",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 8)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q9",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 9)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q10",
+          "q": "What is a key strategy for handling attrition crises across an enterprise (Question 10)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Analyze cohort data to find root causes quickly.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Ignore it temporarily.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Offer 100% bonuses.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Fire underperforming managers immediately.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}

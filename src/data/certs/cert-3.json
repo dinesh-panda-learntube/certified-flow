@@ -1,0 +1,252 @@
+{
+  "simulation_id": "CERT_SIM_03",
+  "certification_title": "Performance Management & Feedback Cycles",
+  "scenarios": [
+    {
+      "scenario_id": "SC01",
+      "title": "Comprehensive Assessment",
+      "questions": [
+        {
+          "q_id": "Q1",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 1)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q2",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 2)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q3",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 3)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q4",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 4)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q5",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 5)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q6",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 6)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q7",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 7)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q8",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 8)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q9",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 9)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q10",
+          "q": "When giving performance feedback, which approach leads to the best outcomes (Question 10)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "Focus on specific behaviors rather than personal traits.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Give no feedback until the annual review.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Make comparisons between employees publicly.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Base reviews purely on subjective feelings.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}

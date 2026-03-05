@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { certScenarioData, certifications } from "../data/profileData";
+import { Check } from "lucide-react";
 
 export default function CertScenarioModal({ certId, onPass, onClose }) {
   const certData = certScenarioData[certId];
@@ -246,7 +247,7 @@ export default function CertScenarioModal({ certId, onPass, onClose }) {
                              transition-all duration-200 min-h-[52px]
                              shadow-[0_0_24px_rgba(127,194,65,0.25)]"
                 >
-                  Add Certification ✓
+                  Add Certification <Check size={16} className="inline ml-1 mb-0.5" />
                 </button>
               ) : (
                 <button

@@ -1,0 +1,248 @@
+{
+  "simulation_id": "proj-4",
+  "project_title": "Run a Hiring Loop for One Role",
+  "tools_pair": [
+    "HRIS",
+    "Core Tools"
+  ],
+  "technical_skills": [
+    {
+      "skill_id": "TS1",
+      "name": "Project Execution",
+      "artefact_label": "Project Master Plan",
+      "artefact_type": "doc"
+    }
+  ],
+  "steps": [
+    {
+      "step_type": "mcq",
+      "q": "Step 1: The engineering director needs a new Data Scientist. What is the very first step of the Hiring Loop?",
+      "options": [
+        {
+          "text": "Conduct an Intake Meeting to define the must-have skills, salary bounds, and interview panel clearly."
+        },
+        {
+          "text": "Start messaging random people on LinkedIn."
+        },
+        {
+          "text": "Post the job title to a job board with no description."
+        },
+        {
+          "text": "Call an agency and tell them to find someone fast."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S1"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 2: You review the draft Job Description (JD). It lists 25 'Required Skills'. What is your strategic advice?",
+      "options": [
+        {
+          "text": "Advise the manager to separate 'Must-Haves' (core competencies) from 'Nice-to-Haves' to avoid filtering out diverse, capable talent."
+        },
+        {
+          "text": "Add 10 more skills just in case."
+        },
+        {
+          "text": "Delete the skills section entirely."
+        },
+        {
+          "text": "Keep it; we only want unicorns."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S2"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 3: To ensure an unbiased evaluation process during the loop, you must mandate the use of:",
+      "options": [
+        {
+          "text": "A standardized interview scorecard anchored to specific behavioral traits and technical competencies."
+        },
+        {
+          "text": "A 'vibe check' by the team."
+        },
+        {
+          "text": "A subjective rating out of 10 based on gut feeling."
+        },
+        {
+          "text": "Reviewing their social media profiles together."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S3"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 4: You begin sourcing. The pipeline is heavily skewed toward one demographic. What is the immediate correction?",
+      "options": [
+        {
+          "text": "Expand sourcing channels to diverse professional networks and audit the JD language for exclusionary terminology."
+        },
+        {
+          "text": "Lower the technical bar entirely."
+        },
+        {
+          "text": "Ignore it, talent is talent."
+        },
+        {
+          "text": "Only interview that demographic to save time."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S4"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 5: During the HR phone screen, what are the three critical data points you must capture?",
+      "options": [
+        {
+          "text": "Salary expectations, notice period/availability, and primary motivation for role alignment."
+        },
+        {
+          "text": "Their favorite movie, their age, and their marital status."
+        },
+        {
+          "text": "Their ability to code, their IQ, and their typing speed."
+        },
+        {
+          "text": "Nothing, just talk about the weather."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S5"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 6: The candidate progresses to the Technical Interview. How should the technical panel be prepped?",
+      "options": [
+        {
+          "text": "Assign specific technical domains to specific interviewers to avoid asking the candidate the same coding question three times."
+        },
+        {
+          "text": "Tell everyone to ask whatever they want."
+        },
+        {
+          "text": "Give them no prep; they are senior engineers."
+        },
+        {
+          "text": "Tell them to try and make the candidate cry."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S6"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 7: The candidate finishes all rounds. It's time for the Debrief. What is the rule of the debrief meeting?",
+      "options": [
+        {
+          "text": "All interviewers must submit their scorecards BEFORE the meeting to prevent 'Anchoring Bias' from the most senior person."
+        },
+        {
+          "text": "The most senior person speaks first and tells everyone what to think."
+        },
+        {
+          "text": "You calculate an average score and don't discuss it."
+        },
+        {
+          "text": "You let the CEO decide blindly."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S7"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 8: The panel says 'Hire'. You run references. One reference says the candidate is 'brilliant but hard to work with'. You:",
+      "options": [
+        {
+          "text": "Probe the reference for specific behavioral examples and contextualize this data with the interview panel's behavioral read."
+        },
+        {
+          "text": "Immediately reject the candidate."
+        },
+        {
+          "text": "Ignore the reference entirely."
+        },
+        {
+          "text": "Tell the candidate what their reference said."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S8"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 9: You move to Offer Negotiation. The candidate asks for 15% above the approved band. Your tactic is:",
+      "options": [
+        {
+          "text": "Highlight the total rewards package, understand what drives them (e.g., equity, flexibility), and consult finance for a counter-strategy."
+        },
+        {
+          "text": "Hang up the phone."
+        },
+        {
+          "text": "Immediately say yes without approval."
+        },
+        {
+          "text": "Yell at them for being greedy."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S9"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 10: The candidate accepts the offer! To cleanly close the Hiring Loop, what is the final administrative action?",
+      "options": [
+        {
+          "text": "Send professional, constructive rejection updates to other finalists, run background checks, and transition the hire to Onboarding."
+        },
+        {
+          "text": "Ghost the other candidates."
+        },
+        {
+          "text": "Go to sleep."
+        },
+        {
+          "text": "Keep interviewing just in case they back out."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S10"
+    }
+  ]
+}

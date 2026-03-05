@@ -1,4 +1,5 @@
 import { skills } from "../data/profileData";
+import { Star } from "lucide-react";
 
 export default function CoverPage({ profile, onStart }) {
     return (
@@ -64,8 +65,10 @@ export default function CoverPage({ profile, onStart }) {
                                 >
                                     <div className="flex justify-between items-center w-full gap-2">
                                         <p className="text-xs font-bold text-text-primary truncate">{skill.title}</p>
-                                        <div className="flex items-center gap-1 bg-highlight/10 px-2 py-1 rounded-md shrink-0">
-                                            <span className="text-star text-[10px]">★★★★★</span>
+                                        <div className="flex items-center gap-0.5 bg-highlight/10 px-2 py-1 rounded-md shrink-0">
+                                            {Array.from({ length: 5 }).map((_, i) => (
+                                                <Star key={i} size={10} className="text-star fill-star" />
+                                            ))}
                                         </div>
                                     </div>
                                 </div>

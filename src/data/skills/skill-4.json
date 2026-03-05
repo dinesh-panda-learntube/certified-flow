@@ -1,0 +1,62 @@
+{
+  "quiz_id": "SKILL_SIM_04_HR_POLICIES___DOCUMENTATION",
+  "simulation_title": "HR Policies & Documentation",
+  "timebox_seconds": 30,
+  "questions": [
+    {
+      "q_id": "Q01",
+      "q": "When updating an attendance policy, what's the first thing you should review?",
+      "options": [
+        "Employee preferences",
+        "Current labor laws and statutory requirements",
+        "Competitor policies",
+        "Manager opinions"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q02",
+      "q": "An HR policy document should primarily be written for?",
+      "options": [
+        "Legal teams only",
+        "All employees — clear, simple, and actionable",
+        "Senior management only",
+        "External auditors"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q03",
+      "q": "What's essential when rolling out a new WFH policy?",
+      "options": [
+        "Announce via email and move on",
+        "Communicate clearly, train managers, collect feedback, and iterate",
+        "Let managers decide on their own",
+        "Copy a competitor's policy"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q04",
+      "q": "Which document is legally required to be maintained for every employee in India?",
+      "options": [
+        "Birthday calendar",
+        "Appointment letter and salary records",
+        "Team outing records",
+        "LinkedIn profile backup"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q05",
+      "q": "How often should HR policies be reviewed?",
+      "options": [
+        "Only when there's a legal issue",
+        "At least annually or when regulations change",
+        "Every 5 years",
+        "Never — once written, they're final"
+      ],
+      "correct_index": 1
+    }
+  ]
+}

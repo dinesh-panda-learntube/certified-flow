@@ -1,0 +1,252 @@
+{
+  "simulation_id": "CERT_SIM_05",
+  "certification_title": "People Analytics Basics (HR Metrics)",
+  "scenarios": [
+    {
+      "scenario_id": "SC01",
+      "title": "Comprehensive Assessment",
+      "questions": [
+        {
+          "q_id": "Q1",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 1)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q2",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 2)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q3",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 3)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q4",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 4)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q5",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 5)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q6",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 6)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q7",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 7)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q8",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 8)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q9",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 9)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "q_id": "Q10",
+          "q": "When utilizing People Analytics, what metric provides the best insight into employee engagement (Question 10)?",
+          "explain_this": "Relevant HR principle applies here.",
+          "options": [
+            {
+              "text": "eNPS (Employee Net Promoter Score) and qualitative surveys.",
+              "feedback": "Correct!"
+            },
+            {
+              "text": "Lines of code written.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Time spent in the office building.",
+              "feedback": "Incorrect."
+            },
+            {
+              "text": "Number of emails sent per week.",
+              "feedback": "Incorrect."
+            }
+          ],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}

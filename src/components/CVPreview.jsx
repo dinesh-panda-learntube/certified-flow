@@ -1,5 +1,6 @@
 import { profile } from "../data/profileData";
 import { skills, certifications, projects } from "../data/profileData";
+import { Star } from "lucide-react";
 
 export default function CVPreview({ cvView, setCvView, addedItems }) {
   return (
@@ -112,7 +113,7 @@ function AfterView({ addedItems }) {
         <CVSection title="Verified Skills">
           <div className="flex flex-wrap gap-2">
             {addedSkills.map((s) => (
-              <span key={s.id} className="badge badge-cta">★ {s.title}</span>
+              <span key={s.id} className="badge badge-cta flex items-center gap-1"><Star size={10} className="fill-current" /> {s.title}</span>
             ))}
           </div>
         </CVSection>

@@ -1,0 +1,248 @@
+{
+  "simulation_id": "proj-1",
+  "project_title": "Resolve an Employee Grievance Case",
+  "tools_pair": [
+    "HRIS",
+    "Core Tools"
+  ],
+  "technical_skills": [
+    {
+      "skill_id": "TS1",
+      "name": "Project Execution",
+      "artefact_label": "Project Master Plan",
+      "artefact_type": "doc"
+    }
+  ],
+  "steps": [
+    {
+      "step_type": "mcq",
+      "q": "Step 1: An employee submits a formal grievance about unfair shift allocations via email. What is the immediate first action?",
+      "options": [
+        {
+          "text": "Acknowledge receipt in writing and clarify the timeline for the investigation."
+        },
+        {
+          "text": "Forward the email directly to the accused manager."
+        },
+        {
+          "text": "Delete the email, assuming it will blow over."
+        },
+        {
+          "text": "Call the police immediately."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S1"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 2: You review the grievance. To ensure a fair investigation, who should lead the fact-finding?",
+      "options": [
+        {
+          "text": "An impartial HR investigator who has no direct reporting lines to anyone involved in the case."
+        },
+        {
+          "text": "The accused manager's best friend in the company."
+        },
+        {
+          "text": "The complaining employee's direct peer."
+        },
+        {
+          "text": "The CEO, to save time."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S2"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 3: You schedule the intake interview with the complainant. How should you format your questions?",
+      "options": [
+        {
+          "text": "Prepare open-ended, non-leading questions focusing on objective facts (dates, times, specific statements)."
+        },
+        {
+          "text": "Prepare questions that tell them they are probably misinterpreting things."
+        },
+        {
+          "text": "Write leading questions that already assume the manager is guilty."
+        },
+        {
+          "text": "Don't prepare questions; wing it."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S3"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 4: The complainant provides a list of witnesses. What must you explicitly instruct the complainant at the end of the meeting?",
+      "options": [
+        {
+          "text": "To maintain strict confidentiality and not discuss the investigation with coworkers to avoid compromising witness testimony."
+        },
+        {
+          "text": "To post about it on LinkedIn so people know what's happening."
+        },
+        {
+          "text": "To confront the witnesses directly to prep them."
+        },
+        {
+          "text": "To apologize to the manager."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S4"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 5: When interviewing the accused manager, they become defensive and angry. What is your response strategy?",
+      "options": [
+        {
+          "text": "Remain calm, neutrally restate the purpose of the fact-finding, and allow them to review the specific allegations."
+        },
+        {
+          "text": "Yell back to establish authority."
+        },
+        {
+          "text": "End the meeting and immediately terminate them."
+        },
+        {
+          "text": "Agree with them that the employee is probably lying."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S5"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 6: You collect shift allocation logs for the past three months. What are you looking for?",
+      "options": [
+        {
+          "text": "Objective data patterns that either corroborate or contradict the employee's claim of unfair allocation."
+        },
+        {
+          "text": "The manager's personal bank statements."
+        },
+        {
+          "text": "The employee's browser history."
+        },
+        {
+          "text": "Nothing, data just looks good in the file."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S6"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 7: You must draft the investigation findings. The document should be structured to separate:",
+      "options": [
+        {
+          "text": "Factual evidence from conclusions, avoiding emotional language."
+        },
+        {
+          "text": "Gossip from salary data."
+        },
+        {
+          "text": "Good employees from bad ones based on your gut."
+        },
+        {
+          "text": "Legal threats from personal opinions."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S7"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 8: You conclude the manager showed unintentional bias in scheduling. What is the proportionate mitigation step?",
+      "options": [
+        {
+          "text": "Require the manager to attend bias training and implement a randomized or HR-audited scheduling system."
+        },
+        {
+          "text": "A 50% pay cut for the manager."
+        },
+        {
+          "text": "Fire everyone on the shift."
+        },
+        {
+          "text": "Do nothing because it was unintentional."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S8"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 9: You meet with the original complainant to close out the process. What do you communicate?",
+      "options": [
+        {
+          "text": "That the investigation is concluded and corrective actions have been taken to ensure fair scheduling moving forward, without disclosing the exact disciplinary details given to the manager."
+        },
+        {
+          "text": "The exact details of the manager's punishment."
+        },
+        {
+          "text": "That they were right and the manager is an awful person."
+        },
+        {
+          "text": "Nothing. Silence is gold."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S9"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 10: To prevent future occurrences, what system-level change should you implement?",
+      "options": [
+        {
+          "text": "Draft an addendum to the scheduling policy requiring multi-level approval or software automation for complex shifts."
+        },
+        {
+          "text": "Ban all shifts."
+        },
+        {
+          "text": "Stop hiring people who complain."
+        },
+        {
+          "text": "Install cameras in the breakroom."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S10"
+    }
+  ]
+}

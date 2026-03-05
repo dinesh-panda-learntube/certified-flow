@@ -1,0 +1,248 @@
+{
+  "simulation_id": "proj-2",
+  "project_title": "Design a 30-Day Onboarding Plan for a New Hire",
+  "tools_pair": [
+    "HRIS",
+    "Core Tools"
+  ],
+  "technical_skills": [
+    {
+      "skill_id": "TS1",
+      "name": "Project Execution",
+      "artefact_label": "Project Master Plan",
+      "artefact_type": "doc"
+    }
+  ],
+  "steps": [
+    {
+      "step_type": "mcq",
+      "q": "Step 1: The hiring manager informs you a new Senior Developer accepts the offer. To start the 30-day plan, what must happen before Day 1?",
+      "options": [
+        {
+          "text": "Pre-boarding: Provision IT equipment, software access, and send a welcome email outlining Day 1 logistics."
+        },
+        {
+          "text": "Nothing, wait until they walk in the door."
+        },
+        {
+          "text": "Send them a 400-page manual to memorize."
+        },
+        {
+          "text": "Tell the team to ignore them until week 3."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S1"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 2: Who should you designate to handle the socio-cultural integration of the new hire during their first month?",
+      "options": [
+        {
+          "text": "An assigned 'Onboarding Buddy' who is a peer, not their direct manager."
+        },
+        {
+          "text": "The CEO."
+        },
+        {
+          "text": "The facilities manager."
+        },
+        {
+          "text": "No one, they should figure it out."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S2"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 3: On Day 1, what is the most critical objective to accomplish?",
+      "options": [
+        {
+          "text": "Ensuring they feel welcomed, have a working laptop/access, and understand the high-level company mission."
+        },
+        {
+          "text": "Having them write complex production code."
+        },
+        {
+          "text": "A grueling 8-hour HR policy lecture."
+        },
+        {
+          "text": "Leaving them alone at a desk to read the intranet."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S3"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 4: For Week 1, the manager should outline expectations. This is best formatted as:",
+      "options": [
+        {
+          "text": "A structured checklist of 'quick wins', key team members to meet, and basic system orientations."
+        },
+        {
+          "text": "A vague instruction to 'look around'."
+        },
+        {
+          "text": "An immediate performance review."
+        },
+        {
+          "text": "A massive project due by Friday."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S4"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 5: To ensure the new hire understands the company culture, what event should be scheduled in Week 2?",
+      "options": [
+        {
+          "text": "Shadowing sessions with adjacent departments to understand cross-functional workflows."
+        },
+        {
+          "text": "A mandatory trust fall retreat."
+        },
+        {
+          "text": "A severe stress test to see if they break."
+        },
+        {
+          "text": "A quiz on the names of all board members."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S5"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 6: By the end of Week 2, the manager requests an HR check-in. What is the focus of this 15-minute sync?",
+      "options": [
+        {
+          "text": "Pulsing their engagement, unblocking any access/tooling issues, and ensuring alignment with the manager's instructions."
+        },
+        {
+          "text": "Interrogating them about their loyalty to the company."
+        },
+        {
+          "text": "Giving them their first warning letter."
+        },
+        {
+          "text": "Asking them to refer 10 friends immediately."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S6"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 7: In Week 3, the new hire should transition into:",
+      "options": [
+        {
+          "text": "Executing their first low-risk, independent task or project with manager supervision."
+        },
+        {
+          "text": "Managing the entire department."
+        },
+        {
+          "text": "Still just reading manuals."
+        },
+        {
+          "text": "Training other brand-new hires."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S7"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 8: How do you measure the success of the onboarding plan objectively at the 30-day mark?",
+      "options": [
+        {
+          "text": "By reviewing the completion rate of the 30-day milestone checklist and capturing an eNPS survey from the new hire."
+        },
+        {
+          "text": "By how early they arrive to work."
+        },
+        {
+          "text": "By checking if they bought company merch."
+        },
+        {
+          "text": "By seeing if they have memorized the handbook."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S8"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 9: At the official 30-day feedback meeting with the manager, what is the agenda?",
+      "options": [
+        {
+          "text": "Reviewing the completed quick wins, providing two-way constructive feedback, and setting goals for the next 60 days."
+        },
+        {
+          "text": "Deciding immediately if they get a raise."
+        },
+        {
+          "text": "Firing them if they made one mistake."
+        },
+        {
+          "text": "A casual chat about the weather."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S9"
+    },
+    {
+      "step_type": "mcq",
+      "q": "Step 10: To iterate and improve your onboarding template, you should:",
+      "options": [
+        {
+          "text": "Consolidate the new hire's feedback on bottlenecks they faced and update the IT/Manager checklists accordingly."
+        },
+        {
+          "text": "Lock the template forever."
+        },
+        {
+          "text": "Assume it's perfect."
+        },
+        {
+          "text": "Blame the new hire if they found the process confusing."
+        }
+      ],
+      "validation": {
+        "type": "single_choice_index",
+        "correct_index": 0
+      },
+      "step_id": "S10"
+    }
+  ]
+}

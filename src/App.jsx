@@ -295,7 +295,7 @@ export default function App() {
             )
           )}
 
-          <ProfileStrength totalAdded={totalAdded} />
+          <ProfileStrength totalAdded={totalAdded} totalTasks={skills.length + customCertifications.length + projects.length} />
         </div>
 
         {isAfter && <ProfileCardBanner totalAdded={totalAdded} />}
@@ -386,9 +386,20 @@ function ProfileCardBanner({ totalAdded }) {
     );
   }
   return (
-    <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-[#1b3b5c] text-center px-4 py-2 shadow-lg border border-[#1b3b5c]/50">
+    <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-[#1b3b5c] px-4 py-2.5 shadow-lg border border-[#1b3b5c]/50 flex items-center gap-3">
+      {/* Certificate icon with lock overlay */}
+      <div className="relative flex-shrink-0">
+        <img
+          src={`${import.meta.env.BASE_URL}certificate.jpg`}
+          alt="Certificate"
+          className="w-10 h-7 rounded object-cover opacity-80"
+        />
+        <span className="absolute -top-1 -right-1 text-[10px] bg-dark-bg/80 rounded-full w-4 h-4 flex items-center justify-center">
+          🔒
+        </span>
+      </div>
       <p className="text-white/90 text-[10px] font-extrabold tracking-widest uppercase">
-        Complete Within 3 Days & Get Certification Free
+        Get CV Upgrade, Certification &amp; Jobs Free Within 3 Days
       </p>
     </div>
   );

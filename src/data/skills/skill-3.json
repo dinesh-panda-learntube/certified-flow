@@ -1,0 +1,62 @@
+{
+  "quiz_id": "SKILL_SIM_03_EMPLOYEE_RELATIONS___CONFLICT_HANDLING",
+  "simulation_title": "Employee Relations & Conflict Handling",
+  "timebox_seconds": 30,
+  "questions": [
+    {
+      "q_id": "Q01",
+      "q": "Two team members have an ongoing conflict affecting productivity. First step?",
+      "options": [
+        "Fire the more disruptive employee",
+        "Meet each person individually to understand perspectives",
+        "Send a group warning email",
+        "Ignore it and hope it resolves"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q02",
+      "q": "An employee files a harassment complaint. What must be your immediate action?",
+      "options": [
+        "Inform the accused immediately",
+        "Document the complaint and initiate a formal investigation",
+        "Tell the employee to resolve it themselves",
+        "Wait for more complaints"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q03",
+      "q": "What is the key principle in handling employee grievances?",
+      "options": [
+        "Speed over fairness",
+        "Confidentiality, fairness, and documented process",
+        "Always side with management",
+        "Minimize HR involvement"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q04",
+      "q": "A manager asks you to terminate an employee without proper documentation. You should?",
+      "options": [
+        "Process the termination immediately",
+        "Explain the need for a PIP or documented warnings first",
+        "Ask the employee to resign instead",
+        "Delay indefinitely"
+      ],
+      "correct_index": 1
+    },
+    {
+      "q_id": "Q05",
+      "q": "During mediation between two employees, the best approach is to?",
+      "options": [
+        "Take sides with the senior employee",
+        "Remain neutral and focus on shared outcomes",
+        "Let them argue it out",
+        "Threaten disciplinary action for both"
+      ],
+      "correct_index": 1
+    }
+  ]
+}
