@@ -81,7 +81,13 @@ function InfoRow({ label, value }) {
 }
 
 function AfterView({ addedItems }) {
-  const addedSkills = skills.filter((s) => addedItems.skills.includes(s.id));
+  // Normalize addedItems to handle both string IDs and objects `{id, rating}`
+  const normalizedAdded = addedItems.skills.map(item =>
+    typeof item === "string" ? { id: item, rating: 5 } : item
+  );
+  const addedIds = normalizedAdded.map(item => item.id);
+
+  const addedSkills = skills.filter((s) => addedIds.includes(s.id));
   const addedCerts = certifications.filter((c) => addedItems.certifications.includes(c.id));
   const addedProjs = projects.filter((p) => addedItems.projects.includes(p.id));
   const hasContent = addedSkills.length || addedCerts.length || addedProjs.length;
@@ -112,9 +118,19 @@ function AfterView({ addedItems }) {
       {addedSkills.length > 0 && (
         <CVSection title="Verified Skills">
           <div className="flex flex-wrap gap-2">
-            {addedSkills.map((s) => (
-              <span key={s.id} className="badge badge-cta flex items-center gap-1"><Star size={10} className="fill-current" /> {s.title}</span>
-            ))}
+            {addedSkills.map((s) => {
+              const rating = normalizedAdded.find(item => item.id === s.id)?.rating || 5;
+              return (
+                <span key={s.id} className="badge badge-cta flex items-center justify-center gap-1">
+                  <div className="flex items-center">
+                    {Array.from({ length: rating }).map((_, i) => (
+                      <Star key={i} size={10} className="fill-current mx-[0.5px]" />
+                    ))}
+                  </div>
+                  <span className="ml-0.5">{s.title}</span>
+                </span>
+              );
+            })}
           </div>
         </CVSection>
       )}

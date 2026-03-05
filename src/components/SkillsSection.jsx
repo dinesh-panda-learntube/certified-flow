@@ -6,8 +6,14 @@ export default function SkillsSection({
   onAddSkill,
   isAfter,
 }) {
-  const addedSkills = skills.filter((s) => addedItems.includes(s.id));
-  const remainingSkills = skills.filter((s) => !addedItems.includes(s.id));
+  // Normalize addedItems to handle both string IDs and objects `{id, rating}`
+  const normalizedAdded = addedItems.map(item =>
+    typeof item === "string" ? { id: item, rating: 5 } : item
+  );
+  const addedIds = normalizedAdded.map(item => item.id);
+
+  const addedSkills = skills.filter((s) => addedIds.includes(s.id));
+  const remainingSkills = skills.filter((s) => !addedIds.includes(s.id));
 
   return (
     <section className="mt-10">
@@ -29,12 +35,13 @@ export default function SkillsSection({
         {isAfter ? (
           <div className="space-y-3">
             {skills.map((skill) => {
-              const added = addedItems.includes(skill.id);
+              const addedInfo = normalizedAdded.find(item => item.id === skill.id);
+              const added = !!addedInfo;
               return (
                 <div
                   key={skill.id}
                   className="w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn border border-transparent cursor-pointer hover:border-highlight transition-all"
-                  onClick={() => onAddSkill(skill.id)}
+                  onClick={() => !added && onAddSkill(skill.id)}
                 >
                   <div className="flex items-center gap-3">
                     {added ? (
@@ -48,7 +55,7 @@ export default function SkillsSection({
                   </div>
                   {added ? (
                     <span className="flex items-center gap-0.5 flex-shrink-0 ml-3">
-                      {Array.from({ length: skill.rating }).map((_, i) => (
+                      {Array.from({ length: addedInfo.rating }).map((_, i) => (
                         <Star key={i} size={12} className="text-star fill-star" />
                       ))}
                     </span>
@@ -56,7 +63,7 @@ export default function SkillsSection({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onAddSkill(skill.id);
+                        if (!added) onAddSkill(skill.id);
                       }}
                       className="text-[10px] text-highlight font-semibold border border-highlight/30 bg-highlight/10 px-3 py-1 rounded whitespace-nowrap ml-3 hover:bg-highlight/20 transition-colors flex-shrink-0"
                     >
@@ -85,8 +92,8 @@ export default function SkillsSection({
                 {addedSkills.map((skill) => (
                   <button
                     key={skill.id}
-                    onClick={() => onAddSkill(skill.id)}
-                    className="w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn"
+                    onClick={() => !added && onAddSkill(skill.id)}
+                    className={`w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn ${added ? 'cursor-default' : 'cursor-pointer'}`}
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-cta hidden sm:inline-block"><Check size={16} /></span>
@@ -107,7 +114,7 @@ export default function SkillsSection({
                     {remainingSkills.map((skill) => (
                       <button
                         key={skill.id}
-                        onClick={() => onAddSkill(skill.id)}
+                        onClick={() => !added && onAddSkill(skill.id)}
                         className="flex items-center gap-2 bg-dark-surface border border-dark-border
                           rounded-xl px-4 py-2.5 text-[12px] font-semibold text-text-secondary
                           hover:border-cta hover:text-cta transition-all duration-200

@@ -6,7 +6,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
   const quizData = skillQuizData[skillId];
   const skill = skills.find((s) => s.id === skillId);
   const questions = quizData?.questions || [];
-  const totalTimebox = quizData?.timebox_seconds || 60;
+  const totalTimebox = 180;
 
   const [currentQ, setCurrentQ] = useState(0);
 
@@ -14,11 +14,11 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
     const q = questions[currentQ];
     if (!q) return [];
 
-    // Map options tracking their original indices for stable grading checks
-    const opts = q.options.map((text, index) => ({
-      text,
-      originalIndex: index
-    }));
+  // Map options tracking their original indices for stable grading checks
+  const opts = q.options.map((text, index) => ({
+    text,
+    originalIndex: index
+  }));
 
     // Fisher-Yates secure shuffle without mutating source objects natively
     for (let i = opts.length - 1; i > 0; i--) {
@@ -66,17 +66,34 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
     [currentQ, questions]
   );
 
+  if (!quizData || !skill) return null;
+
+  const pct = Math.round((score / questions.length) * 100);
+  const passed = pct >= 10;
+  
+  let earnedRating = 0;
+  if (pct >= 80) earnedRating = 5;
+  else if (pct >= 60) earnedRating = 4;
+  else if (pct >= 40) earnedRating = 3;
+  else if (pct >= 10) earnedRating = 2;
+
   const handleAddToCv = useCallback(() => {
-    onPass(skillId);
+    onPass(skillId, earnedRating);
     setSkillEarned(true);
     // Auto-close after 2 seconds
     setTimeout(() => onClose(), 2000);
-  }, [skillId, onPass, onClose]);
+  }, [skillId, earnedRating, onPass, onClose]);
 
-  if (!quizData || !skill) return null;
-
-  const passed = score >= Math.ceil(questions.length * 0.6);
-  const pct = Math.round((score / questions.length) * 100);
+  // Live rating calculation
+  const currentPct = currentQ === 0 ? 100 : Math.round((score / currentQ) * 100);
+  let liveRating = 5;
+  if (currentQ > 0) {
+    if (currentPct >= 80) liveRating = 5;
+    else if (currentPct >= 60) liveRating = 4;
+    else if (currentPct >= 40) liveRating = 3;
+    else if (currentPct >= 10) liveRating = 2;
+    else liveRating = 1;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
@@ -111,9 +128,20 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
 
           {!finished && !skillEarned && (
             <div className="flex justify-between items-center mt-3">
-              <span className="text-[11px] text-text-muted font-medium">
-                {currentQ} Completed
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] text-text-muted font-medium">
+                  {currentQ} Completed
+                </span>
+                <div className="flex items-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={12}
+                      className={`mx-px ${i < liveRating ? "text-star fill-star" : "text-dark-border opacity-30"}`}
+                    />
+                  ))}
+                </div>
+              </div>
               <span
                 className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${timeLeft < 10
                   ? "text-danger bg-danger/10 animate-pulse"
@@ -153,7 +181,7 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                 Added to your CV
               </p>
               <div className="mt-4 flex justify-center">
-                {Array.from({ length: skill.rating || 0 }).map((_, i) => (
+                {Array.from({ length: earnedRating }).map((_, i) => (
                   <Star key={i} size={18} className="text-star fill-star mx-0.5" />
                 ))}
               </div>
@@ -206,6 +234,17 @@ export default function SkillQuizModal({ skillId, onPass, onClose }) {
                 {score}/{questions.length} Correct
               </p>
               <p className="text-sm text-text-muted mb-2">{pct}%</p>
+              {passed && (
+                <div className="flex justify-center mb-6 mt-2">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={24}
+                      className={`mx-0.5 ${i < earnedRating ? "text-star fill-star" : "text-dark-border opacity-30"}`}
+                    />
+                  ))}
+                </div>
+              )}
               <p
                 className={`text-sm mb-8 font-medium ${passed ? "text-cta" : "text-danger"
                   }`}

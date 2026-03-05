@@ -28,7 +28,7 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
               <div
                 key={project.id}
                 className="glass-card cursor-pointer hover:border-highlight transition-colors flex flex-col"
-                onClick={() => onStartSim(project.id)}
+                onClick={() => !added && onStartSim(project.id)}
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2 flex-wrap mr-2">
@@ -87,7 +87,7 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
                 key={project.id}
                 className="glass-card cursor-pointer hover:border-highlight transition-colors flex flex-col"
                 style={!added ? { borderStyle: "dashed", background: "transparent" } : undefined}
-                onClick={() => onStartSim ? onStartSim(project.id) : onAdd(project.id)}
+                onClick={() => !added && (onStartSim ? onStartSim(project.id) : onAdd(project.id))}
               >
                 <div className="w-full text-left flex-1 mb-4">
                   <div className="flex items-start justify-between">
@@ -122,7 +122,7 @@ export default function ProjectsSection({ addedItems, onAdd, onStartSim, isAfter
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onStartSim ? onStartSim(project.id) : onAdd(project.id);
+                        if (!added) onStartSim ? onStartSim(project.id) : onAdd(project.id);
                       }}
                       className="badge-added w-full flex items-center justify-center gap-1"
                     >

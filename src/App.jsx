@@ -155,10 +155,18 @@ export default function App() {
     effectiveAdded.projects.length;
 
   const addItem = useCallback((type, id) => {
-    setAddedItems((prev) => ({
-      ...prev,
-      [type]: prev[type].includes(id) ? prev[type] : [...prev[type], id],
-    }));
+    setAddedItems((prev) => {
+      let updated;
+      if (type === "skills") {
+        // Fallback for direct adds
+        updated = prev.skills.some((s) => (typeof s === "string" ? s : s.id) === id)
+          ? prev.skills
+          : [...prev.skills, { id, rating: 5 }];
+      } else {
+        updated = prev[type].includes(id) ? prev[type] : [...prev[type], id];
+      }
+      return { ...prev, [type]: updated };
+    });
   }, []);
 
   const [activeSkillQuiz, setActiveSkillQuiz] = useState(null);
@@ -168,12 +176,15 @@ export default function App() {
     setActiveSkillQuiz(skillId);
   }, []);
 
-  const handleSkillQuizPass = useCallback((skillId) => {
+  const handleSkillQuizPass = useCallback((skillId, rating) => {
     setPassedQuizzes((prev) => prev.includes(skillId) ? prev : [...prev, skillId]);
-    setAddedItems((prev) => ({
-      ...prev,
-      skills: prev.skills.includes(skillId) ? prev.skills : [...prev.skills, skillId],
-    }));
+    setAddedItems((prev) => {
+      const alreadyAdded = prev.skills.some((s) => (typeof s === "string" ? s : s.id) === skillId);
+      return {
+        ...prev,
+        skills: alreadyAdded ? prev.skills : [...prev.skills, { id: skillId, rating }],
+      };
+    });
     setActiveSkillQuiz(null);
   }, []);
 
