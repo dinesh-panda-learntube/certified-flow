@@ -41,7 +41,7 @@ export default function SkillsSection({
                 <div
                   key={skill.id}
                   className="w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn border border-transparent cursor-pointer hover:border-highlight transition-all"
-                  onClick={() => !added && onAddSkill(skill.id)}
+                  onClick={() => onAddSkill(skill.id)}
                 >
                   <div className="flex items-center gap-3">
                     {added ? (
@@ -63,7 +63,7 @@ export default function SkillsSection({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (!added) onAddSkill(skill.id);
+                        onAddSkill(skill.id);
                       }}
                       className="text-[10px] text-highlight font-semibold border border-highlight/30 bg-highlight/10 px-3 py-1 rounded whitespace-nowrap ml-3 hover:bg-highlight/20 transition-colors flex-shrink-0"
                     >
@@ -92,8 +92,8 @@ export default function SkillsSection({
                 {addedSkills.map((skill) => (
                   <button
                     key={skill.id}
-                    onClick={() => !added && onAddSkill(skill.id)}
-                    className={`w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn ${added ? 'cursor-default' : 'cursor-pointer'}`}
+                    onClick={() => onAddSkill(skill.id)}
+                    className="w-full flex items-center justify-between bg-dark-surface rounded-xl px-4 py-3 animate-fadeIn cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-cta hidden sm:inline-block"><Check size={16} /></span>
@@ -114,7 +114,7 @@ export default function SkillsSection({
                     {remainingSkills.map((skill) => (
                       <button
                         key={skill.id}
-                        onClick={() => !added && onAddSkill(skill.id)}
+                        onClick={() => onAddSkill(skill.id)}
                         className="flex items-center gap-2 bg-dark-surface border border-dark-border
                           rounded-xl px-4 py-2.5 text-[12px] font-semibold text-text-secondary
                           hover:border-cta hover:text-cta transition-all duration-200

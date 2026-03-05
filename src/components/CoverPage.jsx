@@ -1,5 +1,4 @@
-import { skills } from "../data/profileData";
-import { Star } from "lucide-react";
+import { Star, Check, Award, User, Lightbulb, Sparkles } from "lucide-react";
 
 export default function CoverPage({ profile, onStart }) {
     return (
@@ -8,7 +7,9 @@ export default function CoverPage({ profile, onStart }) {
             {/* Top Text Content (z-10 ensures it sits above the thumbnail background) */}
             <div className="relative z-10 px-5 pt-10 pb-4 text-center flex-shrink-0 animate-slideDown max-w-md mx-auto w-full">
                 <div className="inline-block bg-dark-surface border border-dark-border px-4 py-1.5 rounded-full mb-5 shadow-md">
-                    <span className="text-[11px] font-bold text-white uppercase tracking-wide">🏅 5x Employer Recognition</span>
+                    <span className="flex items-center gap-1.5 text-[11px] font-bold text-white uppercase tracking-wide">
+                        <Award size={14} className="text-highlight" /> 5x Employer Recognition
+                    </span>
                 </div>
 
                 <h1 className="text-4xl font-black text-text-primary mb-3 leading-tight tracking-tight">
@@ -32,48 +33,68 @@ export default function CoverPage({ profile, onStart }) {
                 }}
             >
                 <div className="max-w-[320px] w-full">
+                    {/* Upgraded CV Chip */}
+                    <div className="flex justify-center mb-4 text-center">
+                        <span className="bg-cta/20 text-cta border border-cta/30 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-sm flex items-center gap-1.5">
+                            <Sparkles size={12} /> Upgraded CV
+                        </span>
+                    </div>
+
                     <div className="glass-card mb-4 opacity-[0.85]">
                         <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-lg border bg-dark-surface border-dark-border">
-                                👤
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center border bg-dark-surface border-dark-border text-text-muted">
+                                <User size={20} />
                             </div>
                             <div>
                                 <p className="font-bold text-sm text-text-primary">
                                     {profile.name}
                                 </p>
                                 <p className="text-[10px] font-semibold text-cta">
-                                    {profile.targetRole}
+                                    {profile.currentRole}
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Progressive Blurred Skills Map */}
-                    <div className="space-y-3 mt-4">
-                        {skills.slice(0, 5).map((skill, index) => {
-                            const opacity = Math.max(0.2, 0.95 - (index * 0.15));
-                            const blur = index * 0.6;
-
-                            return (
-                                <div
-                                    key={skill.id}
-                                    className="glass-card flex items-center h-[52px]"
-                                    style={{
-                                        opacity: opacity,
-                                        filter: `blur(${blur}px)`
-                                    }}
-                                >
-                                    <div className="flex justify-between items-center w-full gap-2">
-                                        <p className="text-xs font-bold text-text-primary truncate">{skill.title}</p>
-                                        <div className="flex items-center gap-0.5 bg-highlight/10 px-2 py-1 rounded-md shrink-0">
-                                            {Array.from({ length: 5 }).map((_, i) => (
-                                                <Star key={i} size={10} className="text-star fill-star" />
-                                            ))}
+                    {/* Checklist of Features with Bottom Fade */}
+                    <div 
+                        className="glass-card mt-4 overflow-hidden"
+                        style={{
+                            maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+                        }}
+                    >
+                        <div className="flex flex-col divide-y divide-dark-border/50">
+                            {[
+                                { text: "Verified High-Value Skills", stars: true },
+                                { text: "Specialised Certifications" },
+                                { text: "Latest Tools & Frameworks" },
+                                { text: "Professional Website Link" }
+                            ].map((feature, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="flex items-center h-[50px] px-4"
+                                    >
+                                        <div className="flex justify-between items-center w-full gap-2">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="bg-cta/20 p-1 rounded-full text-cta shrink-0 flex items-center justify-center">
+                                                    <Check size={10} strokeWidth={4} />
+                                                </div>
+                                                <p className="text-[12px] font-bold text-text-primary truncate">{feature.text}</p>
+                                            </div>
+                                            {feature.stars && (
+                                                <div className="flex items-center gap-[1px] shrink-0 ml-2 bg-highlight/10 px-1.5 py-1 rounded-md">
+                                                    {Array.from({ length: 5 }).map((_, i) => (
+                                                        <Star key={i} size={10} className="text-star fill-star" />
+                                                    ))}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,8 +102,9 @@ export default function CoverPage({ profile, onStart }) {
             {/* Absolute Sticky Bottom CTA Block (z-20 ensures it sits physically above the thumbnail flex background) */}
             <div className="absolute bottom-0 inset-x-0 z-20 w-full px-5 pb-8 pt-16 bg-gradient-to-t from-dark-bg via-dark-bg/95 to-transparent">
                 <div className="max-w-md mx-auto w-full animate-slideUp">
-                    <p className="text-[13px] text-text-primary text-center leading-relaxed font-bold px-4 mb-4 opacity-95">
-                        💡 Expert Shaji Divekar, IIFL <span className="text-text-muted">Has Selected High-Value Skills, Certifications & Projects Employers Recognise.</span>
+                    <p className="flex items-start justify-center gap-2 text-[13px] text-text-primary text-center leading-relaxed font-bold px-4 mb-4 opacity-95">
+                        <Lightbulb size={16} className="text-cta shrink-0 mt-0.5" />
+                        <span>Expert Shaji Divekar, IIFL <span className="text-text-muted">Has Selected High-Value Skills, Certifications & Projects Employers Recognise.</span></span>
                     </p>
                     <button
                         onClick={onStart}

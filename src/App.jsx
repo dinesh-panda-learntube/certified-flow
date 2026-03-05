@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { Lock } from "lucide-react";
 import { profile, skills, certifications, projects } from "./data/profileData";
 import SkillsSection from "./components/SkillsSection";
 import CertificationsSection from "./components/CertificationsSection";
@@ -244,22 +245,10 @@ export default function App() {
           </h1>
           <div className="flex bg-dark-card border border-dark-border rounded-xl overflow-hidden">
             <button
-              onClick={() => setCvView("after")}
-              className={`px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300
-                ${cvView === "after"
-                  ? "bg-cta text-dark-bg"
-                  : "text-text-muted hover:text-text-secondary"}`}
+              disabled
+              className="px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300 bg-dark-surface text-text-muted opacity-50 cursor-not-allowed flex items-center gap-1.5"
             >
-              Target
-            </button>
-            <button
-              onClick={() => setCvView("before")}
-              className={`px-5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300
-                ${cvView === "before"
-                  ? "bg-highlight text-white"
-                  : "text-text-muted hover:text-text-secondary"}`}
-            >
-              Configure
+              <Lock size={12} /> Export CV
             </button>
           </div>
         </div>
@@ -309,7 +298,7 @@ export default function App() {
           <ProfileStrength totalAdded={totalAdded} totalTasks={skills.length + customCertifications.length + projects.length} />
         </div>
 
-        {isAfter && <ProfileCardBanner totalAdded={totalAdded} />}
+
 
         <SkillsSection
           addedItems={effectiveAdded.skills}
@@ -379,39 +368,4 @@ function InfoRow({ label, value }) {
   );
 }
 
-function ProfileCardBanner({ totalAdded }) {
-  const [showColon, setShowColon] = useState(true);
 
-  useEffect(() => {
-    const colonInterval = setInterval(() => setShowColon((prev) => !prev), 1000);
-    return () => clearInterval(colonInterval);
-  }, []);
-
-  if (totalAdded === 0) {
-    return (
-      <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-highlight text-center px-4 py-2 shadow-lg border border-highlight/50">
-        <p className="text-white text-[10px] font-extrabold tracking-widest uppercase">
-          Free Access For 23H<span className={showColon ? "opacity-100" : "opacity-0"}>:</span>59M - Complete 1 to extend
-        </p>
-      </div>
-    );
-  }
-  return (
-    <div className="mx-auto max-w-sm rounded-[14px] mb-6 bg-[#1b3b5c] px-4 py-2.5 shadow-lg border border-[#1b3b5c]/50 flex items-center gap-3">
-      {/* Certificate icon with lock overlay */}
-      <div className="relative flex-shrink-0">
-        <img
-          src={`${import.meta.env.BASE_URL}certificate.jpg`}
-          alt="Certificate"
-          className="w-10 h-7 rounded object-cover opacity-80"
-        />
-        <span className="absolute -top-1 -right-1 text-[10px] bg-dark-bg/80 rounded-full w-4 h-4 flex items-center justify-center">
-          🔒
-        </span>
-      </div>
-      <p className="text-white/90 text-[10px] font-extrabold tracking-widest uppercase">
-        Get CV Upgrade, Certification &amp; Jobs Free Within 3 Days
-      </p>
-    </div>
-  );
-}

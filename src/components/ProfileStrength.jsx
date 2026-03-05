@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
-import { CircleCheckBig, Check } from "lucide-react";
+import { CircleCheckBig, Check, Lock } from "lucide-react";
 
 export default function ProfileStrength({ totalAdded, totalTasks }) {
-  const maxItems = totalTasks || 10;
-  const percentage = Math.min((totalAdded / maxItems) * 100, 100);
+  // Hardcode maxItems to 10 as requested
+  const maxItems = 10;
+  // Ensure we don't exceed max count
+  const displayAdded = Math.min(totalAdded, maxItems);
+  const percentage = Math.min((displayAdded / maxItems) * 100, 100);
   const fileInputRef = useRef(null);
   const [cvFileName, setCvFileName] = useState(null);
 
@@ -48,11 +51,17 @@ export default function ProfileStrength({ totalAdded, totalTasks }) {
         />
       </div>
 
-      <div className="border-t border-dark-border mt-4 pt-4 flex flex-col gap-3">
-        {/* Upload CV */}
-        <div className="flex items-center gap-2">
-          <CircleCheckBig size={16} className="text-cta flex-shrink-0" />
-          <span className="text-[11px] font-semibold text-text-secondary">
+      <div className="border-t border-dark-border mt-4 pt-4 flex flex-col pl-1">
+        {/* Step 1: Upload CV */}
+        <div className="relative flex items-center">
+          {/* Vertical pipe connecting to next step */}
+          <div className="absolute left-[7.5px] top-[24px] bottom-[-16px] w-[1px] bg-dark-border"></div>
+          
+          <CircleCheckBig 
+            size={16} 
+            className={`flex-shrink-0 z-10 bg-dark-card ${cvFileName ? "text-cta" : "text-dark-border"}`} 
+          />
+          <span className="text-[11px] font-semibold text-text-secondary ml-3 flex-1">
             Upload Your CV
           </span>
           <input
@@ -62,24 +71,60 @@ export default function ProfileStrength({ totalAdded, totalTasks }) {
             className="hidden"
             onChange={handleCvUpload}
           />
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            className="px-3 py-1 rounded-lg text-[11px] font-bold tracking-wide bg-cta text-dark-bg hover:opacity-90 transition-opacity"
-          >
-            {cvFileName ? <span className="flex items-center gap-1"><Check size={14} /> Uploaded</span> : "Upload"}
-          </button>
-          {cvFileName && (
-            <span className="text-[10px] text-text-muted truncate max-w-[100px]" title={cvFileName}>
-              {cvFileName}
-            </span>
-          )}
+          <div className="flex items-center gap-2">
+            {cvFileName && (
+              <span className="text-[10px] text-text-muted truncate max-w-[80px]" title={cvFileName}>
+                {cvFileName}
+              </span>
+            )}
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className={`px-3 py-1 rounded-lg text-[10px] font-bold tracking-wide transition-all ${
+                cvFileName 
+                  ? "bg-dark-surface border border-dark-border text-text-secondary hover:bg-dark-surface/80" 
+                  : "bg-cta text-dark-bg hover:opacity-90"
+              }`}
+            >
+              {cvFileName ? "Replace" : "Upload"}
+            </button>
+          </div>
         </div>
 
-        {/* Verify Your Profile Points */}
-        <div className="flex items-center gap-2">
-          <CircleCheckBig size={16} className="text-cta flex-shrink-0" />
-          <span className="text-[11px] font-semibold text-text-secondary">
-            Verify Your Profile Points ({totalAdded}/{maxItems})
+        {/* Step 2: Verify Profile Points */}
+        <div className="relative flex items-center mt-4">
+          {/* Vertical pipe connecting to next step */}
+          <div className="absolute left-[7.5px] top-[24px] bottom-[-16px] w-[1px] bg-dark-border"></div>
+          
+          <CircleCheckBig 
+            size={16} 
+            className={`flex-shrink-0 z-10 bg-dark-card ${displayAdded >= maxItems ? "text-cta" : displayAdded > 0 ? "text-highlight" : "text-dark-border"}`} 
+          />
+          <span className="text-[11px] font-semibold text-text-secondary ml-3 flex-1">
+            Verify Your Profile Points
+          </span>
+          <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-dark-surface border border-dark-border">
+            {displayAdded}/{maxItems}
+          </span>
+        </div>
+
+        {/* Step 3: Get CV Upgrade (Locked) */}
+        <div className="relative flex items-center mt-4">
+          <div className="relative w-4 h-7 flex items-center justify-center z-10">
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+              <div className="relative flex-shrink-0">
+                <img
+                  src={`${import.meta.env.BASE_URL}certificate.jpg`}
+                  alt="Certificate"
+                  className="w-10 h-7 rounded object-cover opacity-60 border border-dark-border shadow-sm block"
+                />
+                <div className="absolute -top-1.5 -right-1.5 bg-dark-bg border border-dark-border rounded-full w-4 h-4 flex items-center justify-center shadow-lg">
+                  <Lock size={8} className="text-text-muted" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span className="text-[11px] font-bold text-text-secondary ml-3 flex-1 opacity-70 pl-4">
+            CV Upgrade, Certification & Jobs Free Within 3 Days
           </span>
         </div>
       </div>

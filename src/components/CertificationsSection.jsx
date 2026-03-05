@@ -101,7 +101,7 @@ export default function CertificationsSection({ addedItems, onAdd, onStartScenar
                 <div
                   key={c.id}
                   className="glass-card cursor-pointer hover:border-highlight transition-colors"
-                  onClick={() => !added && onStartScenario(c.id)}
+                  onClick={() => onStartScenario(c.id)}
                 >
                   <div className="flex justify-between items-start">
                     <div>
@@ -131,7 +131,7 @@ export default function CertificationsSection({ addedItems, onAdd, onStartScenar
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          if (!added) onStartScenario(c.id);
+                          onStartScenario(c.id);
                         }}
                         className="text-[10px] text-highlight font-semibold border border-highlight/30 bg-highlight/10 px-3 py-1 rounded whitespace-nowrap ml-2 mt-0.5 hover:bg-highlight/20 transition-colors flex-shrink-0"
                       >
@@ -158,7 +158,7 @@ export default function CertificationsSection({ addedItems, onAdd, onStartScenar
                   <div
                     className="glass-card cursor-pointer hover:border-highlight transition-colors w-full h-full flex flex-col"
                     style={!added ? { borderStyle: "dashed", background: "transparent" } : undefined}
-                    onClick={() => !added && (onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id))}
+                    onClick={() => onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id)}
                   >
                     <div className="flex-1">
                       <div className="flex flex-wrap gap-2 mb-3">
@@ -189,9 +189,7 @@ export default function CertificationsSection({ addedItems, onAdd, onStartScenar
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            if (!added) {
-                              onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id);
-                            }
+                            onStartScenario ? onStartScenario(cert.id) : onAdd(cert.id);
                           }}
                           className="badge-added w-full flex items-center justify-center gap-1"
                         >
